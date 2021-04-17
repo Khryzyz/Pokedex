@@ -1,0 +1,17 @@
+<resources>
+
+    <!--Card General -->
+    <style name="cardGeneral">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_default</item>
+        <item name="cardElevation">@dimen/elevation_default</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="cardLabel" parent="cardGeneral">
+        <item name="cardElevation">@dimen/elevation_over</item>
+    </style>
+
+
+</resources>

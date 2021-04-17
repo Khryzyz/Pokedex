@@ -1,10 +1,9 @@
 package com.chris.pokedex.layer.ui.fragment.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import com.chris.pokedex.R
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
 import com.chris.pokedex.utils.Constants
 
@@ -27,7 +26,7 @@ class ListPokemonFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        setHasOptionsMenu(true)
         _binding = ListPokemonFragmentBinding.inflate(inflater, container, false)
 
         binding.texto.text = generation.id.toString()
@@ -39,4 +38,9 @@ class ListPokemonFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_top_actions, menu)
+    }
+
 }

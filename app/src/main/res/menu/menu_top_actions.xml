@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/votePokemon"
+        android:icon="@drawable/ic_number_one"
+        android:title="@string/votar_pokemon"
+        app:showAsAction="ifRoom"
+        tools:iconTint="@color/white" />
+
+    <item
+        android:id="@+id/listPokemonVoted"
+        android:icon="@drawable/ic_number_two"
+        android:title="@string/lista_pokemon_votados"
+        app:showAsAction="ifRoom"
+        tools:iconTint="@color/white" />
+</menu>

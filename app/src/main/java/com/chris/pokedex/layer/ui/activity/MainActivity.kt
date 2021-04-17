@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(),
 
         setContentView(view)
 
-//        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar)
 
         navController = findNavController(R.id.nav_host_fragment)
 
