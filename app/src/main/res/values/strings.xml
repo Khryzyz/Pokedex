@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="first_generation_label">Kanto</string>
+    <string name="second_generation_label">Johto</string>
+    <string name="third_generation_label">Hoenn</string>
+    <string name="fourth_generation_label">Sinnoh</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

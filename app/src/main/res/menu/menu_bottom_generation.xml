@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstGenItem"
+        android:icon="@drawable/ic_number_one"
+        android:title="@string/first_generation_label" />
+    <item
+        android:id="@+id/secondGenItem"
+        android:icon="@drawable/ic_number_two"
+        android:title="@string/second_generation_label" />
+    <item
+        android:id="@+id/thirdGenItem"
+        android:icon="@drawable/ic_number_three"
+        android:title="@string/third_generation_label" />
+    <item
+        android:id="@+id/fourthGenItem"
+        android:icon="@drawable/ic_number_four"
+        android:title="@string/fourth_generation_label" />
+</menu>

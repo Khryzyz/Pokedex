@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstGenFragment">
+
+    <!-- Tabs Pokedex-->
+    <fragment
+        android:id="@+id/firstGenFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:label="@string/first_generation_label"
+        tools:layout="@layout/list_pokemon_fragment">
+        <action
+            android:id="@+id/action_firstGenFragment_to_detailPostFragment"
+            app:destination="@id/detailPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondGenFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:label="@string/second_generation_label"
+        tools:layout="@layout/list_pokemon_fragment">
+        <action
+            android:id="@+id/action_secondGenFragment_to_detailPostFragment"
+            app:destination="@id/detailPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdGenFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:label="@string/third_generation_label"
+        tools:layout="@layout/list_pokemon_fragment">
+        <action
+            android:id="@+id/action_thirdGenFragment_to_detailPostFragment"
+            app:destination="@id/detailPokemonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthGenFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:label="@string/fourth_generation_label"
+        tools:layout="@layout/list_pokemon_fragment">
+        <action
+            android:id="@+id/action_fourthGenFragment_to_detailPostFragment"
+            app:destination="@id/detailPokemonFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonFragment"
+        tools:layout="@layout/detail_pokemon_fragment" />
+
+</navigation>
