@@ -2,12 +2,15 @@ package com.chris.pokedex.layer.ui.fragment.list
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
+import com.chris.pokedex.base.BaseFragment
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
 import com.chris.pokedex.utils.Constants
 
-class ListPokemonFragment : Fragment() {
+class ListPokemonFragment : BaseFragment() {
+
+    private val viewModel: ListPokemonViewModel by viewModels { viewModelFactory }
 
     private var _binding: ListPokemonFragmentBinding? = null
 
@@ -26,10 +29,18 @@ class ListPokemonFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         setHasOptionsMenu(true)
+
         _binding = ListPokemonFragmentBinding.inflate(inflater, container, false)
 
+        lifecycle.addObserver(viewModel)
+
         binding.texto.text = generation.id.toString()
+
+        viewModel.getListPokemonByGeneration(generation)
+
+        addObservers()
 
         return binding.root
     }
@@ -41,6 +52,13 @@ class ListPokemonFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_top_actions, menu)
+    }
+
+    private fun addObservers() {
+        //Observador de la variable postsModel
+        viewModel.test.observe(viewLifecycleOwner, {
+            binding.texto.text = generation.id.toString() + " " + it
+        })
     }
 
 }

@@ -1,0 +1,18 @@
+package com.chris.pokedex.layer.ui.repository
+
+import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSource
+import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSource
+import com.chris.pokedex.utils.Constants
+import javax.inject.Inject
+
+class ListPokemonRepositoryImp
+@Inject constructor(
+    private val localDataSource: PokemonLocalDataSource,
+    private val remoteDataSource: PokemonRemoteDataSource
+) : ListPokemonRepository {
+
+    override fun getListPokemonByGeneration(generation: Constants.Generation) {
+        TODO("Not yet implemented")
+    }
+
+}
