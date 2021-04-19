@@ -3,6 +3,10 @@ package com.chris.pokedex.layer.ui.fragment.list
 import androidx.lifecycle.*
 import com.chris.pokedex.layer.ui.repository.ListPokemonRepository
 import com.chris.pokedex.utils.Constants
+import com.chris.pokedex.utils.UIState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ListPokemonViewModel
@@ -10,13 +14,17 @@ class ListPokemonViewModel
     private val repository: ListPokemonRepository
 ) : ViewModel(), LifecycleObserver {
 
-    private val _test = MutableLiveData<String>()
-    val test: LiveData<String>
-        get() = _test
+    private val _responsePost = MutableLiveData<UIState>()
+    val responsePost: LiveData<UIState>
+        get() = _responsePost
 
     //region Metodos sobrecargados de la Interfaz
     fun getListPokemonByGeneration(generation: Constants.Generation) {
-        _test.postValue(generation.id.toString())
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getListPokemonByGeneration(generation).collect {
+                _responsePost.postValue(it)
+            }
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-package com.chris.pokedex.di.source
+package com.chris.pokedex.di.source.remote
 
 import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSource
 import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSourceImp

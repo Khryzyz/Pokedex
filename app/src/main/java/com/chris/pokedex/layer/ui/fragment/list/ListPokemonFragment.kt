@@ -6,7 +6,9 @@ import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.base.BaseFragment
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
+import com.chris.pokedex.layer.model.GenerationModel
 import com.chris.pokedex.utils.Constants
+import com.chris.pokedex.utils.UIState
 
 class ListPokemonFragment : BaseFragment() {
 
@@ -36,8 +38,6 @@ class ListPokemonFragment : BaseFragment() {
 
         lifecycle.addObserver(viewModel)
 
-        binding.texto.text = generation.id.toString()
-
         viewModel.getListPokemonByGeneration(generation)
 
         addObservers()
@@ -55,9 +55,18 @@ class ListPokemonFragment : BaseFragment() {
     }
 
     private fun addObservers() {
-        //Observador de la variable postsModel
-        viewModel.test.observe(viewLifecycleOwner, {
-            binding.texto.text = generation.id.toString() + " " + it
+        //Observador de la variable responsePost
+        viewModel.responsePost.observe(viewLifecycleOwner, { state ->
+            when (state) {
+                is UIState.Load ->
+                    binding.texto.text = "Cargando"
+                is UIState.Success -> {
+                    val generationModel = state.data as GenerationModel
+                    binding.texto.text =
+                        "Se encontraron ${generationModel.pokemonModel.size.toString()} en esta generacion"
+                }
+                is UIState.Error -> binding.texto.text = "Error"
+            }
         })
     }
 

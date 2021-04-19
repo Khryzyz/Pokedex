@@ -1,4 +1,4 @@
-package com.chris.pokedex.di.source
+package com.chris.pokedex.di.source.local
 
 import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSource
 import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSourceImp

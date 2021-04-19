@@ -6,8 +6,10 @@ import com.chris.pokedex.di.layer.RepositoryModule
 import com.chris.pokedex.di.layer.ui.ActivityBindingModule
 import com.chris.pokedex.di.layer.ui.FragmentBindingModule
 import com.chris.pokedex.di.layer.ui.ViewModelModule
-import com.chris.pokedex.di.source.LocalDataSourceModule
-import com.chris.pokedex.di.source.RemoteDataSourceModule
+import com.chris.pokedex.di.source.local.LocalDataSourceModule
+import com.chris.pokedex.di.source.remote.MoshiModule
+import com.chris.pokedex.di.source.remote.RemoteDataSourceModule
+import com.chris.pokedex.di.source.remote.RetrofitModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -30,6 +32,8 @@ import javax.inject.Singleton
         LocalDataSourceModule::class,
 
         //Source Remote
+        RetrofitModule::class,
+        MoshiModule::class,
         RemoteDataSourceModule::class
     ]
 )
