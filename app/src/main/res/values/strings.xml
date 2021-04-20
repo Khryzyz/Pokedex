@@ -8,4 +8,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="votar_pokemon">Votar Pokémon</string>
     <string name="lista_pokemon_votados">Lista Pokémon Votados</string>
+    <string name="error_title">¡¡¡Oh No, El Digglet de los problemas ha encontrado un error!!!</string>
 </resources>

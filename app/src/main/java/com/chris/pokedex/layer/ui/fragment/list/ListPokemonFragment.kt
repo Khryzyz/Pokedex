@@ -58,16 +58,25 @@ class ListPokemonFragment : BaseFragment() {
         //Observador de la variable responsePost
         viewModel.responsePost.observe(viewLifecycleOwner, { state ->
             when (state) {
-                is UIState.Load ->
-                    binding.texto.text = "Cargando"
-                is UIState.Success -> {
-                    val generationModel = state.data as GenerationModel
-                    binding.texto.text =
-                        "Se encontraron ${generationModel.pokemonModel.size.toString()} en esta generacion"
-                }
-                is UIState.Error -> binding.texto.text = "Error"
+                is UIState.Load -> handlerLoad()
+                is UIState.Success -> handlerSuccess(state.data as GenerationModel)
+                is UIState.Error -> handlerError(state.message)
             }
         })
     }
 
+    private fun handlerLoad() {
+        binding.flipperPost.displayedChild = binding.flipperPost.indexOfChild(binding.animLoadPost)
+    }
+
+    private fun handlerSuccess(generationModel: GenerationModel) {
+        binding.txvTest.text = "Se encontraron ${generationModel.pokemonModel.size} Pokemon"
+        binding.flipperPost.displayedChild = binding.flipperPost.indexOfChild(binding.txvTest)
+    }
+
+    private fun handlerError(messageError: String) {
+        binding.incErrorMessage.txvErrorMessage.text = messageError
+        binding.flipperPost.displayedChild =
+            binding.flipperPost.indexOfChild(binding.incErrorMessage.frlErrorMessage)
+    }
 }
