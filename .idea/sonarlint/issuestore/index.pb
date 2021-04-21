@@ -134,3 +134,7 @@ v
 Fapp/src/main/java/com/chris/pokedex/utils/MapperExtensionsFunctions.kt,3\8\380fd34bb9772c2e055eec3a6c81b81dff26a9c6
 d
 4app/src/main/java/com/chris/pokedex/utils/UIState.kt,8\8\88cdb8c410a9117483bf9e4a6f0b97fd67a4d397
+O
+app/src/main/res/raw/error.json,e\2\e2eed4e61db0bee961ac424e94ebb0e51884a344
+Q
+!app/src/main/res/raw/loading.json,0\b\0b13d90a4904eb8753c9af81685becce5c2b845b
