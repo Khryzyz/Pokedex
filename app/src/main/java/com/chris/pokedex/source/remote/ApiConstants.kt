@@ -4,4 +4,6 @@ object ApiConstants {
     const val BASE_URL = "https://pokeapi.co/api/v2/"
 
     const val DETAIL_GENERATION = "generation/{generation}"
+
+    const val DETAIL_POKEMON = "pokemon/{pokemonName}"
 }

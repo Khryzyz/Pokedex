@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.ui.repository
+package com.chris.pokedex.layer.repository
 
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.UIState

@@ -1,7 +1,7 @@
 package com.chris.pokedex.di.layer
 
-import com.chris.pokedex.layer.ui.repository.ListPokemonRepository
-import com.chris.pokedex.layer.ui.repository.ListPokemonRepositoryImp
+import com.chris.pokedex.layer.repository.ListPokemonRepository
+import com.chris.pokedex.layer.repository.ListPokemonRepositoryImp
 import dagger.Binds
 import dagger.Module
 

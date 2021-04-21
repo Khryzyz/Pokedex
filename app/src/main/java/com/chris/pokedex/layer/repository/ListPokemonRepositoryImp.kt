@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.ui.repository
+package com.chris.pokedex.layer.repository
 
 import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSource
 import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSource
@@ -20,12 +20,26 @@ class ListPokemonRepositoryImp
         return flow {
             try {
                 emit(UIState.Load)
-                val response = remoteDataSource.getListPokemonByGeneration(generation)
-                if (response.isSuccessful) {
-                    response.body()?.let {
+                val responseGeneration = remoteDataSource.getListPokemonByGeneration(generation)
+                if (responseGeneration.isSuccessful) {
+                    responseGeneration.body()?.let {
+                        val listPokemon = it.toModel().listPokemonModel
+                        listPokemon.forEachIndexed { index, pokemonModel ->
+
+                            emit(UIState.Progress(index, listPokemon.size))
+
+                            val responsePokemon = remoteDataSource.getInfoPokemonByName(pokemonModel.name)
+
+                            if (responsePokemon.isSuccessful) {
+                                responsePokemon.body()?.let {
+                                    //Almacenar en  base de datos
+                                }
+                            } else {
+                                emit(UIState.Error("General Error"))
+                            }
+                        }
                         emit(UIState.Success(it.toModel()))
                     }
-
                 } else {
                     emit(UIState.Error("General Error"))
                 }
@@ -34,6 +48,6 @@ class ListPokemonRepositoryImp
             }
         }
     }
-    //endregion
+//endregion
 
 }

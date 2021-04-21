@@ -66,8 +66,6 @@ R
 "app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 R
 "app/src/main/res/values/dimens.xml,c\3\c3c1811dec2dbad2deeafb9aad505ca9631da740
-S
-#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 X
 (app/src/main/res/values/styles_cards.xml,d\4\d48d6ee5ae34ca7cc5f9137381a946f00a54f106
 X

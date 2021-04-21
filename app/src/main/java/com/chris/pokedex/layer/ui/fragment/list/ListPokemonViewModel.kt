@@ -1,7 +1,7 @@
 package com.chris.pokedex.layer.ui.fragment.list
 
 import androidx.lifecycle.*
-import com.chris.pokedex.layer.ui.repository.ListPokemonRepository
+import com.chris.pokedex.layer.repository.ListPokemonRepository
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.UIState
 import kotlinx.coroutines.Dispatchers

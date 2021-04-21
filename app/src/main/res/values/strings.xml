@@ -9,4 +9,6 @@
     <string name="votar_pokemon">Votar Pokémon</string>
     <string name="lista_pokemon_votados">Lista Pokémon Votados</string>
     <string name="error_title">¡¡¡Oh No, El Digglet de los problemas ha encontrado un error!!!</string>
+    <string name="text_loading">Cargando: %1$d de %2$d</string>
+
 </resources>
