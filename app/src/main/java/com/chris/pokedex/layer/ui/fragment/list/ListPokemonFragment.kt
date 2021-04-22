@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.base.BaseFragment
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
+import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.layer.ui.fragment.list.adapter.ListPokemonAdapter
 import com.chris.pokedex.utils.Constants
@@ -71,7 +72,7 @@ class ListPokemonFragment : BaseFragment() {
         viewModel.responseRemote.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is UIStateListPokemonRemote.Load -> handlerLoad()
-                is UIStateListPokemonRemote.Success -> getListPokemon()
+                is UIStateListPokemonRemote.Success -> handlerSuccess(state.data)
                 is UIStateListPokemonRemote.Error -> handlerError(state.message)
                 is UIStateListPokemonRemote.Progress -> handlerProgress(state.progress, state.total)
             }
@@ -111,11 +112,17 @@ class ListPokemonFragment : BaseFragment() {
         }
     }
 
-    private fun handlerSuccess(listPokemonModel: List<PokemonModel>) {
+    private fun handlerSuccess(listPokemonModel: List<PokemonBasicModel>) {
         adapter.submitList(listPokemonModel)
         binding.flipperPost.displayedChild =
             binding.flipperPost.indexOfChild(binding.rcwListPokemon)
     }
+//
+//    private fun handlerSuccess(listPokemonModel: List<PokemonModel>) {
+//        adapter.submitList(listPokemonModel)
+//        binding.flipperPost.displayedChild =
+//            binding.flipperPost.indexOfChild(binding.rcwListPokemon)
+//    }
 
     private fun handlerError(messageError: String) {
         binding.incErrorLayout.txvErrorMessage.text = messageError

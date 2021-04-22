@@ -35,11 +35,11 @@ class ListPokemonViewModel
     }
 
     private fun getListPokemonByGenerationFromLocal(generation: Constants.Generation) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getListPokemonByGenerationFromLocal(generation).collect {
-                _responseLocal.postValue(it)
-            }
-        }
+//        viewModelScope.launch(Dispatchers.IO) {
+//            repository.getListPokemonByGenerationFromLocal(generation).collect {
+//                _responseLocal.postValue(it)
+//            }
+//        }
     }
 
     private fun getListPokemonByGenerationFromRemote(generation: Constants.Generation) {

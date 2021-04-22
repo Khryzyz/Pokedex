@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 
 data class SpriteResDto(
     @Json(name = "other")
-    val oficialArtwork: OficialArtworkResDto,
+    val officialArtwork: OfficialArtworkResDto,
     @Json(name = "versions")
     val versionSprite: VersionSpriteResDto
 )

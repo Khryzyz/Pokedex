@@ -2,9 +2,6 @@ package com.chris.pokedex.layer.model
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
-import com.chris.pokedex.source.local.DBConstants
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -22,6 +19,12 @@ data class PokemonModel(
     val weight: Int,
 
     val generationId: Long,
+
+    val typeA: String,
+
+    val typeB: String,
+
+    val sprites: List<SpriteModel>,
 
 ) : Parcelable {
 

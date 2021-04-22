@@ -6,8 +6,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PokemonBasicModel(
+    val id: Int = 0,
     val name: String = "",
-    val url: String = ""
+    val url: String = "",
+    val generation: Int = 1
 ) : Parcelable {
 
     companion object {
@@ -15,9 +17,12 @@ data class PokemonBasicModel(
         val DiffCallBack = object : DiffUtil.ItemCallback<PokemonBasicModel>() {
 
             override fun areItemsTheSame(oldItem: PokemonBasicModel, newItem: PokemonBasicModel) =
-                oldItem.name == newItem.name
+                oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: PokemonBasicModel, newItem: PokemonBasicModel) =
+            override fun areContentsTheSame(
+                oldItem: PokemonBasicModel,
+                newItem: PokemonBasicModel
+            ) =
                 oldItem == newItem
 
         }
@@ -30,13 +35,13 @@ data class PokemonBasicModel(
 
         other as PokemonBasicModel
 
-        if (name != other.name) return false
+        if (id != other.id) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return name.toInt()
+        return id.toInt()
     }
 
 }

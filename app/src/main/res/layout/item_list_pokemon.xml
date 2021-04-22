@@ -5,7 +5,7 @@
 
         <variable
             name="pokemon"
-            type="com.chris.pokedex.layer.model.PokemonModel" />
+            type="com.chris.pokedex.layer.model.PokemonBasicModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -19,29 +19,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imvSprite"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
             <TextView
-                android:id="@+id/txvName"
+                android:id="@+id/txvId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_large"
-                android:text="@{pokemon.name}" />
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/txvId"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:padding="@dimen/padding_large"-->
-            <!--                android:text="@{pokemon.id}" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/txvOrder"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:padding="@dimen/padding_large"-->
-            <!--                android:text="@{pokemon.order}" />-->
+                android:text="@{Integer.valueOf(pokemon.id).toString()}" />
 
             <TextView
-                android:id="@+id/txvUrl"
+                android:id="@+id/txvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_large"

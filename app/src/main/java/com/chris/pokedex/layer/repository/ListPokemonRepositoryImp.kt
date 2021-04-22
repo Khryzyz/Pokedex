@@ -3,10 +3,7 @@ package com.chris.pokedex.layer.repository
 import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSource
 import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSource
 import com.chris.pokedex.utils.Constants
-import com.chris.pokedex.utils.toEntity
-import com.chris.pokedex.utils.toModel
-import com.chris.pokedex.utils.toModelList
-import com.chris.pokedex.utils.uiState.UIStateListPokemonLocal
+import com.chris.pokedex.utils.toListModel
 import com.chris.pokedex.utils.uiState.UIStateListPokemonRemote
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -25,22 +22,22 @@ class ListPokemonRepositoryImp
 
     }
 
-    override suspend fun getListPokemonByGenerationFromLocal(generation: Constants.Generation): Flow<UIStateListPokemonLocal> {
-        return flow {
-            try {
-                emit(UIStateListPokemonLocal.Load)
-                emit(
-                    UIStateListPokemonLocal.Success(
-                        localDataSource.getListPokemonByGeneration(
-                            generation
-                        ).toModelList()
-                    )
-                )
-            } catch (e: Exception) {
-                emit(UIStateListPokemonLocal.Error(e.localizedMessage ?: "Something happen"))
-            }
-        }
-    }
+//    override suspend fun getListPokemonByGenerationFromLocal(generation: Constants.Generation): Flow<UIStateListPokemonLocal> {
+//        return flow {
+//            try {
+//                emit(UIStateListPokemonLocal.Load)
+//                emit(
+//                    UIStateListPokemonLocal.Success(
+//                        localDataSource.getListPokemonByGeneration(
+//                            generation
+//                        ).toModelList()
+//                    )
+//                )
+//            } catch (e: Exception) {
+//                emit(UIStateListPokemonLocal.Error(e.localizedMessage ?: "Something happen"))
+//            }
+//        }
+//    }
 
     //end Region
 
@@ -60,44 +57,50 @@ class ListPokemonRepositoryImp
 
                     responseGeneration.body()?.let { generationResDTO ->
 
-                        val generationId =
-                            localDataSource.insertGeneration(generationResDTO.toEntity())
+//                        val generationId =
+//                            localDataSource.insertGeneration(generationResDTO.toEntity())
 
-                        val listPokemonBasicModel = generationResDTO.toModel().listPokemonBasicModel
+//                        val listPokemonBasicModel = generationResDTO.toModel().listPokemonBasicModel
+//
+//                        listPokemonBasicModel.forEachIndexed { index, pokemonBasicModel ->
+//
+//                            emit(
+//                                UIStateListPokemonRemote.Progress(
+//                                    index,
+//                                    listPokemonBasicModel.size
+//                                )
+//                            )
+////
+////                            val responsePokemon =
+////                                remoteDataSource.getInfoPokemonByName(pokemonBasicModel.name)
+////
+////                            if (responsePokemon.isSuccessful) {
+////
+////                                responsePokemon.body()?.let { pokemonResDto ->
+////
+////                                    localDataSource.insertPokemon(
+////                                        pokemonResDto.toEntity(
+////                                            generationId
+////                                        )
+////                                    )
+////
+////                                }
+////
+////                            } else {
+////
+////                                emit(UIStateListPokemonRemote.Error("General Error"))
+////
+////                            }
+//
+//                        }
 
-                        listPokemonBasicModel.forEachIndexed { index, pokemonBasicModel ->
-
-                            emit(
-                                UIStateListPokemonRemote.Progress(
-                                    index,
-                                    listPokemonBasicModel.size
-                                )
+                        emit(
+                            UIStateListPokemonRemote.Success(
+                                generationResDTO.pokemonBasicResDto
+                                    .toListModel(generationResDTO.id)
+                                    .sortedBy { it.id }
                             )
-
-                            val responsePokemon =
-                                remoteDataSource.getInfoPokemonByName(pokemonBasicModel.name)
-
-                            if (responsePokemon.isSuccessful) {
-
-                                responsePokemon.body()?.let { pokemonResDto ->
-
-                                    localDataSource.insertPokemon(
-                                        pokemonResDto.toEntity(
-                                            generationId
-                                        )
-                                    )
-
-                                }
-
-                            } else {
-
-                                emit(UIStateListPokemonRemote.Error("General Error"))
-
-                            }
-
-                        }
-
-                        emit(UIStateListPokemonRemote.Success("Success"))
+                        )
 
                     }
 

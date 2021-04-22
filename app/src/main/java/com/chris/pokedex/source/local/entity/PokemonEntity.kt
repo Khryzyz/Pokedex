@@ -42,6 +42,12 @@ data class PokemonEntity(
     @ColumnInfo(name = DBConstants.Pokemon.COLUMN_WEIGHT)
     val weight: Int,
 
+    @ColumnInfo(name = DBConstants.Pokemon.COLUMN_GENERATION_TYPE_A)
+    val typeA: String,
+
+    @ColumnInfo(name = DBConstants.Pokemon.COLUMN_GENERATION_TYPE_B)
+    val typeB: String,
+
     @ColumnInfo(name = DBConstants.Pokemon.COLUMN_GENERATION_ID)
     val generationId: Long,
 
