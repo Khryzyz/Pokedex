@@ -1,4 +1,4 @@
-package com.chris.pokedex.source.remote.dto.pokemonFull.type
+package com.chris.pokedex.source.remote.dto.pokemon.type
 
 import com.squareup.moshi.Json
 

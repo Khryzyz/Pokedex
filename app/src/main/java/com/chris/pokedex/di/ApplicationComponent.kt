@@ -2,10 +2,13 @@ package com.chris.pokedex.di
 
 import android.app.Application
 import com.chris.pokedex.app.PokedexApplication
+import com.chris.pokedex.di.core.ApplicationModule
 import com.chris.pokedex.di.layer.RepositoryModule
 import com.chris.pokedex.di.layer.ui.ActivityBindingModule
 import com.chris.pokedex.di.layer.ui.FragmentBindingModule
 import com.chris.pokedex.di.layer.ui.ViewModelModule
+import com.chris.pokedex.di.source.local.DaoModule
+import com.chris.pokedex.di.source.local.DatabaseModule
 import com.chris.pokedex.di.source.local.LocalDataSourceModule
 import com.chris.pokedex.di.source.remote.MoshiModule
 import com.chris.pokedex.di.source.remote.RemoteDataSourceModule
@@ -21,6 +24,7 @@ import javax.inject.Singleton
     modules = [
         //General
         AndroidInjectionModule::class,
+        ApplicationModule::class,
 
         //Layer
         ActivityBindingModule::class,
@@ -29,6 +33,8 @@ import javax.inject.Singleton
         RepositoryModule::class,
 
         //Source Local
+        DatabaseModule::class,
+        DaoModule::class,
         LocalDataSourceModule::class,
 
         //Source Remote

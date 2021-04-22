@@ -1,8 +1,8 @@
-package com.chris.pokedex.source.remote.dto.pokemonFull.sprite
+package com.chris.pokedex.source.remote.dto.pokemon.sprite
 
 import com.squareup.moshi.Json
 
 data class GenerationIIIResDto(
     @Json(name = "emerald")
-    val image: ImageResDto
+    val image: ImageResDto?
 )

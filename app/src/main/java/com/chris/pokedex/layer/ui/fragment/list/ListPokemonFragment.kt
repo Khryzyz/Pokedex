@@ -6,10 +6,11 @@ import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.base.BaseFragment
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
-import com.chris.pokedex.layer.model.GenerationModel
+import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.layer.ui.fragment.list.adapter.ListPokemonAdapter
 import com.chris.pokedex.utils.Constants
-import com.chris.pokedex.utils.UIState
+import com.chris.pokedex.utils.uiState.UIStateListPokemonLocal
+import com.chris.pokedex.utils.uiState.UIStateListPokemonRemote
 
 class ListPokemonFragment : BaseFragment() {
 
@@ -41,7 +42,7 @@ class ListPokemonFragment : BaseFragment() {
 
         lifecycle.addObserver(viewModel)
 
-        viewModel.getListPokemonByGeneration(generation)
+        getListPokemon()
 
         setAdapter()
 
@@ -67,14 +68,27 @@ class ListPokemonFragment : BaseFragment() {
 
     private fun addObservers() {
         //Observador de la variable responsePost
-        viewModel.responsePost.observe(viewLifecycleOwner, { state ->
+        viewModel.responseRemote.observe(viewLifecycleOwner, { state ->
             when (state) {
-                is UIState.Load -> handlerLoad()
-                is UIState.Success -> handlerSuccess(state.data as GenerationModel)
-                is UIState.Error -> handlerError(state.message)
-                is UIState.Progress -> handlerProgress(state.progress, state.total)
+                is UIStateListPokemonRemote.Load -> handlerLoad()
+                is UIStateListPokemonRemote.Success -> getListPokemon()
+                is UIStateListPokemonRemote.Error -> handlerError(state.message)
+                is UIStateListPokemonRemote.Progress -> handlerProgress(state.progress, state.total)
             }
         })
+
+        viewModel.responseLocal.observe(viewLifecycleOwner, { state ->
+            when (state) {
+                is UIStateListPokemonLocal.Load -> handlerLoad()
+                is UIStateListPokemonLocal.Success -> handlerSuccess(state.listPokemonModel)
+                is UIStateListPokemonLocal.Error -> handlerError(state.message)
+                is UIStateListPokemonLocal.Progress -> handlerProgress(state.progress, state.total)
+            }
+        })
+    }
+
+    private fun getListPokemon() {
+        viewModel.getListPokemonByGeneration(generation)
     }
 
     private fun handlerLoad() {
@@ -97,8 +111,8 @@ class ListPokemonFragment : BaseFragment() {
         }
     }
 
-    private fun handlerSuccess(generationModel: GenerationModel) {
-        adapter.submitList(generationModel.listPokemonModel)
+    private fun handlerSuccess(listPokemonModel: List<PokemonModel>) {
+        adapter.submitList(listPokemonModel)
         binding.flipperPost.displayedChild =
             binding.flipperPost.indexOfChild(binding.rcwListPokemon)
     }

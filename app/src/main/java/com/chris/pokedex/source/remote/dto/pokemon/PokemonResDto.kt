@@ -1,12 +1,12 @@
-package com.chris.pokedex.source.remote.dto.pokemonFull
+package com.chris.pokedex.source.remote.dto.pokemon
 
-import com.chris.pokedex.source.remote.dto.pokemonFull.ability.AbilitiesResDto
-import com.chris.pokedex.source.remote.dto.pokemonFull.move.MovesResDto
-import com.chris.pokedex.source.remote.dto.pokemonFull.sprite.SpriteResDto
-import com.chris.pokedex.source.remote.dto.pokemonFull.type.TypesResDto
+import com.chris.pokedex.source.remote.dto.pokemon.ability.AbilitiesResDto
+import com.chris.pokedex.source.remote.dto.pokemon.move.MovesResDto
+import com.chris.pokedex.source.remote.dto.pokemon.sprite.SpriteResDto
+import com.chris.pokedex.source.remote.dto.pokemon.type.TypesResDto
 import com.squareup.moshi.Json
 
-data class PokemonFullResDto(
+data class PokemonResDto(
     @Json(name = "id")
     val id: Int,
     @Json(name = "name")

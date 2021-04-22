@@ -1,4 +1,4 @@
-package com.chris.pokedex.utils
+package com.chris.pokedex.utils.uiState
 
 sealed class UIState {
 

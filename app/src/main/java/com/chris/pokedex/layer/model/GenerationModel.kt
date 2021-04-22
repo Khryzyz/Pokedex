@@ -8,5 +8,5 @@ import kotlinx.parcelize.Parcelize
 data class GenerationModel(
     val id: Int,
     val name: String,
-    val listPokemonModel: List<PokemonModel>,
+    val listPokemonBasicModel: List<PokemonBasicModel>,
 ) : Parcelable

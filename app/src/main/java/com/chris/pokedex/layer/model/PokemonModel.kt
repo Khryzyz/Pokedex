@@ -2,14 +2,27 @@ package com.chris.pokedex.layer.model
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
+import androidx.room.ColumnInfo
+import androidx.room.PrimaryKey
+import com.chris.pokedex.source.local.DBConstants
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PokemonModel(
-    val id: Int = 0,
-    val name: String = "",
-    val order: Int = 0,
-    val url: String = ""
+    val id: Long,
+
+    val webId: Int,
+
+    val name: String,
+
+    val order: Int,
+
+    val height: Int,
+
+    val weight: Int,
+
+    val generationId: Long,
+
 ) : Parcelable {
 
     companion object {

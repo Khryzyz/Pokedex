@@ -26,26 +26,26 @@
                 android:padding="@dimen/padding_large"
                 android:text="@{pokemon.name}" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/txvId"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="@dimen/padding_large"-->
-<!--                android:text="@{pokemon.id}" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/txvId"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="@dimen/padding_large"-->
+            <!--                android:text="@{pokemon.id}" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/txvOrder"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="@dimen/padding_large"-->
-<!--                android:text="@{pokemon.order}" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/txvOrder"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="@dimen/padding_large"-->
+            <!--                android:text="@{pokemon.order}" />-->
 
             <TextView
                 android:id="@+id/txvUrl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_large"
-                android:text="@{pokemon.url}" />
+                android:text="@{pokemon.name}" />
 
         </LinearLayout>
 

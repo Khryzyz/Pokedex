@@ -2,6 +2,7 @@ package com.chris.pokedex.layer.ui.fragment.list.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.layer.model.PokemonModel
 
 class ListPokemonAdapter :
