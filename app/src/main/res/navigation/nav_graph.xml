@@ -12,7 +12,7 @@
         android:label="@string/first_generation_label"
         tools:layout="@layout/list_pokemon_fragment">
         <action
-            android:id="@+id/action_firstGenFragment_to_detailPostFragment"
+            android:id="@+id/action_firstGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
     <fragment
@@ -21,7 +21,7 @@
         android:label="@string/second_generation_label"
         tools:layout="@layout/list_pokemon_fragment">
         <action
-            android:id="@+id/action_secondGenFragment_to_detailPostFragment"
+            android:id="@+id/action_secondGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
     <fragment
@@ -30,7 +30,7 @@
         android:label="@string/third_generation_label"
         tools:layout="@layout/list_pokemon_fragment">
         <action
-            android:id="@+id/action_thirdGenFragment_to_detailPostFragment"
+            android:id="@+id/action_thirdGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
     <fragment
@@ -39,7 +39,7 @@
         android:label="@string/fourth_generation_label"
         tools:layout="@layout/list_pokemon_fragment">
         <action
-            android:id="@+id/action_fourthGenFragment_to_detailPostFragment"
+            android:id="@+id/action_fourthGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
 

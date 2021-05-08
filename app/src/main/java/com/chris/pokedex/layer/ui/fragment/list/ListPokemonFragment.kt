@@ -3,11 +3,12 @@ package com.chris.pokedex.layer.ui.fragment.list
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.chris.pokedex.R
 import com.chris.pokedex.base.BaseFragment
 import com.chris.pokedex.databinding.ListPokemonFragmentBinding
 import com.chris.pokedex.layer.model.PokemonBasicModel
-import com.chris.pokedex.layer.model.PokemonModel
+import com.chris.pokedex.layer.ui.fragment.list.adapter.ClickItemPokemon
 import com.chris.pokedex.layer.ui.fragment.list.adapter.ListPokemonAdapter
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.uiState.UIStateListPokemonLocal
@@ -62,7 +63,7 @@ class ListPokemonFragment : BaseFragment() {
     }
 
     private fun setAdapter() {
-        adapter = ListPokemonAdapter()
+        adapter = ListPokemonAdapter(clickItemPokemon)
         binding.rcwListPokemon.adapter = adapter
 
     }
@@ -117,16 +118,20 @@ class ListPokemonFragment : BaseFragment() {
         binding.flipperPost.displayedChild =
             binding.flipperPost.indexOfChild(binding.rcwListPokemon)
     }
-//
-//    private fun handlerSuccess(listPokemonModel: List<PokemonModel>) {
-//        adapter.submitList(listPokemonModel)
-//        binding.flipperPost.displayedChild =
-//            binding.flipperPost.indexOfChild(binding.rcwListPokemon)
-//    }
 
     private fun handlerError(messageError: String) {
         binding.incErrorLayout.txvErrorMessage.text = messageError
         binding.flipperPost.displayedChild =
             binding.flipperPost.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
     }
+
+    //region Listeners
+    private var clickItemPokemon = object : ClickItemPokemon {
+        override fun onClickNavigateDetail(pokemonBasicModel: PokemonBasicModel) {
+            findNavController().navigate(
+                R.id.detailPokemonFragment
+            )
+        }
+    }
+    //endregion
 }

@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.chris.pokedex.layer.model.PokemonBasicModel
 
-class ListPokemonAdapter :
+class ListPokemonAdapter(private val clickItemPokemon: ClickItemPokemon) :
     ListAdapter<PokemonBasicModel,
             ListPokemonViewHolder>(PokemonBasicModel.DiffCallBack) {
 
@@ -15,7 +15,8 @@ class ListPokemonAdapter :
     override fun onBindViewHolder(holder: ListPokemonViewHolder, position: Int) {
         val pokemon = getItem(position)
         holder.bind(
-            pokemon
+            pokemon,
+            clickItemPokemon
         )
     }
 

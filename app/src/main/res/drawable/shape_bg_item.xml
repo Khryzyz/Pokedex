@@ -1,20 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/primary_dark" />
-
-    <stroke
-        android:width="3dp"
-        android:color="@color/black" />
-
-    <padding
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp"
-        android:top="1dp" />
-
-    <corners
-        android:bottomLeftRadius="7dp"
-        android:bottomRightRadius="7dp"
-        android:topLeftRadius="7dp"
-        android:topRightRadius="7dp" />
-</shape>
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="-120dp"
+        android:top="-120dp"
+        android:left="-120dp"
+        android:right="-120dp">
+        <rotate android:fromDegrees="315">
+            <shape android:shape="rectangle">
+                <size
+                    android:width="500dp"
+                    android:height="80dp"/>
+                <solid android:color="@color/primary_dark"/>
+            </shape>
+        </rotate>
+    </item>
+    <item
+        android:bottom="-80dp"
+        android:top="-80dp"
+        android:left="-80dp"
+        android:right="-50dp">
+        <rotate android:fromDegrees="315">
+            <shape android:shape="rectangle">
+                <size
+                    android:width="500dp"
+                    android:height="80dp"/>
+                <solid android:color="@color/primary"/>
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

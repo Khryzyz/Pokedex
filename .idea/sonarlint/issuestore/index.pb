@@ -1,8 +1,6 @@
 
 T
 $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
-L
-.idea/codeStyles/Project.xml,6\e\6ecd6000a7b6f4a2884412ff19f74193ed089648
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 :
@@ -34,12 +32,6 @@ f
 app/.gitignore,5\1\51e1c5d383dfaa35e0e7e5873a0a99355a86880f
 F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
-c
-3app/src/main/res/layout/detail_pokemon_fragment.xml,f\7\f7929d4491a77e787925075ce9515844320fc568
-`
-0app/src/main/res/menu/menu_bottom_generation.xml,7\d\7d0b0b1c1198f749b616077056b458b6e95af3d3
-Y
-)app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 Ö
@@ -54,8 +46,6 @@ Y
 )app/src/main/res/layout/main_activity.xml,a\2\a2184837f19e15dc19a40190b62237fab1af7b4b
 Z
 *app/src/main/res/menu/menu_top_actions.xml,4\9\493dc40e745a917c3a9bcfe91d14ae205fe408bf
-R
-"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 X
 (app/src/main/res/values/styles_cards.xml,d\4\d48d6ee5ae34ca7cc5f9137381a946f00a54f106
 X
@@ -164,8 +154,6 @@ o
 Tapp/src/main/java/com/chris/pokedex/source/remote/dto/pokemon/sprite/SpriteResDto.kt,6\9\69d6927b029555dfbde81be3a7e77106b1448a4a
 |
 Lapp/src/main/java/com/chris/pokedex/utils/uiState/UIStateListPokemonLocal.kt,b\d\bd8bce44cc45568f7265af437419a2ee84b46d53
-u
-Eapp/src/main/java/com/chris/pokedex/layer/ui/activity/MainActivity.kt,f\0\f0ce225b743864ef00fd919b8d78d9fe29fffc55
 o
 ?app/src/main/java/com/chris/pokedex/layer/model/PokemonModel.kt,e\f\ef0ee1e792e1fb1b10bd08172ff99423a7102617
 n
@@ -178,3 +166,13 @@ t
 Dapp/src/main/java/com/chris/pokedex/layer/model/PokemonBasicModel.kt,8\e\8ed6632634926508a95a2edb935e8f1c0117aca6
 è
 _app/src/main/java/com/chris/pokedex/source/remote/dataSource/pokemon/PokemonRemoteDataSource.kt,f\9\f9bb95483a8bbe369a2cff106e756ca8e36bec2b
+Ç
+Rapp/src/main/java/com/chris/pokedex/layer/ui/fragment/list/ListPokemonViewModel.kt,0\c\0c6f1be4334f27e2d8688bad301329c6b898bea1
+Ä
+Papp/src/main/java/com/chris/pokedex/layer/repository/ListPokemonRepositoryImp.kt,c\e\ceaece69415322676d0f587347d1b69de308d1a5
+í
+bapp/src/main/java/com/chris/pokedex/source/remote/dataSource/pokemon/PokemonRemoteDataSourceImp.kt,3\7\3711629fe3410cf61556b0cc6b9fd0758ffb366d
+}
+Mapp/src/main/java/com/chris/pokedex/utils/uiState/UIStateListPokemonRemote.kt,8\d\8d068d6b93b8e67ee04773894d3e5f5373011c96
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
