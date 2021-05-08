@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,31 +16,84 @@
         android:layout_margin="@dimen/margin_default"
         android:elevation="@dimen/elevation_default">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/shape_bg_item">
+
+            <ImageView
+                android:id="@+id/imvBackPoke"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:elevation="1dp"
+                android:src="@mipmap/bg_pokeball"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imvSprite"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:elevation="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imvBackPoke"
+                app:layout_constraintEnd_toEndOf="@+id/imvBackPoke"
+                app:layout_constraintStart_toStartOf="@+id/imvBackPoke"
+                app:layout_constraintTop_toTopOf="@+id/imvBackPoke"
+                tools:src="@tools:sample/avatars" />
+
+            <View
+                android:id="@+id/frameLayout"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/margin_decoration"
+                android:layout_marginEnd="@dimen/margin_decoration"
+                android:background="@drawable/shape_bg_item_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txvId"
+                style="@style/textViewTitle.Accent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="@dimen/padding_large"
-                android:text="@{Integer.valueOf(pokemon.id).toString()}" />
+                android:text="@{Integer.valueOf(pokemon.id).toString()}"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="999" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="240dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="@dimen/margin_decoration"
+                android:layout_marginBottom="@dimen/margin_decoration"
+                android:background="@drawable/shape_bg_item_decoration"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/txvName"
+                style="@style/textViewItemAccent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_default"
                 android:padding="@dimen/padding_large"
-                android:text="@{pokemon.name}" />
+                android:text="@{pokemon.name}"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintStart_toEndOf="@+id/imvBackPoke"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/lorem" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -6,6 +6,8 @@
     <dimen name="elevation_over">6dp</dimen>
 
     <!--Margins-->
+    <dimen name="margin_decoration">2dp</dimen>
+
     <dimen name="margin_micro">2dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_default">8dp</dimen>
@@ -26,6 +28,8 @@
 
     <!--Text Sizes-->
     <dimen name="title_text_size">16sp</dimen>
+
+    <dimen name="text_item_size">20sp</dimen>
 
     <dimen name="normal_text_size">12sp</dimen>
 
