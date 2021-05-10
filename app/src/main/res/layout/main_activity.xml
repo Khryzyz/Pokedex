@@ -20,11 +20,9 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
+                style="@style/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/primary"
-                android:elevation="@dimen/cardview_default_elevation"
-                app:titleTextColor="@color/white" />
+                android:layout_height="?attr/actionBarSize" />
 
             <fragment
                 android:id="@+id/nav_host_fragment"
@@ -38,6 +36,7 @@
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_nav_view"
+                style="@style/bottomNavigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menu="@menu/menu_bottom_generation" />

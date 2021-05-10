@@ -7,6 +7,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.chris.pokedex.R
 import com.chris.pokedex.utils.glide.GlideManager
+import com.google.android.material.appbar.AppBarLayout
 
 @BindingAdapter("loadArtwork")
 fun bindLoadArtwork(imageView: ImageView, imageUrl: String?) {

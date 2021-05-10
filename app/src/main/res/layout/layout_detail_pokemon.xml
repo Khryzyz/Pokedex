@@ -1,108 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".layer.ui.fragment.detail.DetailPokemonFragment">
 
     <data>
-
-        <import type="android.view.View" />
 
         <variable
             name="pokemonModel"
             type="com.chris.pokedex.layer.model.PokemonModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/cnlDetailLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/flyBackgroundPokemon"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/margin_large"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            binding:loadBackground="@{pokemonModel.types[0].typeColor}"
-            tools:background="@drawable/shape_gradient" />
-
-        <ImageView
-            android:id="@+id/imvArtwork"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@mipmap/bg_pokeball"
-            app:layout_constraintBottom_toBottomOf="@id/flyBackgroundPokemon"
-            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
-            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
-            app:layout_constraintTop_toTopOf="@id/flyBackgroundPokemon"
-            binding:loadArtwork="@{pokemonModel.sprites.officialArtwork}"
-            tools:src="@mipmap/sample_artwork" />
-
-        <TextView
-            android:id="@+id/txvId"
-            style="@style/textViewDetailPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            android:shadowColor="@color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:text="@{Integer.toString(pokemonModel.webId)}"
-            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
-            app:layout_constraintTop_toTopOf="@+id/flyBackgroundPokemon"
-            tools:text="999" />
-
-        <TextView
-            android:id="@+id/txvName"
-            style="@style/textViewDetailAccent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            android:shadowColor="@color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:text="@{pokemonModel.name.toUpperCase()}"
-            app:layout_constraintBottom_toBottomOf="@+id/flyBackgroundPokemon"
-            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
-            tools:text="Charizard" />
-
-        <ImageView
-            android:id="@+id/imvTypeFirst"
-            android:layout_width="100dp"
-            android:layout_height="22dp"
-            android:src="@mipmap/type_normal_name"
-            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
-            app:layout_constraintTop_toTopOf="@id/flyBackgroundPokemon"
-            binding:loadType="@{pokemonModel.types[0].typeImage}"
-            tools:src="@mipmap/type_fire_name" />
-
-        <ImageView
-            android:id="@+id/imvTypeSecond"
-            android:layout_width="100dp"
-            android:layout_height="22dp"
-            android:src="@mipmap/type_normal_name"
-            android:visibility="@{pokemonModel.types.size>0 ? View.VISIBLE : View.GONE}"
-            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
-            app:layout_constraintTop_toBottomOf="@id/imvTypeFirst"
-            binding:loadType="@{pokemonModel.types[1].typeImage}"
-            tools:src="@mipmap/type_flying_name"
-            tools:visibility="visible" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/incDetailHeaderPokemon"
+                layout="@layout/layout_detail_header_pokemon"
+                bind:pokemonModel="@{pokemonModel}" />
+
+            <com.google.android.material.tabs.TabLayout
+                style="@style/tabLayout"
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/incDetailHeaderPokemon"                >
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Información" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movimientos" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sprites" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

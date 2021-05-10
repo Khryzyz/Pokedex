@@ -52,10 +52,13 @@ class DetailPokemonFragment :
     private fun handlerSuccess(pokemonModel: PokemonModel) {
         binding.vfDetailPokemon.displayedChild =
             binding.vfDetailPokemon.indexOfChild(binding.incDetailPokemon.cnlDetailLayout)
+
         binding.incDetailPokemon.apply {
             this.pokemonModel = pokemonModel
             executePendingBindings()
         }
+
+        binding.incDetailPokemon.incDetailHeaderPokemon.executePendingBindings()
     }
 
     private fun handlerError(errorMessage: String) {

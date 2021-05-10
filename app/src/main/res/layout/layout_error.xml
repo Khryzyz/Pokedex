@@ -15,11 +15,7 @@
 
     <TextView
         android:id="@+id/txvErrorTitle"
-        style="@style/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:padding="@dimen/padding_large"
+        style="@style/textViewTitle.Error"
         android:text="@string/error_title"
         app:layout_constraintBottom_toTopOf="@+id/txvErrorMessage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,11 +24,7 @@
 
     <TextView
         android:id="@+id/txvErrorMessage"
-        style="@style/textViewBody"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:padding="@dimen/padding_large"
+        style="@style/textViewBody.Error"
         app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".layer.ui.fragment.detail.DetailPokemonFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="pokemonModel"
+            type="com.chris.pokedex.layer.model.PokemonModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cnlDetailHeaderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/flyBackgroundPokemon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            binding:loadBackground="@{pokemonModel.types[0].typeColor}"
+            tools:background="@drawable/shape_gradient" />
+
+        <ImageView
+            android:id="@+id/imvArtwork"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/bg_pokeball"
+            app:layout_constraintBottom_toBottomOf="@id/flyBackgroundPokemon"
+            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
+            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
+            app:layout_constraintTop_toTopOf="@id/flyBackgroundPokemon"
+            binding:loadArtwork="@{pokemonModel.sprites.officialArtwork}"
+            tools:src="@mipmap/sample_artwork" />
+
+        <TextView
+            android:id="@+id/txvId"
+            style="@style/textViewBody.DetailNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@{Integer.toString(pokemonModel.webId)}"
+            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
+            app:layout_constraintTop_toTopOf="@+id/flyBackgroundPokemon"
+            tools:text="999" />
+
+        <TextView
+            android:id="@+id/txvName"
+            style="@style/textViewBody.DetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@{pokemonModel.name.toUpperCase()}"
+            app:layout_constraintBottom_toBottomOf="@+id/flyBackgroundPokemon"
+            app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
+            tools:text="Charizard" />
+
+        <ImageView
+            android:id="@+id/imvTypeFirst"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:src="@mipmap/type_normal_name"
+            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
+            app:layout_constraintTop_toTopOf="@id/flyBackgroundPokemon"
+            binding:loadType="@{pokemonModel.types[0].typeImage}"
+            tools:src="@mipmap/type_fire_name" />
+
+        <ImageView
+            android:id="@+id/imvTypeSecond"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:src="@mipmap/type_normal_name"
+            android:visibility="@{pokemonModel.types.size>0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
+            app:layout_constraintTop_toBottomOf="@id/imvTypeFirst"
+            binding:loadType="@{pokemonModel.types[1].typeImage}"
+            tools:src="@mipmap/type_flying_name"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

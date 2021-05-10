@@ -7,14 +7,15 @@
     <color name="accent">#F0F3F4</color>
     <color name="accent_dark">#C9CED1</color>
 
-    <color name="terciary">#586270</color>
+    <color name="terciary">#212121</color>
+    <color name="terciary_light">#757575</color>
 
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
 
     <!--Basic Colors-->
     <color name="white">#F2F2F2</color>
-    <color name="black">#000000</color>
+    <color name="black">#121212</color>
     <color name="transparent">#00000000</color>
 
     <!--Type Colors-->
