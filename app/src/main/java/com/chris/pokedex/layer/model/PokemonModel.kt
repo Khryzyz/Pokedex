@@ -6,40 +6,25 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PokemonModel(
-    val id: Long,
-
+    val id: Long = -1,
     val webId: Int,
-
     val name: String,
-
     val order: Int,
-
     val height: Int,
-
     val weight: Int,
-
     val generationId: Long,
-
-    val typeA: String,
-
-    val typeB: String,
-
-    val sprites: List<SpriteModel>,
-
+    val types: List<TypeModel>,
+    val sprites: SpriteModel,
 ) : Parcelable {
 
     companion object {
-
         val DiffCallBack = object : DiffUtil.ItemCallback<PokemonModel>() {
-
             override fun areItemsTheSame(oldItem: PokemonModel, newItem: PokemonModel) =
                 oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: PokemonModel, newItem: PokemonModel) =
                 oldItem == newItem
-
         }
-
     }
 
     override fun equals(other: Any?): Boolean {

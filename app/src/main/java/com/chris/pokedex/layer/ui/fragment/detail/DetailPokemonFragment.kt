@@ -1,60 +1,67 @@
 package com.chris.pokedex.layer.ui.fragment.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.chris.pokedex.R
+import androidx.fragment.app.viewModels
+import com.chris.pokedex.databinding.DetailPokemonFragmentBinding
+import com.chris.pokedex.layer.model.PokemonBasicModel
+import com.chris.pokedex.layer.model.PokemonModel
+import com.chris.pokedex.utils.Constants
+import com.chris.pokedex.utils.base.BaseViewBindingFragment
+import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class DetailPokemonFragment :
+    BaseViewBindingFragment<DetailPokemonFragmentBinding>(DetailPokemonFragmentBinding::inflate) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailPokemonFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DetailPokemonFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val viewModel: DetailPokemonViewModel by viewModels { viewModelFactory }
+
+    private lateinit var pokemonBasicModel: PokemonBasicModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            pokemonBasicModel =
+                it.getSerializable(Constants.BundleKeys.POKEMON) as PokemonBasicModel
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.detail_pokemon_fragment, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        getDetailPokemon()
+        setObservers()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailPokemonFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DetailPokemonFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun getDetailPokemon() {
+        viewModel.getDetailPokemon(pokemonBasicModel)
     }
+
+    private fun setObservers() {
+        viewModel.pokemon.observe(viewLifecycleOwner, { state ->
+            when (state) {
+                is UIStateDetailPokemon.Loading -> handlerLoading()
+                is UIStateDetailPokemon.Success -> handlerSuccess(state.data)
+                is UIStateDetailPokemon.Error -> handlerError(state.errorMessage)
+            }
+        })
+    }
+
+    private fun handlerLoading() {
+        binding.vfDetailPokemon.displayedChild =
+            binding.vfDetailPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)
+    }
+
+    private fun handlerSuccess(pokemonModel: PokemonModel) {
+        binding.vfDetailPokemon.displayedChild =
+            binding.vfDetailPokemon.indexOfChild(binding.incDetailPokemon.cnlDetailLayout)
+        binding.incDetailPokemon.apply {
+            this.pokemonModel = pokemonModel
+            executePendingBindings()
+        }
+    }
+
+    private fun handlerError(errorMessage: String) {
+        binding.incErrorLayout.txvErrorMessage.text = errorMessage
+        binding.vfDetailPokemon.displayedChild =
+            binding.vfDetailPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+    }
+
 }

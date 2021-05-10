@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
 
 data class PokemonResDto(
     @Json(name = "id")
-    val id: Int,
+    val webId: Int,
     @Json(name = "name")
     val name: String,
     @Json(name = "order")

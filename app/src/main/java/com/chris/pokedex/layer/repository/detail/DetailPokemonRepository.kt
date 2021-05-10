@@ -1,13 +1,12 @@
-package com.chris.pokedex.source.remote.dataSource.pokemon
+package com.chris.pokedex.layer.repository.detail
 
 import com.chris.pokedex.layer.model.PokemonBasicModel
-import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.uiState.UIState
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
-import com.chris.pokedex.utils.uiState.UIStateListPokemon
 import kotlinx.coroutines.flow.Flow
 
-interface PokemonRemoteDataSource {
-    suspend fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon>
+interface DetailPokemonRepository {
+
     suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon>
+
 }

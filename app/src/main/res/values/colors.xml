@@ -2,7 +2,7 @@
 <resources>
     <!--Base Colors-->
     <color name="primary">#D8625E</color>
-    <color name="primary_dark">#FE9189</color>
+    <color name="primary_light">#FE9189</color>
 
     <color name="accent">#F0F3F4</color>
     <color name="accent_dark">#C9CED1</color>
@@ -15,26 +15,27 @@
     <!--Basic Colors-->
     <color name="white">#F2F2F2</color>
     <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
 
     <!--Type Colors-->
-    <color name="type_bug">#A8B820</color>
-    <color name="type_dark">#705848</color>
-    <color name="type_dragon">#7038F8</color>
-    <color name="type_electric">#F8D030</color>
-    <color name="type_fairy">#EE99AC</color>
-    <color name="type_fighting">#C03028</color>
-    <color name="type_fire">#F08030</color>
-    <color name="type_flying">#A890F0</color>
-    <color name="type_ghost">#705898</color>
-    <color name="type_grass">#78C850</color>
-    <color name="type_ground">#E0C068</color>
-    <color name="type_ice">#98D8D8</color>
-    <color name="type_normal">#A8A878</color>
-    <color name="type_poison">#A040A0</color>
-    <color name="type_psychic">#F85888</color>
-    <color name="type_rock">#B8A038</color>
-    <color name="type_steel">#B8B8D0</color>
-    <color name="type_water">#6890F0</color>
-    <color name="type_unknown">#68A090</color>
+    <color name="type_bug_color">#A8B820</color>
+    <color name="type_dark_color">#705848</color>
+    <color name="type_dragon_color">#7038F8</color>
+    <color name="type_electric_color">#F8D030</color>
+    <color name="type_fairy_color">#EE99AC</color>
+    <color name="type_fighting_color">#C03028</color>
+    <color name="type_fire_color">#F08030</color>
+    <color name="type_flying_color">#A890F0</color>
+    <color name="type_ghost_color">#705898</color>
+    <color name="type_grass_color">#78C850</color>
+    <color name="type_ground_color">#E0C068</color>
+    <color name="type_ice_color">#98D8D8</color>
+    <color name="type_normal_color">#A8A878</color>
+    <color name="type_poison_color">#A040A0</color>
+    <color name="type_psychic_color">#F85888</color>
+    <color name="type_rock_color">#B8A038</color>
+    <color name="type_steel_color">#B8B8D0</color>
+    <color name="type_water_color">#6890F0</color>
+    <color name="type_unknown_color">#68A090</color>
 
 </resources>

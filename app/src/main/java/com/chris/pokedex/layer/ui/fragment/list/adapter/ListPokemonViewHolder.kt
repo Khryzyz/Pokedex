@@ -28,21 +28,11 @@ class ListPokemonViewHolder(private val binding: ItemListPokemonBinding) :
         item: PokemonBasicModel,
         clickListener: ClickItemPokemon
     ) {
-
         binding.apply {
-
             pokemonBasicModel = item
-
             clickItemPokemon = clickListener
-
-            val urlSprite =
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${item.id}.gif"
-
-            Glide.with(itemView.context).load(urlSprite).into(imvSprite);
-
             executePendingBindings()
         }
-
     }
 
 }

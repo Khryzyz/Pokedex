@@ -5,10 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SpriteModel(
-    val officialArtwor: String,
+    val officialArtwork: String,
     val generationI: String = "",
     val generationII: String = "",
     val generationIII: String = "",
     val generationIV: String = "",
-
-    ) : Parcelable {}
+) : Parcelable {}

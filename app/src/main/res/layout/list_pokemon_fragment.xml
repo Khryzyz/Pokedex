@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vfListPokemon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".layer.ui.fragment.list.ListPokemonFragment">
 
-    <ViewFlipper
-        android:id="@+id/flipper_post"
+    <include
+        android:id="@+id/incLoadLayout"
+        layout="@layout/layout_load" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcwListPokemon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_list_pokemon" />
 
-        <include
-            android:id="@+id/incLoadLayout"
-            layout="@layout/layout_load" />
+    <include
+        android:id="@+id/incErrorLayout"
+        layout="@layout/layout_error" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcw_list_pokemon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_list_pokemon" />
-
-        <include
-            android:id="@+id/incErrorLayout"
-            layout="@layout/layout_error" />
-
-    </ViewFlipper>
-
-</LinearLayout>
+</ViewFlipper>

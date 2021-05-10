@@ -8,8 +8,11 @@ import retrofit2.http.Path
 
 interface Api {
 
-    @GET(ApiConstants.DETAIL_GENERATION)
-    suspend fun getDetailGeneration(@Path("generation") generationId: Int): Response<GenerationResDTO>
+    @GET(ApiConstants.LIST_POKEMON)
+    suspend fun getListPokemon(@Path("generationId") generationId: Int): Response<GenerationResDTO>
+
+    @GET(ApiConstants.DETAIL_POKEMON)
+    suspend fun getDetailPokemon(@Path("pokemonId") pokemonId: Int): Response<PokemonResDto>
 
     @GET(ApiConstants.DETAIL_POKEMON)
     suspend fun getDetailPokemon(@Path("pokemonName") pokemonName: String): Response<PokemonResDto>

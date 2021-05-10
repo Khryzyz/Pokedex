@@ -2,6 +2,7 @@ package com.chris.pokedex.di.layer.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonViewModel
 import com.chris.pokedex.utils.viewModel.ViewModelFactory
 import com.chris.pokedex.utils.viewModel.ViewModelKey
 import com.chris.pokedex.layer.ui.fragment.list.ListPokemonViewModel
@@ -19,5 +20,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ListPokemonViewModel::class)
     internal abstract fun bindsListPokemonViewModel(viewModel: ListPokemonViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailPokemonViewModel::class)
+    internal abstract fun bindsDetailPokemonViewModel(viewModel: DetailPokemonViewModel): ViewModel
+
 
 }

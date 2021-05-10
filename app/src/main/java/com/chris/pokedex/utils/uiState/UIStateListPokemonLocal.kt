@@ -8,6 +8,6 @@ sealed class UIStateListPokemonLocal {
     class Success(val listPokemonModel: List<PokemonBasicModel>) : UIStateListPokemonLocal()
     class Progress(val progress: Int, val total: Int) : UIStateListPokemonLocal()
     object Load : UIStateListPokemonLocal()
-    class Error(val message: String) : UIStateListPokemonLocal()
+    class Error(val errorMessage: String) : UIStateListPokemonLocal()
 
 }

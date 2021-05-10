@@ -3,6 +3,7 @@ package com.chris.pokedex.layer.model
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
 @Parcelize
 data class PokemonBasicModel(
@@ -10,7 +11,7 @@ data class PokemonBasicModel(
     val name: String = "",
     val url: String = "",
     val generation: Int = 1
-) : Parcelable {
+) : Serializable, Parcelable {
 
     companion object {
 

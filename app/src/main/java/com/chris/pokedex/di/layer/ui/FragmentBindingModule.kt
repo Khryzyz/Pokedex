@@ -1,6 +1,6 @@
 package com.chris.pokedex.di.layer.ui
 
-import com.chris.pokedex.base.BaseFragment
+import com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -9,9 +9,9 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector
-    abstract fun contributesBaseFragment(): BaseFragment
+    abstract fun contributesListPokemonFragment(): ListPokemonFragment
 
     @ContributesAndroidInjector
-    abstract fun contributesListPokemonFragment(): ListPokemonFragment
+    abstract fun contributesDetailPokemonFragment(): DetailPokemonFragment
 
 }
