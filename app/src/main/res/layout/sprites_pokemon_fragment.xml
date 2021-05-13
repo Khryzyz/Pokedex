@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="pokemonModel"
+            type="com.chris.pokedex.layer.model.PokemonModel" />
+    </data>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true"
+        android:stretchColumns="1,2">
+
+        <TableRow android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                style="@style/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_title_generation_first" />
+
+            <ImageView
+                android:id="@+id/imvGenerationFirstFront"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationI}" />
+
+            <ImageView
+                android:id="@+id/imvGenerationFirstBack"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationI}" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                style="@style/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_title_generation_second" />
+
+            <ImageView
+                android:id="@+id/imvGenerationSecondFront"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintEnd_toEndOf="@+id/imvGenerationFirstFront"
+                app:layout_constraintStart_toStartOf="@+id/imvGenerationFirstFront"
+                app:layout_constraintTop_toBottomOf="@+id/imvGenerationFirstFront"
+                binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationII}" />
+
+            <ImageView
+                android:id="@+id/imvGenerationSecondBack"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintEnd_toEndOf="@+id/imvGenerationFirstBack"
+                app:layout_constraintStart_toStartOf="@+id/imvGenerationFirstBack"
+                app:layout_constraintTop_toBottomOf="@+id/imvGenerationFirstBack"
+                binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationII}" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                style="@style/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_title_generation_third" />
+
+            <ImageView
+                android:id="@+id/imvGenerationThirdFront"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationIII}" />
+
+            <ImageView
+                android:id="@+id/imvGenerationThirdBack"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationIII}" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/text_title_generation_fourth" />
+
+            <ImageView
+                android:id="@+id/imvGenerationFourthFront"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationIV}" />
+
+            <ImageView
+                android:id="@+id/imvGenerationFourthBack"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationIV}" />
+        </TableRow>
+    </TableLayout>
+
+</layout>

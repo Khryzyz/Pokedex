@@ -4,5 +4,5 @@ import com.squareup.moshi.Json
 
 data class MovesResDto(
     @Json(name = "move")
-    val move: MoveBasicResDto,
+    val move: MoveResDto,
 )

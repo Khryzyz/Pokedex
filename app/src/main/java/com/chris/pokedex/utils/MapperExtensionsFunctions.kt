@@ -7,23 +7,24 @@ import com.chris.pokedex.source.local.entity.PokemonEntity
 import com.chris.pokedex.source.remote.dto.generation.GenerationResDTO
 import com.chris.pokedex.source.remote.dto.generation.PokemonBasicResDto
 import com.chris.pokedex.source.remote.dto.pokemon.PokemonResDto
+import com.chris.pokedex.source.remote.dto.pokemon.move.MovesResDto
 import com.chris.pokedex.source.remote.dto.pokemon.sprite.SpriteResDto
 import com.chris.pokedex.source.remote.dto.pokemon.type.TypesResDto
 
 //Region Generation
 fun GenerationResDTO.toModel(): GenerationModel = GenerationModel(
     id = id,
-    name = name,
-    listPokemonBasicModel = pokemonBasicResDto.toListModel(id)
+    name = name.toUpperCase(),
+    listPokemonBasicModel = pokemonBasicResDto.pokemonBasicResDtoToListModel(id)
 )
 
-fun List<PokemonBasicResDto>.toListModel(generationId: Int): List<PokemonBasicModel> {
+fun List<PokemonBasicResDto>.pokemonBasicResDtoToListModel(generationId: Int): List<PokemonBasicModel> {
     return map { it.toModel(generationId) }
 }
 
 fun PokemonBasicResDto.toModel(generationId: Int): PokemonBasicModel = PokemonBasicModel(
     id = url.removePrefix("https://pokeapi.co/api/v2/pokemon-species/").removeSuffix("/").toInt(),
-    name = name,
+    name = name.toUpperCase(),
     url = url,
     generation = generationId
 )
@@ -41,12 +42,13 @@ fun GenerationResDTO.toEntity(): GenerationEntity = GenerationEntity(
 fun PokemonResDto.toModel(pokemonBasicModel: PokemonBasicModel): PokemonModel {
     return PokemonModel(
         webId = webId,
-        name = name,
+        name = name.toUpperCase(),
         order = order,
         height = height,
         weight = weight,
         generationId = pokemonBasicModel.generation.toLong(),
-        types = types.toListModel(),
+        moves = moves.movesResDtoToListModel(),
+        types = types.typesResDtoToListModel(),
         sprites = sprites.toModel(),
     )
 }
@@ -55,7 +57,7 @@ fun PokemonResDto.toEntity(generationId: Long): PokemonEntity {
     return PokemonEntity(
         id = 0,
         webId = webId,
-        name = name,
+        name = name.toUpperCase(),
         order = order,
         height = height,
         weight = weight,
@@ -68,8 +70,39 @@ fun PokemonResDto.toEntity(generationId: Long): PokemonEntity {
 
 //endregion
 
+//Region Moves
+
+fun List<MovesResDto>.movesResDtoToListModel(): List<MoveModel> {
+    return map { it.toModel() }.sortedBy { it.name }
+}
+
+fun MovesResDto.toModel(): MoveModel = MoveModel(
+    name = move.name,
+    url = move.url
+)
+
+//endregion
+
+//Region Sprites
+
+fun SpriteResDto.toModel(): SpriteModel {
+    return SpriteModel(
+        officialArtwork = officialArtwork.image.frontDefault ?: "",
+        frontGenerationI = versionSprite.generationI.image?.frontDefault ?: "",
+        backGenerationI = versionSprite.generationI.image?.backDefault ?: "",
+        frontGenerationII = versionSprite.generationII.image?.frontDefault ?: "",
+        backGenerationII = versionSprite.generationII.image?.backDefault ?: "",
+        frontGenerationIII = versionSprite.generationIII.image?.frontDefault ?: "",
+        backGenerationIII = versionSprite.generationIII.image?.backDefault ?: "",
+        frontGenerationIV = versionSprite.generationIV.image?.frontDefault ?: "",
+        backGenerationIV = versionSprite.generationIV.image?.backDefault ?: "",
+    )
+}
+
+//endregion
+
 //Region Types
-fun List<TypesResDto>.toListModel(): List<TypeModel> {
+fun List<TypesResDto>.typesResDtoToListModel(): List<TypeModel> {
     return map { it.toModel() }
 }
 
@@ -190,18 +223,4 @@ fun TypesResDto.toModel(): TypeModel {
         typeColor = typeColor
     )
 }
-//endregion
-
-//Region Sprites
-
-fun SpriteResDto.toModel(): SpriteModel {
-    return SpriteModel(
-        officialArtwork = officialArtwork.image.frontDefault ?: "",
-        generationI = versionSprite.generationI.image?.frontDefault ?: "",
-        generationII = versionSprite.generationII.image?.frontDefault ?: "",
-        generationIII = versionSprite.generationIII.image?.frontDefault ?: "",
-        generationIV = versionSprite.generationIV.image?.frontDefault ?: "",
-    )
-}
-
 //endregion

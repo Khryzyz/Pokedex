@@ -7,7 +7,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.chris.pokedex.R
 import com.chris.pokedex.utils.glide.GlideManager
-import com.google.android.material.appbar.AppBarLayout
 
 @BindingAdapter("loadArtwork")
 fun bindLoadArtwork(imageView: ImageView, imageUrl: String?) {
@@ -19,10 +18,10 @@ fun bindLoadArtwork(imageView: ImageView, imageUrl: String?) {
     }
 }
 
-@BindingAdapter("loadType")
-fun bindLoadType(imageView: ImageView, drawable: Int) {
+@BindingAdapter("loadDrawable")
+fun bindLoadDrawable(imageView: ImageView, drawable: Int) {
     if (drawable != 0) {
-        GlideManager.loadType(
+        GlideManager.loadDrawable(
             target = imageView,
             drawable = drawable
         )
@@ -31,15 +30,32 @@ fun bindLoadType(imageView: ImageView, drawable: Int) {
 
 @BindingAdapter("loadSprite")
 fun bindLoadSprite(imageView: ImageView, pokemonId: Int?) {
-
     if (pokemonId != 0) {
-
         val urlSprite =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif"
-
-        GlideManager.loadSprite(
+        GlideManager.loadAnimatedSprite(
             target = imageView,
             urlSprite = urlSprite
+        )
+    }
+}
+
+@BindingAdapter("loadStaticSprite")
+fun bindLoadStaticSprite(imageView: ImageView, pokemonUrl: String) {
+    if (pokemonUrl != "") {
+        GlideManager.loadStaticSprite(
+            target = imageView,
+            urlSprite = pokemonUrl
+        )
+    }else{
+//        val drawable = ResourcesCompat.getDrawable(
+//            imageView.context.resources,
+//            R.mipmap.bg_pokeball,
+//            null
+//        )
+        GlideManager.loadDrawable(
+            target = imageView,
+            drawable = R.mipmap.bg_pokeball
         )
     }
 }

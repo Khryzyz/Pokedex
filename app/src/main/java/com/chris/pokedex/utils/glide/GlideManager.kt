@@ -24,7 +24,7 @@ object GlideManager {
             .into(target)
     }
 
-    fun loadType(target: ImageView, drawable: Int?) {
+    fun loadDrawable(target: ImageView, drawable: Int?) {
         val options: RequestOptions = RequestOptions()
             .placeholder(R.mipmap.loading)
             .error(R.mipmap.type_normal_name)
@@ -39,7 +39,7 @@ object GlideManager {
             .into(target)
     }
 
-    fun loadSprite(target: ImageView, urlSprite: String) {
+    fun loadAnimatedSprite(target: ImageView, urlSprite: String) {
 
         val options: RequestOptions = RequestOptions()
             .placeholder(R.mipmap.loading)
@@ -50,6 +50,22 @@ object GlideManager {
 
         Glide.with(target.context)
             .asGif()
+            .apply(options)
+            .load(urlSprite)
+            .into(target)
+    }
+
+    fun loadStaticSprite(target: ImageView, urlSprite: String) {
+
+        val options: RequestOptions = RequestOptions()
+            .placeholder(R.mipmap.loading)
+            .error(R.mipmap.default_animated)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH)
+            .dontTransform()
+
+        Glide.with(target.context)
+            .asBitmap()
             .apply(options)
             .load(urlSprite)
             .into(target)

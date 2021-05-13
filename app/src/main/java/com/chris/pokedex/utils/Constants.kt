@@ -6,7 +6,8 @@ class Constants {
 
     object BundleKeys {
         const val GENERATION = "generation"
-        const val POKEMON = "pokemon_id"
+        const val POKEMON_ID = "pokemon_id"
+        const val POKEMON_DETAIL = "pokemon_detail"
     }
 
     enum class Generation constructor(val id: Int) : Serializable {

@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <!-- Customize your theme here. -->
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style name="appBar" parent="Theme.Pokedex">
@@ -36,7 +37,12 @@
     </style>
 
     <style name="itemListPokemon" parent="Theme.Pokedex">
-        <item name="android:background">@drawable/shape_bg_item_dark</item>
+        <item name="android:background">@drawable/shape_bg_item_pokemon_dark</item>
+    </style>
+
+    <style name="itemListMove" parent="Theme.Pokedex">
+        <item name="android:background">@drawable/shape_bg_item_movement_dark</item>
+        <item name="elevation">4dp</item>
     </style>
 
     <style name="tabLayout" parent="Theme.Pokedex">
@@ -66,15 +72,22 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="textViewBody.Item" parent="textViewBodyGeneral">
+    <style name="textViewBody.ItemPokemon" parent="textViewBodyGeneral">
         <item name="android:shadowColor">@color/accent_dark</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">@dimen/text_item_size</item>
+        <item name="android:textSize">@dimen/text_item_pokemon_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textViewBody.ItemMove" parent="textViewBodyGeneral">
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_item_move_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="textViewBody.DetailNumber" parent="textViewBodyGeneral">
@@ -95,6 +108,16 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_detail_name_size</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textViewBody.DetailInfo" parent="textViewBodyGeneral">
+        <item name="android:shadowColor">@color/accent_dark</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.MainActivityBinding
 import com.chris.pokedex.utils.Constants
@@ -42,13 +42,14 @@ class MainActivity : AppCompatActivity(),
                 R.id.secondGenFragment,
                 R.id.thirdGenFragment,
                 R.id.fourthGenFragment
-            ), binding.drawerLayout
+            )
         )
+
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 
         binding.bottomNavView.setOnNavigationItemSelectedListener(this)
 
-        //Se bloquea el Swipe al drawer
-        binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        binding.bottomNavView.itemIconTintList = null;
 
         setOnDestinationChangedListener()
     }
@@ -77,9 +78,6 @@ class MainActivity : AppCompatActivity(),
      * Escuchador del item seleccionado para la navegacion
      */
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-
-        binding.drawerLayout.closeDrawers()
-
         when (menuItem.itemId) {
             R.id.firstGenItem -> navController.navigate(
                 R.id.firstGenFragment,

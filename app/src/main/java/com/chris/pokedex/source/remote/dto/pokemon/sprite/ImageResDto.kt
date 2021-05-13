@@ -4,5 +4,7 @@ import com.squareup.moshi.Json
 
 data class ImageResDto(
     @Json(name = "front_default")
-    val frontDefault: String?
+    val frontDefault: String?,
+    @Json(name = "back_default")
+    val backDefault: String?
 )

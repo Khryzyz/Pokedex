@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cnlDetailHeaderLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <FrameLayout
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
-            android:text="@{pokemonModel.name.toUpperCase()}"
+            android:text="@{pokemonModel.name}"
             app:layout_constraintBottom_toBottomOf="@+id/flyBackgroundPokemon"
             app:layout_constraintStart_toStartOf="@id/flyBackgroundPokemon"
             tools:text="Charizard" />
@@ -72,7 +72,7 @@
             android:src="@mipmap/type_normal_name"
             app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
             app:layout_constraintTop_toTopOf="@id/flyBackgroundPokemon"
-            binding:loadType="@{pokemonModel.types[0].typeImage}"
+            binding:loadDrawable="@{pokemonModel.types[0].typeImage}"
             tools:src="@mipmap/type_fire_name" />
 
         <ImageView
@@ -80,10 +80,10 @@
             android:layout_width="100dp"
             android:layout_height="22dp"
             android:src="@mipmap/type_normal_name"
-            android:visibility="@{pokemonModel.types.size>0 ? View.VISIBLE : View.GONE}"
+            android:visibility="@{pokemonModel.types.size>1 ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="@+id/flyBackgroundPokemon"
             app:layout_constraintTop_toBottomOf="@id/imvTypeFirst"
-            binding:loadType="@{pokemonModel.types[1].typeImage}"
+            binding:loadDrawable="@{pokemonModel.types[1].typeImage}"
             tools:src="@mipmap/type_flying_name"
             tools:visibility="visible" />
 

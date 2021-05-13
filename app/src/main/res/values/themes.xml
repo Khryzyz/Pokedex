@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style name="appBar" parent="Theme.Pokedex">
@@ -35,12 +36,17 @@
     </style>
 
     <style name="itemListPokemon" parent="Theme.Pokedex">
-        <item name="android:background">@drawable/shape_bg_item_light</item>
+        <item name="android:background">@drawable/shape_bg_item_pokemon_light</item>
+    </style>
+
+    <style name="itemListMove" parent="Theme.Pokedex">
+        <item name="android:background">@drawable/shape_bg_item_movement_light</item>
+        <item name="elevation">4dp</item>
     </style>
 
     <style name="tabLayout" parent="Theme.Pokedex">
         <item name="android:layout_gravity">bottom</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/design_default_color_background</item>
         <item name="tabIndicatorColor">@color/primary</item>
         <item name="tabRippleColor">@color/primary_light</item>
         <item name="tabSelectedTextColor">@color/primary</item>
@@ -66,15 +72,22 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="textViewBody.Item" parent="textViewBodyGeneral">
+    <style name="textViewBody.ItemPokemon" parent="textViewBodyGeneral">
         <item name="android:shadowColor">@color/black</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">@dimen/text_item_size</item>
+        <item name="android:textSize">@dimen/text_item_pokemon_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="textViewBody.ItemMove" parent="textViewBodyGeneral">
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_item_move_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="textViewBody.DetailNumber" parent="textViewBodyGeneral">
@@ -95,6 +108,16 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_detail_name_size</item>
         <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="textViewBody.DetailInfo" parent="textViewBodyGeneral">
+        <item name="android:shadowColor">@color/accent_dark</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

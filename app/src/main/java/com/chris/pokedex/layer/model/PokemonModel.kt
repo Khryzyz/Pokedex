@@ -3,6 +3,7 @@ package com.chris.pokedex.layer.model
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
 @Parcelize
 data class PokemonModel(
@@ -13,9 +14,10 @@ data class PokemonModel(
     val height: Int,
     val weight: Int,
     val generationId: Long,
+    val moves: List<MoveModel>,
     val types: List<TypeModel>,
     val sprites: SpriteModel,
-) : Parcelable {
+) : Serializable, Parcelable {
 
     companion object {
         val DiffCallBack = object : DiffUtil.ItemCallback<PokemonModel>() {

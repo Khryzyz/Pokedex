@@ -3,7 +3,7 @@ package com.chris.pokedex.source.remote.dataSource.pokemon
 import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.source.remote.Api
 import com.chris.pokedex.utils.Constants
-import com.chris.pokedex.utils.toListModel
+import com.chris.pokedex.utils.pokemonBasicResDtoToListModel
 import com.chris.pokedex.utils.toModel
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import com.chris.pokedex.utils.uiState.UIStateListPokemon
@@ -26,7 +26,7 @@ class PokemonRemoteDataSourceImp
                         emit(
                             UIStateListPokemon.Success(
                                 generationResDTO.pokemonBasicResDto
-                                    .toListModel(generationResDTO.id)
+                                    .pokemonBasicResDtoToListModel(generationResDTO.id)
                                     .sortedBy { it.id }
                             )
                         )

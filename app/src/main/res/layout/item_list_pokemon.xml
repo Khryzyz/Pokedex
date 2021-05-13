@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/txvId"
-                style="@style/textViewBody.Item"
+                style="@style/textViewBody.ItemPokemon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_small"
@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/txvName"
-                style="@style/textViewBody.Item"
+                style="@style/textViewBody.ItemPokemon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"

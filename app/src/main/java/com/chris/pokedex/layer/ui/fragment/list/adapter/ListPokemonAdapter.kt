@@ -5,8 +5,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.chris.pokedex.layer.model.PokemonBasicModel
 
 class ListPokemonAdapter(private val clickItemPokemon: ClickItemPokemon) :
-    ListAdapter<PokemonBasicModel,
-            ListPokemonViewHolder>(PokemonBasicModel.DiffCallBack) {
+    ListAdapter<PokemonBasicModel, ListPokemonViewHolder>(PokemonBasicModel.DiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPokemonViewHolder {
         return ListPokemonViewHolder.from(parent)

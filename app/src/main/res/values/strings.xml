@@ -10,5 +10,19 @@
     <string name="lista_pokemon_votados">Lista Pokémon Votados</string>
     <string name="error_title">¡¡¡Oh No, El Digglet de los problemas ha encontrado un error!!!</string>
     <string name="text_loading">Cargando: %1$d de %2$d</string>
+    <string name="text_info">Información</string>
+    <string name="text_movements">Movimientos</string>
+    <string name="text_sprites">Sprites</string>
+    <!-- Info Pokemon -->
+    <string name="text_number_pokemon">Pokédex Regional: %1$s</string>
+    <string name="text_national_pokemon">Pokédex Nacional: %1$s</string>
+    <string name="text_height_pokemon">Altura: %1$s pies</string>
+    <string name="text_weight_pokemon">Peso: %1$s Kg</string>
+    <string name="text_ability_pokemon">Habilidad: %1$s</string>
+    <string name="text_abilities_pokemon">Habilidades: %1$s, %2$s</string>
+    <string name="text_title_generation_first">Primera Generación</string>
+    <string name="text_title_generation_second">Segunda Generación</string>
+    <string name="text_title_generation_third">Tercera Generación</string>
+    <string name="text_title_generation_fourth">Cuarta Generación</string>
 
 </resources>

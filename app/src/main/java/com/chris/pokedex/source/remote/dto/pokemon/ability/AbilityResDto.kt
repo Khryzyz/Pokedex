@@ -1,8 +1,8 @@
-package com.chris.pokedex.source.remote.dto.pokemon.move
+package com.chris.pokedex.source.remote.dto.pokemon.ability
 
 import com.squareup.moshi.Json
 
-data class MoveBasicResDto(
+data class AbilityResDto(
     @Json(name = "name")
     val name: String,
     @Json(name = "url")

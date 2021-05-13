@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
-import androidx.databinding.adapters.SeekBarBindingAdapter.setProgress
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.chris.pokedex.R
@@ -103,7 +102,7 @@ class ListPokemonFragment :
                 R.id.detailPokemonFragment,
                 Bundle().apply {
                     putSerializable(
-                        Constants.BundleKeys.POKEMON,
+                        Constants.BundleKeys.POKEMON_ID,
                         pokemonBasicModel
                     )
                 }

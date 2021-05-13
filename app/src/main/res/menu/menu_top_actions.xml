@@ -5,14 +5,14 @@
 
     <item
         android:id="@+id/votePokemon"
-        android:icon="@drawable/ic_number_one"
+        android:icon="@drawable/ic_tinder_icon"
         android:title="@string/votar_pokemon"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white" />
 
     <item
         android:id="@+id/listPokemonVoted"
-        android:icon="@drawable/ic_number_two"
+        android:icon="@drawable/ic_list_voted"
         android:title="@string/lista_pokemon_votados"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white" />

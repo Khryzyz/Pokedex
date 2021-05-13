@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickItemMove"
+            type="com.chris.pokedex.layer.ui.fragment.movements.adapter.ClickItemMove" />
+
+        <variable
+            name="moveModel"
+            type="com.chris.pokedex.layer.model.MoveModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/margin_small"
+        android:onClick="@{()-> clickItemMove.onClickDialogDetail(moveModel)}">
+
+        <FrameLayout
+            style="@style/itemListMove"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/txvName"
+                style="@style/textViewBody.ItemMove"
+                android:layout_marginStart="@dimen/margin_large"
+                android:text="@{moveModel.name}"
+                tools:text="@tools:sample/lorem" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
