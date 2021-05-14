@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            binding:loadBackground="@{pokemonModel.types[0].typeColor}"
+            binding:loadGradientBackground="@{pokemonModel.types[0].typeColor}"
             tools:background="@drawable/shape_gradient" />
 
         <ImageView

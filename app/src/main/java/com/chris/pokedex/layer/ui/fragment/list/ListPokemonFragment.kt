@@ -102,7 +102,7 @@ class ListPokemonFragment :
                 R.id.detailPokemonFragment,
                 Bundle().apply {
                     putSerializable(
-                        Constants.BundleKeys.POKEMON_ID,
+                        Constants.BundleKeys.POKEMON_BASIC,
                         pokemonBasicModel
                     )
                 }

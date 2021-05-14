@@ -31,7 +31,9 @@
 
     <dimen name="text_item_pokemon_size">20sp</dimen>
 
-    <dimen name="text_item_move_size">14sp</dimen>
+    <dimen name="text_item_move_title_size">20sp</dimen>
+
+    <dimen name="text_item_move_body_size">14sp</dimen>
 
     <dimen name="text_detail_number_size">28sp</dimen>
 

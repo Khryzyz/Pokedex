@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.chris.pokedex.databinding.ItemListMoveBinding
-import com.chris.pokedex.layer.model.MoveModel
+import com.chris.pokedex.layer.model.MoveBasicModel
 
 class ListMoveViewHolder(private val binding: ItemListMoveBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -22,7 +22,7 @@ class ListMoveViewHolder(private val binding: ItemListMoveBinding) :
     }
 
     fun bind(
-        item: MoveModel,
+        item: MoveBasicModel,
         clickListener: ClickItemMove
     ) {
         binding.apply {

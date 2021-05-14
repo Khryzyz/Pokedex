@@ -1,10 +1,7 @@
 package com.chris.pokedex.layer.ui.fragment.detail
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
@@ -37,7 +34,7 @@ class DetailPokemonFragment :
         super.onCreate(savedInstanceState)
         arguments?.let {
             pokemonBasicModel =
-                it.getSerializable(Constants.BundleKeys.POKEMON_ID) as PokemonBasicModel
+                it.getSerializable(Constants.BundleKeys.POKEMON_BASIC) as PokemonBasicModel
         }
     }
 

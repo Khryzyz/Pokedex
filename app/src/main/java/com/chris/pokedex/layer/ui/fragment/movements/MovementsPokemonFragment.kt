@@ -3,8 +3,9 @@ package com.chris.pokedex.layer.ui.fragment.movements
 import android.os.Bundle
 import android.view.View
 import com.chris.pokedex.databinding.MovementsPokemonFragmentBinding
-import com.chris.pokedex.layer.model.MoveModel
+import com.chris.pokedex.layer.model.MoveBasicModel
 import com.chris.pokedex.layer.model.PokemonModel
+import com.chris.pokedex.layer.ui.dialog.move.MoveDialogFragment
 import com.chris.pokedex.layer.ui.fragment.movements.adapter.ClickItemMove
 import com.chris.pokedex.layer.ui.fragment.movements.adapter.ListMoveAdapter
 import com.chris.pokedex.utils.Constants
@@ -35,7 +36,7 @@ class MovementsPokemonFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setAdapter()
-        adapter.submitList(pokemonModel.moves)
+        adapter.submitList(pokemonModel.moveBasics)
     }
 
     private fun setAdapter() {
@@ -46,8 +47,8 @@ class MovementsPokemonFragment :
 
     //region Listeners
     private var clickItemMove = object : ClickItemMove {
-        override fun onClickDialogDetail(moveModel: MoveModel) {
-
+        override fun onClickDialogDetail(moveBasicModel: MoveBasicModel) {
+            MoveDialogFragment.newInstance(moveBasicModel).show(childFragmentManager, "MoveDialog")
         }
     }
     //endregion

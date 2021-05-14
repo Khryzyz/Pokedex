@@ -6,4 +6,6 @@ object ApiConstants {
     const val LIST_POKEMON = "generation/{generationId}"
 
     const val DETAIL_POKEMON = "pokemon/{pokemonId}"
+
+    const val DETAIL_MOVE= "move/{moveId}"
 }

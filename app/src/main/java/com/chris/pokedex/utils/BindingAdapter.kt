@@ -1,9 +1,11 @@
-package com.chris.pokedex.layer.ui
+package com.chris.pokedex.utils
 
 import android.graphics.drawable.GradientDrawable
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
 import com.chris.pokedex.R
 import com.chris.pokedex.utils.glide.GlideManager
@@ -47,12 +49,7 @@ fun bindLoadStaticSprite(imageView: ImageView, pokemonUrl: String) {
             target = imageView,
             urlSprite = pokemonUrl
         )
-    }else{
-//        val drawable = ResourcesCompat.getDrawable(
-//            imageView.context.resources,
-//            R.mipmap.bg_pokeball,
-//            null
-//        )
+    } else {
         GlideManager.loadDrawable(
             target = imageView,
             drawable = R.mipmap.bg_pokeball
@@ -60,8 +57,8 @@ fun bindLoadStaticSprite(imageView: ImageView, pokemonUrl: String) {
     }
 }
 
-@BindingAdapter("loadBackground")
-fun bindLoadBackground(frameLayout: FrameLayout, color: Int) {
+@BindingAdapter("loadGradientBackground")
+fun bindLoadGradientBackground(frameLayout: FrameLayout, color: Int) {
     if (color != 0) {
         val gradient = GradientDrawable(
             GradientDrawable.Orientation.BOTTOM_TOP,
@@ -81,5 +78,28 @@ fun bindLoadBackground(frameLayout: FrameLayout, color: Int) {
         gradient.shape = GradientDrawable.RECTANGLE
         gradient.cornerRadius = 10f
         frameLayout.setBackgroundDrawable(gradient)
+    }
+}
+
+@BindingAdapter("loadSolidBackground")
+fun bindLoadSolidBackground(frameLayout: FrameLayout, color: Int) {
+    if (color != 0) {
+
+        val colorAlpha= ColorUtils.setAlphaComponent(
+            ResourcesCompat.getColor(
+                frameLayout.context.resources,
+                color,
+                null
+            ), 60
+        )
+
+        frameLayout.setBackgroundColor(colorAlpha)
+    }
+}
+
+@BindingAdapter("loadDrawableTextview")
+fun bindLoadDrawableTextview(textView: TextView, drawable: Int) {
+    if (drawable != 0) {
+        textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawable, 0)
     }
 }

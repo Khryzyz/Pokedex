@@ -5,8 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chris.pokedex.layer.model.PokemonBasicModel
-import com.chris.pokedex.layer.repository.detail.DetailPokemonRepository
-import com.chris.pokedex.utils.uiState.UIState
+import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepository
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect

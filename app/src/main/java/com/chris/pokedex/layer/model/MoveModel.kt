@@ -7,9 +7,17 @@ import java.io.Serializable
 
 @Parcelize
 data class MoveModel(
+    val id: Int,
     val name: String,
-    val url: String
-) : Serializable, Parcelable {
+    val accuracy: Int,
+    val power: Int,
+    val pp: Int,
+    val type: TypeModel,
+    val damageClass: DamageClassModel,
+    val contestType: ContestTypeModel,
+    val effect: String,
+
+    ) : Serializable, Parcelable {
 
     companion object {
         val DiffCallBack = object : DiffUtil.ItemCallback<MoveModel>() {

@@ -35,6 +35,12 @@
         <item name="trackColor">@color/primary</item>
     </style>
 
+    <style name="separator" parent="Theme.Pokedex">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2sp</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
     <style name="itemListPokemon" parent="Theme.Pokedex">
         <item name="android:background">@drawable/shape_bg_item_pokemon_light</item>
     </style>
@@ -50,6 +56,18 @@
         <item name="tabIndicatorColor">@color/primary</item>
         <item name="tabRippleColor">@color/primary_light</item>
         <item name="tabSelectedTextColor">@color/primary</item>
+    </style>
+
+    <style name="buttonDialog" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="backgroundTint">@color/primary_light</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_down</item>
     </style>
 
     <style name="textViewTitle" parent="textViewTitleGeneral">
@@ -85,8 +103,23 @@
 
     <style name="textViewBody.ItemMove" parent="textViewBodyGeneral">
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">@dimen/text_item_move_size</item>
+        <item name="android:textSize">@dimen/text_item_move_body_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textViewBody.ItemMove.Title" parent="textViewBodyGeneral">
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_item_move_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textViewBody.ItemMove.Body" parent="textViewBodyGeneral">
+        <item name="android:textSize">@dimen/text_item_move_body_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/margin_default</item>
+        <item name="android:layout_marginBottom">@dimen/margin_large</item>
         <item name="android:textColor">@color/black</item>
     </style>
 

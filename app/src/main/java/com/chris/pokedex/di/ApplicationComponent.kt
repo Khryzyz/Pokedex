@@ -3,10 +3,14 @@ package com.chris.pokedex.di
 import android.app.Application
 import com.chris.pokedex.app.PokedexApplication
 import com.chris.pokedex.di.core.ApplicationModule
-import com.chris.pokedex.di.layer.RepositoryModule
+import com.chris.pokedex.di.layer.repository.DialogRepositoryModule
+import com.chris.pokedex.di.layer.repository.FragmentRepositoryModule
 import com.chris.pokedex.di.layer.ui.ActivityBindingModule
+import com.chris.pokedex.di.layer.ui.DialogBindingModule
 import com.chris.pokedex.di.layer.ui.FragmentBindingModule
-import com.chris.pokedex.di.layer.ui.ViewModelModule
+import com.chris.pokedex.di.layer.viewModel.DialogViewModelModule
+import com.chris.pokedex.di.layer.viewModel.FragmentViewModelModule
+import com.chris.pokedex.di.layer.viewModel.ViewModelFactoryModule
 import com.chris.pokedex.di.source.local.DaoModule
 import com.chris.pokedex.di.source.local.DatabaseModule
 import com.chris.pokedex.di.source.local.LocalDataSourceModule
@@ -26,11 +30,17 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         ApplicationModule::class,
 
-        //Layer
+        //Layer.UI
         ActivityBindingModule::class,
         FragmentBindingModule::class,
-        ViewModelModule::class,
-        RepositoryModule::class,
+        DialogBindingModule::class,
+        //Layer.ViewModel
+        ViewModelFactoryModule::class,
+        FragmentViewModelModule::class,
+        DialogViewModelModule::class,
+        //Layer.Repository
+        FragmentRepositoryModule::class,
+        DialogRepositoryModule::class,
 
         //Source Local
         DatabaseModule::class,

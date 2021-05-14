@@ -10,7 +10,7 @@
 
         <variable
             name="moveModel"
-            type="com.chris.pokedex.layer.model.MoveModel" />
+            type="com.chris.pokedex.layer.model.MoveBasicModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -22,13 +22,12 @@
         <FrameLayout
             style="@style/itemListMove"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:id="@+id/txvName"
                 style="@style/textViewBody.ItemMove"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/margin_large"
                 android:text="@{moveModel.name}"
                 tools:text="@tools:sample/lorem" />

@@ -14,7 +14,7 @@ data class PokemonModel(
     val height: Int,
     val weight: Int,
     val generationId: Long,
-    val moves: List<MoveModel>,
+    val moveBasics: List<MoveBasicModel>,
     val types: List<TypeModel>,
     val sprites: SpriteModel,
 ) : Serializable, Parcelable {

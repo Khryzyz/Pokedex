@@ -6,8 +6,10 @@ class Constants {
 
     object BundleKeys {
         const val GENERATION = "generation"
-        const val POKEMON_ID = "pokemon_id"
+        const val POKEMON_BASIC = "pokemon_basic"
         const val POKEMON_DETAIL = "pokemon_detail"
+        const val MOVE_BASIC = "move_bsic"
+        const val MOVE_DETAIL = "move_detail"
     }
 
     enum class Generation constructor(val id: Int) : Serializable {
@@ -38,6 +40,20 @@ class Constants {
         FAIRY("fairy"),
         UNKNOWN("unknown"),
         SHADOW("shadow"),
+    }
+
+    enum class ContestTypes constructor(val type: String) : Serializable {
+        BEAUTY("beauty"),
+        CLEVER("clever"),
+        COOL("cool"),
+        CUTE("cute"),
+        TOUGH("tough"),
+    }
+
+    enum class DamageClasses constructor(val type: String) : Serializable {
+        SPECIAL("special"),
+        PHYSICAL("physical"),
+        STATUS("status"),
     }
 
 }

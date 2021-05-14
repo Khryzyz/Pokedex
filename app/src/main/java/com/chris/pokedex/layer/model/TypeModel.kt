@@ -8,8 +8,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TypeModel(
-    val slot: Int,
     val typeName: Constants.Types,
     val typeImage: Int,
+    val typeIcon: Int,
     val typeColor: Int
 ) : Parcelable {}

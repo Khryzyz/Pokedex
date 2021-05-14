@@ -13,6 +13,7 @@
     <string name="text_info">Información</string>
     <string name="text_movements">Movimientos</string>
     <string name="text_sprites">Sprites</string>
+    <string name="text_close_dialog">Cerrar</string>
     <!-- Info Pokemon -->
     <string name="text_number_pokemon">Pokédex Regional: %1$s</string>
     <string name="text_national_pokemon">Pokédex Nacional: %1$s</string>
@@ -24,5 +25,13 @@
     <string name="text_title_generation_second">Segunda Generación</string>
     <string name="text_title_generation_third">Tercera Generación</string>
     <string name="text_title_generation_fourth">Cuarta Generación</string>
+
+    <!-- Info Move -->
+    <string name="text_accuracy_move">Precisión: %1$d</string>
+    <string name="text_power_move">Potencia: %1$d</string>
+    <string name="text_pp_move">Puntos de Movimiento: %1$d</string>
+    <string name="text_damage_class_move">Clase de Daño: %1$s</string>
+    <string name="text_contest_type_move">Tipo de Concurso: %1$s</string>
+    <string name="text_effect_move">Efecto: %1$s</string>
 
 </resources>
