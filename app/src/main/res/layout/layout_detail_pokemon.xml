@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".layer.ui.fragment.detail.DetailPokemonFragment">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -12,54 +10,46 @@
             type="com.chris.pokedex.layer.model.PokemonModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cnlDetailLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include
+            android:id="@+id/incDetailHeaderPokemon"
+            layout="@layout/layout_resume_pokemon"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:pokemonModel="@{pokemonModel}" />
 
-            <include
-                android:id="@+id/incDetailHeaderPokemon"
-                layout="@layout/layout_detail_header_pokemon"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                bind:pokemonModel="@{pokemonModel}" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            style="@style/guideLineHorizontal"
+            app:layout_constraintGuide_percent="0.45" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.45" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            style="@style/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                style="@style/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/guideline" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerPokemon"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerPokemon"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="@dimen/margin_large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tabLayout" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

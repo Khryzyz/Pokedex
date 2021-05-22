@@ -1,5 +1,6 @@
 package com.chris.pokedex.source.remote.dataSource.pokemon
 
+import android.util.Log
 import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.source.remote.Api
 import com.chris.pokedex.utils.Constants
@@ -51,6 +52,55 @@ class PokemonRemoteDataSourceImp
                     }
                 } else {
                     emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
+                }
+            } catch (ex: Exception) {
+                emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))
+            }
+        }
+    }
+
+    override suspend fun getDetailPokemon(pokemonId: Int): Flow<UIStateDetailPokemon> {
+        return flow {
+            try {
+                emit(UIStateDetailPokemon.Loading)
+                val response = api.getDetailPokemon(pokemonId)
+                if (response.isSuccessful) {
+                    response.body()?.let { pokemonResDTO ->
+                        emit(UIStateDetailPokemon.Success(pokemonResDTO.toModel(null)))
+                    }
+                } else {
+                    emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
+                }
+            } catch (ex: Exception) {
+                emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))
+            }
+        }
+    }
+
+    override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
+        return flow {
+            try {
+                emit(UIStateDetailPokemon.Loading)
+                listPokemonId.forEachIndexed { index, item ->
+                    Log.e("getDetailPokemon", "index: $index total:${listPokemonId.size}")
+                    val response = api.getDetailPokemon(item)
+                    if (response.isSuccessful) {
+                        response.body()?.let { pokemonResDTO ->
+                            emit(
+                                UIStateDetailPokemon.Progress(
+                                    progress = index + 1,
+                                    total = listPokemonId.size,
+                                    pokemonModel = pokemonResDTO.toModel(null)
+                                )
+                            )
+                        }
+                    } else {
+                        emit(
+                            UIStateDetailPokemon.Error(
+                                response.errorBody().toString()
+                            )
+                        )
+                    }
                 }
             } catch (ex: Exception) {
                 emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))

@@ -4,11 +4,17 @@
     <string name="second_generation_label">Johto</string>
     <string name="third_generation_label">Hoenn</string>
     <string name="fourth_generation_label">Sinnoh</string>
+    <string name="tinder_label">Tinder</string>
+    <string name="catch_label">Capturas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="votar_pokemon">Votar Pokémon</string>
     <string name="lista_pokemon_votados">Lista Pokémon Votados</string>
     <string name="error_title">¡¡¡Oh No, El Digglet de los problemas ha encontrado un error!!!</string>
+    <string name="empty_tinder_title">¡¡¡Te has quedado sin Pokeballs!!!</string>
+    <string name="empty_tinder_message">Ve corriendo a la tienda Pokémon más cercana y regresa despues, nuevos Pokémon te estarán esperando.</string>
+    <string name="empty_catch_title">¡¡¡No has atrapado Pokémon!!!</string>
+    <string name="empty_catch_message">Que esperas para emprender tu viaje Pokémon.</string>
     <string name="text_loading">Cargando: %1$d de %2$d</string>
     <string name="text_info">Información</string>
     <string name="text_movements">Movimientos</string>

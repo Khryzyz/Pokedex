@@ -109,6 +109,7 @@
                 android:layout_height="60dp"
                 binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationIV}" />
         </TableRow>
+
     </TableLayout>
 
 </layout>

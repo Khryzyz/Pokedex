@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vfTinderPokemon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/incTinderLayout"
+        layout="@layout/layout_tinder_pokemon" />
+
+    <include
+        android:id="@+id/incEmptyLayout"
+        layout="@layout/layout_empty_tinder" />
+
+    <include
+        android:id="@+id/incLoadLayout"
+        layout="@layout/layout_load" />
+
+    <include
+        android:id="@+id/incErrorLayout"
+        layout="@layout/layout_error" />
+
+</ViewFlipper>

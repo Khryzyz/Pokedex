@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.ui.fragment.list.adapter
+package com.chris.pokedex.layer.ui.fragment.home.adapter
 
 import com.chris.pokedex.layer.model.PokemonBasicModel
 

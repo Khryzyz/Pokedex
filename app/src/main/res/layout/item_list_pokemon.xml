@@ -8,7 +8,7 @@
 
         <variable
             name="clickItemPokemon"
-            type="com.chris.pokedex.layer.ui.fragment.list.adapter.ClickItemPokemon" />
+            type="com.chris.pokedex.layer.ui.fragment.home.adapter.ClickItemPokemon" />
 
         <variable
             name="pokemonBasicModel"
@@ -16,32 +16,33 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="@dimen/margin_small"
+        style="@style/card"
         android:onClick="@{()-> clickItemPokemon.onClickNavigateDetail(pokemonBasicModel)}">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/itemListPokemon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/itemListPokemon">
+
+            <ImageView
+                android:id="@+id/imvIconCatchPoke"
+                android:layout_width="@dimen/size_pokemon_icon"
+                android:layout_height="@dimen/size_pokemon_icon"
+                android:layout_margin="@dimen/margin_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                binding:loadCatchIcon="@{pokemonBasicModel.action}"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_catch" />
 
             <ImageView
                 android:id="@+id/imvBackPoke"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="@dimen/margin_xxxlarge"
-                android:layout_marginTop="@dimen/margin_large"
-                android:layout_marginBottom="@dimen/margin_large"
-                android:src="@mipmap/bg_pokeball"
+                style="@style/imvPokeballBack"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imvSprite"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/size_pokemon_sprite"
+                android:layout_height="@dimen/size_pokemon_sprite"
                 app:layout_constraintBottom_toBottomOf="@+id/imvBackPoke"
                 app:layout_constraintEnd_toEndOf="@+id/imvBackPoke"
                 app:layout_constraintStart_toStartOf="@+id/imvBackPoke"
@@ -50,22 +51,8 @@
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/txvId"
-                style="@style/textViewBody.ItemPokemon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@{Integer.valueOf(pokemonBasicModel.id).toString()}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="999" />
-
-            <TextView
                 android:id="@+id/txvName"
                 style="@style/textViewBody.ItemPokemon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:padding="@dimen/padding_large"
                 android:text="@{pokemonBasicModel.name}"
@@ -73,6 +60,16 @@
                 app:layout_constraintStart_toEndOf="@+id/imvBackPoke"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/txvId"
+                style="@style/textViewBody.ItemPokemon"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@{Integer.valueOf(pokemonBasicModel.id).toString()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="999" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

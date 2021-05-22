@@ -1,7 +1,7 @@
 package com.chris.pokedex.di.source.local
 
-import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSource
-import com.chris.pokedex.source.local.dataSource.pokemon.PokemonLocalDataSourceImp
+import com.chris.pokedex.source.local.dataSource.vote.CatchLocalDataSource
+import com.chris.pokedex.source.local.dataSource.vote.CatchLocalDataSourceImp
 import dagger.Binds
 import dagger.Module
 
@@ -9,6 +9,6 @@ import dagger.Module
 abstract class LocalDataSourceModule {
 
     @Binds
-    abstract fun bindPokemonLocalDataSource(dataSource: PokemonLocalDataSourceImp): PokemonLocalDataSource
+    abstract fun bindVoteLocalDataSource(dataSource: CatchLocalDataSourceImp): CatchLocalDataSource
 
 }

@@ -2,8 +2,7 @@ package com.chris.pokedex.utils
 
 import com.chris.pokedex.R
 import com.chris.pokedex.layer.model.*
-import com.chris.pokedex.source.local.entity.GenerationEntity
-import com.chris.pokedex.source.local.entity.PokemonEntity
+import com.chris.pokedex.source.local.entity.CatchEntity
 import com.chris.pokedex.source.remote.dto.generation.GenerationResDTO
 import com.chris.pokedex.source.remote.dto.generation.PokemonBasicResDto
 import com.chris.pokedex.source.remote.dto.move.ContestTypeResDto
@@ -14,6 +13,7 @@ import com.chris.pokedex.source.remote.dto.pokemon.moveBasic.MovesBasicResDto
 import com.chris.pokedex.source.remote.dto.pokemon.sprite.SpriteResDto
 import com.chris.pokedex.source.remote.dto.type.TypeResDto
 import com.chris.pokedex.source.remote.dto.type.TypesResDto
+import java.util.*
 
 //Region Generation
 fun GenerationResDTO.toModel(): GenerationModel = GenerationModel(
@@ -33,43 +33,44 @@ fun PokemonBasicResDto.toModel(generationId: Int): PokemonBasicModel = PokemonBa
     generation = generationId
 )
 
-fun GenerationResDTO.toEntity(): GenerationEntity = GenerationEntity(
-    id = 0,
-    webId = id,
-    name = name
-)
-
 //endregion
 
 //Region Pokemon
 
-fun PokemonResDto.toModel(pokemonBasicModel: PokemonBasicModel): PokemonModel {
+fun PokemonResDto.toModel(pokemonBasicModel: PokemonBasicModel?): PokemonModel {
     return PokemonModel(
         webId = webId,
-        name = name.toUpperCase(),
+        name = name.uppercase(Locale.getDefault()),
         order = order,
         height = height,
         weight = weight,
-        generationId = pokemonBasicModel.generation.toLong(),
+        generationId = pokemonBasicModel?.generation?.toLong() ?: 0L,
         moveBasics = movesBasic.movesBasicResDtoToListModel(),
         types = types.typesResDtoToListModel(),
         sprites = sprites.toModel(),
     )
 }
 
-fun PokemonResDto.toEntity(generationId: Long): PokemonEntity {
-    return PokemonEntity(
+fun PokemonModel.toCatchEntity(action: Constants.TinderAction): CatchEntity {
+    return CatchEntity(
         id = 0,
         webId = webId,
-        name = name.toUpperCase(),
-        order = order,
-        height = height,
-        weight = weight,
-        generationId = generationId,
-        typeA = types[0].type.name,
-        typeB = if (types.size > 1) types[1].type.name else "none",
+        name = name.uppercase(Locale.getDefault()),
+        action = action.action
     )
+}
 
+fun List<CatchEntity>.toListPokemonBasicModel(): List<PokemonBasicModel> {
+    return map { it.toPokemonBasicModel() }
+}
+
+fun CatchEntity.toPokemonBasicModel(): PokemonBasicModel {
+    return PokemonBasicModel(
+        id = webId,
+        name = name.uppercase(Locale.getDefault()),
+        action = if (action == Constants.TinderAction.CATCH.action) Constants.TinderAction.CATCH
+        else Constants.TinderAction.REJECT
+    )
 }
 
 //endregion

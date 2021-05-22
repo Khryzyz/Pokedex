@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vfDetailPokemon"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".layer.ui.fragment.detail.DetailPokemonFragment">
-
-    <include
-        android:id="@+id/incLoadLayout"
-        layout="@layout/layout_load" />
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/incDetailPokemon"
         layout="@layout/layout_detail_pokemon" />
+
+    <include
+        android:id="@+id/incLoadLayout"
+        layout="@layout/layout_load" />
 
     <include
         android:id="@+id/incErrorLayout"

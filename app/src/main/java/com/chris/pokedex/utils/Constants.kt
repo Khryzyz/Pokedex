@@ -12,6 +12,12 @@ class Constants {
         const val MOVE_DETAIL = "move_detail"
     }
 
+    enum class TinderAction constructor(val action: Int) {
+        UNEXPECTED(0),
+        CATCH(1),
+        REJECT(2)
+    }
+
     enum class Generation constructor(val id: Int) : Serializable {
         FIRST(1),
         SECOND(2),

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Region Reject Pokemon-->
+
+    <Transition
+        android:id="@+id/trnRejectPokemon"
+        app:constraintSetEnd="@+id/cnsRejectPokemon"
+        app:constraintSetStart="@+id/cnsInitialPosition"
+        app:duration="300">
+        <OnSwipe
+            app:dragDirection="dragLeft"
+            app:onTouchUp="autoCompleteToStart"
+            app:touchAnchorId="@id/cnTopCardPokemon"
+            app:touchAnchorSide="left"
+            app:touchRegionId="@id/cnTopCardPokemon" />
+        <KeyFrameSet>
+
+            <KeyPosition
+                app:drawPath="path"
+                app:framePosition="50"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/cnTopCardPokemon"
+                app:percentX="0.5"
+                app:percentY="0.1" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/trnCatchPokemonOffScreen"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/cnsCatchPokemonOffScreen"
+        app:constraintSetStart="@+id/cnsCatchPokemon"
+        app:duration="150" />
+
+    <!--Region Catch Pokemon-->
+
+    <Transition
+        android:id="@+id/trnCatchPokemon"
+        app:constraintSetEnd="@+id/cnsCatchPokemon"
+        app:constraintSetStart="@+id/cnsInitialPosition"
+        app:duration="300">
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:onTouchUp="autoCompleteToStart"
+            app:touchAnchorId="@+id/cnTopCardPokemon"
+            app:touchAnchorSide="right"
+            app:touchRegionId="@id/cnTopCardPokemon" />
+        <KeyFrameSet>
+
+            <KeyPosition
+                app:drawPath="path"
+                app:framePosition="50"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/cnTopCardPokemon"
+                app:percentX="0.5"
+                app:percentY="-0.1" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/trnRejectPokemonOffScreen"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/cnsRejectPokemonOffScreen"
+        app:constraintSetStart="@+id/cnsRejectPokemon"
+        app:duration="150" />
+
+    <!--Region Initial Position-->
+
+    <ConstraintSet android:id="@id/cnsInitialPosition">
+
+        <Constraint android:id="@id/cnTopCardPokemon">
+
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small" />
+
+        </Constraint>
+
+        <Constraint android:id="@id/cnBottomCardPokemon">
+
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"/>
+
+            <Transform
+                android:scaleX="0.90"
+                android:scaleY="0.90" />
+
+        </Constraint>
+
+        <Constraint android:id="@+id/cnRejectPokemonIcon">
+
+            <Layout
+                android:layout_width="@dimen/size_icon_vote_initial"
+                android:layout_height="@dimen/size_icon_vote_initial"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Transform
+                android:scaleX="0.5"
+                android:scaleY="0.5" />
+
+            <PropertySet android:alpha="0" />
+
+        </Constraint>
+
+        <Constraint android:id="@+id/cnCatchPokemonIcon">
+
+            <Layout
+                android:layout_width="@dimen/size_icon_vote_initial"
+                android:layout_height="@dimen/size_icon_vote_initial"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Transform
+                android:scaleX="0.5"
+                android:scaleY="0.5" />
+
+            <PropertySet android:alpha="0" />
+
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <!--Region Reject Pokemon-->
+
+    <ConstraintSet
+        android:id="@+id/cnsRejectPokemon"
+        app:deriveConstraintsFrom="@+id/cnsInitialPosition">
+        <Constraint
+            android:id="@id/cnTopCardPokemon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7">
+
+        </Constraint>
+        <Constraint android:id="@id/cnBottomCardPokemon">
+            <Transform
+                android:scaleX="0.95"
+                android:scaleY="0.95" />
+        </Constraint>
+        <Constraint android:id="@+id/cnRejectPokemonIcon">
+            <Layout
+                android:layout_width="@dimen/size_icon_vote_finish"
+                android:layout_height="@dimen/size_icon_vote_finish"
+                app:layout_constraintBottom_toBottomOf="@id/cnTopCardPokemon"
+                app:layout_constraintEnd_toEndOf="@id/cnTopCardPokemon"
+                app:layout_constraintStart_toStartOf="@id/cnTopCardPokemon"
+                app:layout_constraintTop_toTopOf="@id/cnTopCardPokemon" />
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+            <PropertySet android:alpha="1" />
+
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/cnsRejectPokemonOffScreen"
+        app:deriveConstraintsFrom="@id/cnsRejectPokemon">
+        <Constraint
+            android:id="@id/cnTopCardPokemon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="500dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7">
+
+        </Constraint>
+        <Constraint android:id="@id/cnBottomCardPokemon">
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <!--Region Catch Pokemon-->
+
+    <ConstraintSet
+        android:id="@+id/cnsCatchPokemon"
+        app:deriveConstraintsFrom="@id/cnsInitialPosition">
+        <Constraint
+            android:id="@id/cnTopCardPokemon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.7" />
+        <Constraint android:id="@id/cnBottomCardPokemon">
+            <Transform
+                android:scaleX="0.95"
+                android:scaleY="0.95" />
+        </Constraint>
+        <Constraint android:id="@+id/cnCatchPokemonIcon">
+            <Layout
+                android:layout_width="@dimen/size_icon_vote_finish"
+                android:layout_height="@dimen/size_icon_vote_finish"
+                app:layout_constraintBottom_toBottomOf="@id/cnTopCardPokemon"
+                app:layout_constraintEnd_toEndOf="@id/cnTopCardPokemon"
+                app:layout_constraintStart_toStartOf="@id/cnTopCardPokemon"
+                app:layout_constraintTop_toTopOf="@id/cnTopCardPokemon" />
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+            <PropertySet android:alpha="1" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/cnsCatchPokemonOffScreen"
+        app:deriveConstraintsFrom="@id/cnsCatchPokemon">
+
+        <Constraint
+            android:id="@id/cnTopCardPokemon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <Constraint android:id="@id/cnBottomCardPokemon">
+
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>

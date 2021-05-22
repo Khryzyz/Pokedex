@@ -2,6 +2,7 @@ package com.chris.pokedex.layer.model
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
+import com.chris.pokedex.utils.Constants
 import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
@@ -10,7 +11,8 @@ data class PokemonBasicModel(
     val id: Int = 0,
     val name: String = "",
     val url: String = "",
-    val generation: Int = 1
+    val generation: Int = 1,
+    val action: Constants.TinderAction = Constants.TinderAction.UNEXPECTED
 ) : Serializable, Parcelable {
 
     companion object {

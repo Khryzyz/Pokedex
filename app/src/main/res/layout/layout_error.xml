@@ -8,9 +8,7 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        style="@style/guideLineHorizontal"
         app:layout_constraintGuide_percent="0.25" />
 
     <TextView
@@ -34,9 +32,7 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        style="@style/guideLineHorizontal"
         app:layout_constraintGuide_percent="0.60" />
 
     <FrameLayout
@@ -50,16 +46,12 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/anim_error_post"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="bottom|center"
+            style="@style/animation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
             app:lottie_rawRes="@raw/error" />
-    </FrameLayout>
 
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

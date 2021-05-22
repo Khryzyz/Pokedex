@@ -1,9 +1,8 @@
-package com.chris.pokedex.layer.ui.fragment.list.adapter
+package com.chris.pokedex.layer.ui.fragment.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.chris.pokedex.databinding.ItemListPokemonBinding
 import com.chris.pokedex.layer.model.PokemonBasicModel
 

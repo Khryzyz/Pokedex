@@ -8,38 +8,57 @@
     <!-- Tabs Pokedex-->
     <fragment
         android:id="@+id/firstGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
         android:label="@string/first_generation_label"
-        tools:layout="@layout/list_pokemon_fragment">
+        tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_firstGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/secondGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
         android:label="@string/second_generation_label"
-        tools:layout="@layout/list_pokemon_fragment">
+        tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_secondGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/thirdGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
         android:label="@string/third_generation_label"
-        tools:layout="@layout/list_pokemon_fragment">
+        tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_thirdGenFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/fourthGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.list.ListPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
         android:label="@string/fourth_generation_label"
-        tools:layout="@layout/list_pokemon_fragment">
+        tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_fourthGenFragment_to_detailPokemonFragment"
+            app:destination="@id/detailPokemonFragment" />
+    </fragment>
+
+    <!-- Secondary-->
+
+    <fragment
+        android:id="@+id/tinderPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.tinder.TinderPokemonFragment"
+        tools:layout="@layout/layout_tinder_pokemon" />
+
+    <fragment
+        android:id="@+id/votedPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonFragment"
+        tools:layout="@layout/catch_pokemon_fragment">
+        <action
+            android:id="@+id/action_votedPokemonFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
 

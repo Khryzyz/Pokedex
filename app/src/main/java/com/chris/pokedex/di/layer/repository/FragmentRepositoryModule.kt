@@ -4,6 +4,8 @@ import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepositor
 import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepositoryImp
 import com.chris.pokedex.layer.repository.fragment.list.ListPokemonRepository
 import com.chris.pokedex.layer.repository.fragment.list.ListPokemonRepositoryImp
+import com.chris.pokedex.layer.repository.fragment.catchRepository.CatchPokemonRepository
+import com.chris.pokedex.layer.repository.fragment.catchRepository.CatchPokemonRepositoryImp
 import dagger.Binds
 import dagger.Module
 
@@ -15,5 +17,8 @@ abstract class FragmentRepositoryModule {
 
     @Binds
     abstract fun bindsDetailPokemonRepository(repository: DetailPokemonRepositoryImp): DetailPokemonRepository
+
+    @Binds
+    abstract fun bindsVotePokemonRepository(repository: CatchPokemonRepositoryImp): CatchPokemonRepository
 
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mlyTinderPokemon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    app:layoutDescription="@xml/tinder_motion"
+    app:motionDebug="SHOW_PROGRESS">
+
+    <FrameLayout
+        android:id="@+id/cnBottomCardPokemon"
+        style="@style/TinderCard">
+
+        <include
+            android:id="@+id/bottomCardResume"
+            layout="@layout/layout_resume_pokemon" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/cnTopCardPokemon"
+        style="@style/TinderCard">
+
+        <include
+            android:id="@+id/topCardResume"
+            layout="@layout/layout_resume_pokemon" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/cnCatchPokemonIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backround_circle"
+        android:elevation="4dp"
+        app:srcCompat="@drawable/ic_catch" />
+
+    <ImageView
+        android:id="@+id/cnRejectPokemonIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backround_circle"
+        android:elevation="4dp"
+        app:srcCompat="@drawable/ic_reject"
+        app:tint="#e64a19" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

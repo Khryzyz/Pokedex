@@ -14,24 +14,19 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="@dimen/margin_small"
+        style="@style/card"
         android:onClick="@{()-> clickItemMove.onClickDialogDetail(moveModel)}">
 
-        <FrameLayout
-            style="@style/itemListMove"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <FrameLayout style="@style/itemListMove">
 
             <TextView
                 android:id="@+id/txvName"
                 style="@style/textViewBody.ItemMove"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/margin_large"
                 android:text="@{moveModel.name}"
                 tools:text="@tools:sample/lorem" />
+
         </FrameLayout>
+
     </androidx.cardview.widget.CardView>
 
 </layout>

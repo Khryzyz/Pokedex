@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/vfListPokemon"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".layer.ui.fragment.list.ListPokemonFragment">
-
-    <include
-        android:id="@+id/incLoadLayout"
-        layout="@layout/layout_load" />
+    android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcwListPokemon"
@@ -18,6 +13,10 @@
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_list_pokemon" />
+
+    <include
+        android:id="@+id/incLoadLayout"
+        layout="@layout/layout_load" />
 
     <include
         android:id="@+id/incErrorLayout"

@@ -1,24 +1,25 @@
-package com.chris.pokedex.layer.ui.fragment.list
+package com.chris.pokedex.layer.ui.fragment.home
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.chris.pokedex.R
-import com.chris.pokedex.databinding.ListPokemonFragmentBinding
+import com.chris.pokedex.databinding.HomePokemonFragmentBinding
 import com.chris.pokedex.layer.model.PokemonBasicModel
-import com.chris.pokedex.layer.ui.fragment.list.adapter.ClickItemPokemon
-import com.chris.pokedex.layer.ui.fragment.list.adapter.ListPokemonAdapter
+import com.chris.pokedex.layer.ui.fragment.home.adapter.ClickItemPokemon
+import com.chris.pokedex.layer.ui.fragment.home.adapter.ListPokemonAdapter
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.base.BaseViewBindingFragment
 import com.chris.pokedex.utils.uiState.UIStateListPokemon
 
-class ListPokemonFragment :
-    BaseViewBindingFragment<ListPokemonFragmentBinding>(ListPokemonFragmentBinding::inflate) {
+class HomePokemonFragment :
+    BaseViewBindingFragment<HomePokemonFragmentBinding>(HomePokemonFragmentBinding::inflate) {
 
-    private val viewModel: ListPokemonViewModel by viewModels { viewModelFactory }
+    private val viewModel: HomePokemonViewModel by viewModels { viewModelFactory }
 
     private lateinit var adapter: ListPokemonAdapter
 
@@ -35,11 +36,25 @@ class ListPokemonFragment :
         setHasOptionsMenu(true)
         getListPokemon()
         setAdapter()
-        setObservers()
+        setObserver()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_top_actions, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.tinderPokemon -> {
+                findNavController().navigate(R.id.tinderPokemonFragment)
+                true
+            }
+            R.id.votedPokemon -> {
+                findNavController().navigate(R.id.votedPokemonFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun getListPokemon() {
@@ -52,9 +67,8 @@ class ListPokemonFragment :
 
     }
 
-    private fun setObservers() {
-
-        viewModel.generation.observe(viewLifecycleOwner, { state ->
+    private fun setObserver() {
+        viewModel.listPokemon.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is UIStateListPokemon.Loading -> handlerLoad()
                 is UIStateListPokemon.Success -> handlerSuccess(state.data)
@@ -78,21 +92,6 @@ class ListPokemonFragment :
         binding.incErrorLayout.txvErrorMessage.text = errorMessage
         binding.vfListPokemon.displayedChild =
             binding.vfListPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
-    }
-
-    private fun handlerProgressDownload(progress: Int, total: Int) {
-        if (binding.vfListPokemon.displayedChild == binding.vfListPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)) {
-            val percent = progress * 100 / total
-            binding.incLoadLayout.lpiLoadPokemon.apply {
-                visibility = View.VISIBLE
-                setProgress(percent)
-            }
-
-            binding.incLoadLayout.txvLoadPokemon.apply {
-                visibility = View.VISIBLE
-                text = context?.getString(R.string.text_loading, progress, total)
-            }
-        }
     }
 
     //region Listeners

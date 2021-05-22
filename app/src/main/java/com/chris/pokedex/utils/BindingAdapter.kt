@@ -1,6 +1,7 @@
 package com.chris.pokedex.utils
 
 import android.graphics.drawable.GradientDrawable
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -27,6 +28,37 @@ fun bindLoadDrawable(imageView: ImageView, drawable: Int) {
             target = imageView,
             drawable = drawable
         )
+    }
+}
+
+@BindingAdapter("loadCatchIcon")
+fun bindLoadCatchIcon(imageView: ImageView, action: Constants.TinderAction) {
+
+    when (action) {
+        Constants.TinderAction.UNEXPECTED -> {
+            imageView.visibility = View.GONE
+        }
+        Constants.TinderAction.CATCH -> {
+            imageView.visibility = View.VISIBLE
+            imageView.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                    imageView.context.resources,
+                    R.drawable.ic_catch,
+                    null
+                )
+            )
+        }
+        Constants.TinderAction.REJECT -> {
+            imageView.visibility = View.VISIBLE
+            imageView.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                    imageView.context.resources,
+                    R.drawable.ic_reject_circle,
+                    null
+                )
+            )
+        }
+
     }
 }
 
@@ -85,7 +117,7 @@ fun bindLoadGradientBackground(frameLayout: FrameLayout, color: Int) {
 fun bindLoadSolidBackground(frameLayout: FrameLayout, color: Int) {
     if (color != 0) {
 
-        val colorAlpha= ColorUtils.setAlphaComponent(
+        val colorAlpha = ColorUtils.setAlphaComponent(
             ResourcesCompat.getColor(
                 frameLayout.context.resources,
                 color,

@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.ui.fragment.list
+package com.chris.pokedex.layer.ui.fragment.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,19 +12,19 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ListPokemonViewModel
+class HomePokemonViewModel
 @Inject constructor(
     private val repository: ListPokemonRepository
 ) : ViewModel() {
 
-    private val _generation = MutableLiveData<UIStateListPokemon>()
-    val generation: LiveData<UIStateListPokemon>
-        get() = _generation
+    private val _listPokemon = MutableLiveData<UIStateListPokemon>()
+    val listPokemon: LiveData<UIStateListPokemon>
+        get() = _listPokemon
 
     fun getListPokemon(generation: Constants.Generation) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getListPokemon(generation).collect {
-                _generation.postValue(it)
+                _listPokemon.postValue(it)
             }
         }
     }

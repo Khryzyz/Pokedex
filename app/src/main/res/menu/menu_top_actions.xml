@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/votePokemon"
+        android:id="@+id/tinderPokemon"
         android:icon="@drawable/ic_tinder_icon"
         android:title="@string/votar_pokemon"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white" />
 
     <item
-        android:id="@+id/listPokemonVoted"
+        android:id="@+id/votedPokemon"
         android:icon="@drawable/ic_list_voted"
         android:title="@string/lista_pokemon_votados"
         app:showAsAction="ifRoom"
