@@ -31,7 +31,6 @@ abstract class FragmentViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(CatchPokemonViewModel::class)
-    internal abstract fun bindsVotedPokemonViewModel(viewModel: CatchPokemonViewModel): ViewModel
-
+    internal abstract fun bindsCatchPokemonViewModel(viewModel: CatchPokemonViewModel): ViewModel
 
 }

@@ -1,131 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:binding="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vfDetailMove"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+    <include
+        android:id="@+id/incDetailMove"
+        layout="@layout/layout_move" />
 
-        <variable
-            name="moveModel"
-            type="com.chris.pokedex.layer.model.MoveModel" />
-    </data>
+    <include
+        android:id="@+id/incLoadLayout"
+        layout="@layout/layout_load" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <include
+        android:id="@+id/incErrorLayout"
+        layout="@layout/layout_message" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:id="@+id/flyBackgroundPokemon"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                binding:loadSolidBackground="@{moveModel.type.typeColor}"
-                tools:background="@color/type_normal_color" />
-
-            <ImageView
-                android:id="@+id/imvMoveTypeIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="@dimen/margin_small"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                binding:loadDrawable="@{moveModel.type.typeIcon}"
-                tools:src="@mipmap/type_normal_icon" />
-
-            <TextView
-                android:id="@+id/txvMoveTitle"
-                style="@style/textViewBody.ItemMove.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_default"
-                android:text="@{moveModel.name}"
-                app:layout_constraintBottom_toBottomOf="@+id/imvMoveTypeIcon"
-                app:layout_constraintStart_toEndOf="@+id/imvMoveTypeIcon"
-                app:layout_constraintTop_toTopOf="@+id/imvMoveTypeIcon"
-                tools:text="Razor Wind" />
-
-
-            <ImageView
-                android:id="@+id/imvMoveTypeImage"
-                android:layout_width="100dp"
-                android:layout_height="22dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                binding:loadDrawable="@{moveModel.type.typeImage}"
-                tools:src="@mipmap/type_normal_name" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/vSeparator1"
-            style="@style/separator"
-            android:layout_marginBottom="@dimen/margin_large" />
-
-        <TextView
-            android:id="@+id/txvMoveAccuracy"
-            style="@style/textViewBody.ItemMove.Body"
-            android:text="@{String.format(@string/text_accuracy_move, moveModel.accuracy)}"
-            tools:text="@string/text_accuracy_move" />
-
-        <TextView
-            android:id="@+id/txvMovePower"
-            style="@style/textViewBody.ItemMove.Body"
-            android:text="@{String.format(@string/text_power_move, moveModel.power)}"
-            tools:text="@string/text_power_move" />
-
-        <TextView
-            android:id="@+id/txvMovePp"
-            style="@style/textViewBody.ItemMove.Body"
-            android:text="@{String.format(@string/text_pp_move, moveModel.pp)}"
-            tools:text="@string/text_pp_move" />
-
-        <TextView
-            android:id="@+id/txvMoveClassDamage"
-            style="@style/textViewBody.ItemMove.Body"
-            android:drawablePadding="@dimen/margin_default"
-            android:text="@{String.format(@string/text_damage_class_move, moveModel.damageClass.damageClassName)}"
-            binding:loadDrawableTextview="@{moveModel.damageClass.damageClassImage}"
-            tools:text="@string/text_damage_class_move" />
-
-        <TextView
-            android:id="@+id/txvMoveTypeContest"
-            style="@style/textViewBody.ItemMove.Body"
-            android:drawablePadding="@dimen/margin_default"
-            android:text="@{String.format(@string/text_contest_type_move, moveModel.contestType.contestTypeName)}"
-            binding:loadDrawableTextview="@{moveModel.contestType.contestTypeImage}"
-            tools:text="@string/text_contest_type_move" />
-
-        <TextView
-            android:id="@+id/txvMoveEffect"
-            style="@style/textViewBody.ItemMove.Body"
-            android:text="@{String.format(@string/text_effect_move, moveModel.effect)}"
-            tools:text="@string/text_effect_move" />
-
-        <View
-            android:id="@+id/vSeparator2"
-            style="@style/separator"
-            android:layout_marginBottom="@dimen/margin_small" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCloseDialog"
-            style="@style/buttonDialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:text="@string/text_close_dialog" />
-    </LinearLayout>
-
-</layout>
+</ViewFlipper>

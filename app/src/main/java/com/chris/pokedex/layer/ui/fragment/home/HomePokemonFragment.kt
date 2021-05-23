@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.HomePokemonFragmentBinding
+import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.layer.ui.fragment.home.adapter.ClickItemPokemon
 import com.chris.pokedex.layer.ui.fragment.home.adapter.ListPokemonAdapter
@@ -89,9 +90,17 @@ class HomePokemonFragment :
     }
 
     private fun handlerError(errorMessage: String) {
-        binding.incErrorLayout.txvErrorMessage.text = errorMessage
+        binding.incErrorLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.ERROR,
+                messageTitle = resources.getString(R.string.error_title),
+                messageText = errorMessage,
+                messageImage = R.mipmap.bg_digglet_cave
+            )
+            executePendingBindings()
+        }
         binding.vfListPokemon.displayedChild =
-            binding.vfListPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+            binding.vfListPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 
     //region Listeners
@@ -108,5 +117,5 @@ class HomePokemonFragment :
             )
         }
     }
-    //endregion
+//endregion
 }

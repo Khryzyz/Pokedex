@@ -14,6 +14,6 @@
 
     <include
         android:id="@+id/incErrorLayout"
-        layout="@layout/layout_error" />
+        layout="@layout/layout_message" />
 
 </ViewFlipper>

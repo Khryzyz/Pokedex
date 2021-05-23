@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.viewbinding.ViewBinding
+import com.chris.pokedex.R
+import com.chris.pokedex.layer.model.MessageModel
+import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.viewModel.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
-
-typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
 abstract class BaseViewBindingFragment<VB : ViewBinding>
     (private val inflate: Inflate<VB>) : DaggerFragment() {

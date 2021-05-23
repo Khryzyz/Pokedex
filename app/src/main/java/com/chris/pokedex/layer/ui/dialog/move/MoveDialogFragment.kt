@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.activityViewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.MoveDialogFragmentBinding
+import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.MoveBasicModel
 import com.chris.pokedex.layer.model.MoveModel
 import com.chris.pokedex.utils.Constants
@@ -22,7 +23,6 @@ class MoveDialogFragment :
             }
         }
     }
-
 
     private lateinit var moveBasicModel: MoveBasicModel
 
@@ -47,7 +47,7 @@ class MoveDialogFragment :
         }
         getDetailMove()
         setObservers()
-        binding.btnCloseDialog.setOnClickListener {
+        binding.incDetailMove.btnCloseDialog.setOnClickListener {
             dismiss()
         }
     }
@@ -67,16 +67,29 @@ class MoveDialogFragment :
     }
 
     private fun handlerLoading() {
-        //TODO: Cargando
+        binding.vfDetailMove.displayedChild =
+            binding.vfDetailMove.indexOfChild(binding.incLoadLayout.cnlLoadLayout)
     }
 
     private fun handlerSuccess(moveModel: MoveModel) {
-        binding.moveModel = moveModel
-        binding.executePendingBindings()
+        binding.vfDetailMove.displayedChild =
+            binding.vfDetailMove.indexOfChild(binding.incDetailMove.lnlContainerMove)
+        binding.incDetailMove.moveModel = moveModel
+        binding.incDetailMove.executePendingBindings()
     }
 
     private fun handlerError(errorMessage: String) {
-        //TODO: Error
+        binding.incErrorLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.ERROR,
+                messageTitle = resources.getString(R.string.error_title),
+                messageText = errorMessage,
+                messageImage = R.mipmap.bg_digglet_cave
+            )
+            executePendingBindings()
+        }
+        binding.vfDetailMove.displayedChild =
+            binding.vfDetailMove.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 
 }

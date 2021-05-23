@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/incEmptyLayout"
-        layout="@layout/layout_empty_tinder" />
+        layout="@layout/layout_message" />
 
     <include
         android:id="@+id/incLoadLayout"
@@ -18,6 +18,6 @@
 
     <include
         android:id="@+id/incErrorLayout"
-        layout="@layout/layout_error" />
+        layout="@layout/layout_message" />
 
 </ViewFlipper>

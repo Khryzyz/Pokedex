@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.DetailPokemonFragmentBinding
+import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.layer.ui.activity.MainActivity
@@ -119,9 +120,17 @@ class DetailPokemonFragment :
     }
 
     private fun handlerError(errorMessage: String) {
-        binding.incErrorLayout.txvErrorMessage.text = errorMessage
+        binding.incErrorLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.ERROR,
+                messageTitle = resources.getString(R.string.error_title),
+                messageText = errorMessage,
+                messageImage = R.mipmap.bg_digglet_cave
+            )
+            executePendingBindings()
+        }
         binding.vfDetailPokemon.displayedChild =
-            binding.vfDetailPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+            binding.vfDetailPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 //    findNavController().popBackStack(R.id.homeFragment, false)
 }

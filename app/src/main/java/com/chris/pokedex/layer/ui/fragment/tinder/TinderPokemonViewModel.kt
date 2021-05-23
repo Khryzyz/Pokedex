@@ -3,8 +3,8 @@ package com.chris.pokedex.layer.ui.fragment.tinder
 import androidx.lifecycle.*
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.layer.model.TinderCardPokemonModel
-import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepository
 import com.chris.pokedex.layer.repository.fragment.catchRepository.CatchPokemonRepository
+import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepository
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.Dispatchers

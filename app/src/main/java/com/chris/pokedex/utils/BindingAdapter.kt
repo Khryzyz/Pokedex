@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
+import com.airbnb.lottie.LottieAnimationView
 import com.chris.pokedex.R
 import com.chris.pokedex.utils.glide.GlideManager
 
@@ -116,7 +117,6 @@ fun bindLoadGradientBackground(frameLayout: FrameLayout, color: Int) {
 @BindingAdapter("loadSolidBackground")
 fun bindLoadSolidBackground(frameLayout: FrameLayout, color: Int) {
     if (color != 0) {
-
         val colorAlpha = ColorUtils.setAlphaComponent(
             ResourcesCompat.getColor(
                 frameLayout.context.resources,
@@ -124,8 +124,14 @@ fun bindLoadSolidBackground(frameLayout: FrameLayout, color: Int) {
                 null
             ), 60
         )
-
         frameLayout.setBackgroundColor(colorAlpha)
+    }
+}
+
+@BindingAdapter("loadImageBackground")
+fun bindLoadImageBackground(frameLayout: FrameLayout, drawable: Int) {
+    if (drawable != 0) {
+        frameLayout.setBackgroundResource(drawable)
     }
 }
 

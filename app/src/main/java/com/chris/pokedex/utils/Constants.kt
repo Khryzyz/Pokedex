@@ -8,7 +8,7 @@ class Constants {
         const val GENERATION = "generation"
         const val POKEMON_BASIC = "pokemon_basic"
         const val POKEMON_DETAIL = "pokemon_detail"
-        const val MOVE_BASIC = "move_bsic"
+        const val MOVE_BASIC = "move_basic"
         const val MOVE_DETAIL = "move_detail"
     }
 
@@ -60,6 +60,12 @@ class Constants {
         SPECIAL("special"),
         PHYSICAL("physical"),
         STATUS("status"),
+    }
+
+
+    enum class MessageTypes {
+        ERROR,
+        EMPTY
     }
 
 }

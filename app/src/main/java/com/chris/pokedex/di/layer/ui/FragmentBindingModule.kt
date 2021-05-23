@@ -1,12 +1,12 @@
 package com.chris.pokedex.di.layer.ui
 
+import com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonFragment
-import com.chris.pokedex.layer.ui.fragment.info.InfoPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment
+import com.chris.pokedex.layer.ui.fragment.info.InfoPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.movements.MovementsPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.sprites.SpritesPokemonFragment
 import com.chris.pokedex.layer.ui.fragment.tinder.TinderPokemonFragment
-import com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -32,6 +32,6 @@ abstract class FragmentBindingModule {
     abstract fun contributesTinderPokemonFragment(): TinderPokemonFragment
 
     @ContributesAndroidInjector
-    abstract fun contributesVotedPokemonFragment(): CatchPokemonFragment
+    abstract fun contributesCatchPokemonFragment(): CatchPokemonFragment
 
 }

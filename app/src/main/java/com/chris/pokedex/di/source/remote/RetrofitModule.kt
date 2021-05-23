@@ -1,7 +1,7 @@
 package com.chris.pokedex.di.source.remote
 
-import com.chris.pokedex.source.remote.ApiConstants
 import com.chris.pokedex.source.remote.Api
+import com.chris.pokedex.source.remote.ApiConstants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -18,19 +18,16 @@ class RetrofitModule {
     @Provides
     @Singleton
     fun providesHttpClient(): OkHttpClient {
-
         val httpClient = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
 
         return httpClient.build()
-
     }
 
     @Provides
     @Singleton
     fun providesRetrofit(httpClient: OkHttpClient): Api {
-
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
@@ -43,7 +40,6 @@ class RetrofitModule {
             .build()
 
         return retrofit.create(Api::class.java)
-
     }
 
 }

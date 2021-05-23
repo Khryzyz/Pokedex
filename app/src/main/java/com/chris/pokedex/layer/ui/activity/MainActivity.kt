@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(),
 
         binding.bottomNavView.setOnNavigationItemSelectedListener(this)
 
-        binding.bottomNavView.itemIconTintList = null;
+        binding.bottomNavView.itemIconTintList = null
 
         setOnDestinationChangedListener()
     }

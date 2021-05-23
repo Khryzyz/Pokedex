@@ -2,7 +2,6 @@ package com.chris.pokedex.layer.ui.fragment.info
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import com.chris.pokedex.databinding.InfoPokemonFragmentBinding
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.utils.Constants

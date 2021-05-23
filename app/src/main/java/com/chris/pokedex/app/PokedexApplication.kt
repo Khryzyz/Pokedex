@@ -12,8 +12,4 @@ class PokedexApplication : DaggerApplication() {
             .build()
     }
 
-    override fun onCreate() {
-        super.onCreate()
-    }
-
 }

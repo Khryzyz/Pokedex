@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.TinderPokemonFragmentBinding
+import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.layer.model.TinderCardPokemonModel
 import com.chris.pokedex.layer.ui.activity.MainActivity
@@ -69,10 +69,8 @@ class TinderPokemonFragment :
         })
 
         viewModel.listDetailPokemon.observe(viewLifecycleOwner, { list ->
-            if (list != null) {
-                if (list.size == 0) {
-                    handlerEmpty()
-                }
+            if (list != null && list.size == 0) {
+                handlerEmpty()
             }
         })
 
@@ -118,14 +116,32 @@ class TinderPokemonFragment :
     }
 
     private fun handlerError(errorMessage: String) {
-        binding.incErrorLayout.txvErrorMessage.text = errorMessage
+        binding.incErrorLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.ERROR,
+                messageTitle = resources.getString(R.string.error_title),
+                messageText = errorMessage,
+                messageImage = R.mipmap.bg_digglet_cave
+            )
+            executePendingBindings()
+        }
         binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+            binding.vfTinderPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 
     private fun handlerEmpty() {
+        binding.incEmptyLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.EMPTY,
+                messageTitle = resources.getString(R.string.empty_tinder_title),
+                messageText = resources.getString(R.string.empty_tinder_message),
+                messageImage = R.mipmap.bg_pokemon_shop
+            )
+            animError.visibility = View.GONE
+            executePendingBindings()
+        }
         binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incEmptyLayout.cnlEmptyLayout)
+            binding.vfTinderPokemon.indexOfChild(binding.incEmptyLayout.cnlMessageLayout)
     }
 
     private fun bindCard(tinderCardPokemonModel: TinderCardPokemonModel) {

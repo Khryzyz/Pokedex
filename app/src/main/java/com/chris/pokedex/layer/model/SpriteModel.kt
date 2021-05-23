@@ -14,4 +14,4 @@ data class SpriteModel(
     val backGenerationIII: String = "",
     val frontGenerationIV: String = "",
     val backGenerationIV: String = "",
-) : Parcelable {}
+) : Parcelable

@@ -7,5 +7,5 @@ object ApiConstants {
 
     const val DETAIL_POKEMON = "pokemon/{pokemonId}"
 
-    const val DETAIL_MOVE= "move/{moveId}"
+    const val DETAIL_MOVE = "move/{moveId}"
 }

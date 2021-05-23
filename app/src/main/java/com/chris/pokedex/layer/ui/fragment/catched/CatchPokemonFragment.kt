@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.CatchPokemonFragmentBinding
+import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.PokemonBasicModel
 import com.chris.pokedex.layer.ui.activity.MainActivity
 import com.chris.pokedex.layer.ui.fragment.home.adapter.ClickItemPokemon
@@ -62,15 +63,37 @@ class CatchPokemonFragment :
             binding.vfListPokemon.displayedChild =
                 binding.vfListPokemon.indexOfChild(binding.rcwListPokemon)
         } else {
-            binding.vfListPokemon.displayedChild =
-                binding.vfListPokemon.indexOfChild(binding.incEmptyLayout.cnlEmptyLayout)
+            handlerEmpty()
         }
     }
 
-    private fun handlerError(errorMessage: String) {
-        binding.incErrorLayout.txvErrorMessage.text = errorMessage
+    private fun handlerEmpty() {
+        binding.incEmptyLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.EMPTY,
+                messageTitle = resources.getString(R.string.empty_catch_title),
+                messageText = resources.getString(R.string.empty_catch_message),
+                messageImage = R.mipmap.bg_field
+            )
+            animError.visibility = View.GONE
+            executePendingBindings()
+        }
         binding.vfListPokemon.displayedChild =
-            binding.vfListPokemon.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+            binding.vfListPokemon.indexOfChild(binding.incEmptyLayout.cnlMessageLayout)
+    }
+
+    private fun handlerError(errorMessage: String) {
+        binding.incErrorLayout.apply {
+            messageModel = MessageModel(
+                messageType = Constants.MessageTypes.ERROR,
+                messageTitle = resources.getString(R.string.error_title),
+                messageText = errorMessage,
+                messageImage = R.mipmap.bg_digglet_cave
+            )
+            executePendingBindings()
+        }
+        binding.vfListPokemon.displayedChild =
+            binding.vfListPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 
     //region Listeners

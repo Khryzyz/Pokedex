@@ -3,7 +3,6 @@ package com.chris.pokedex.utils
 import com.chris.pokedex.R
 import com.chris.pokedex.layer.model.*
 import com.chris.pokedex.source.local.entity.CatchEntity
-import com.chris.pokedex.source.remote.dto.generation.GenerationResDTO
 import com.chris.pokedex.source.remote.dto.generation.PokemonBasicResDto
 import com.chris.pokedex.source.remote.dto.move.ContestTypeResDto
 import com.chris.pokedex.source.remote.dto.move.DamageClassResDto
@@ -15,23 +14,31 @@ import com.chris.pokedex.source.remote.dto.type.TypeResDto
 import com.chris.pokedex.source.remote.dto.type.TypesResDto
 import java.util.*
 
-//Region Generation
-fun GenerationResDTO.toModel(): GenerationModel = GenerationModel(
-    id = id,
-    name = name.toUpperCase(),
-    listPokemonBasicModel = pokemonBasicResDto.pokemonBasicResDtoToListModel(id)
-)
+//Region PokemonBasic
 
 fun List<PokemonBasicResDto>.pokemonBasicResDtoToListModel(generationId: Int): List<PokemonBasicModel> {
-    return map { it.toModel(generationId) }
+    return map { it.toModel(generationId) }.sortedBy { it.id }
 }
 
 fun PokemonBasicResDto.toModel(generationId: Int): PokemonBasicModel = PokemonBasicModel(
     id = url.removePrefix("https://pokeapi.co/api/v2/pokemon-species/").removeSuffix("/").toInt(),
-    name = name.toUpperCase(),
+    name = name.uppercase(Locale.getDefault()),
     url = url,
     generation = generationId
 )
+
+fun List<CatchEntity>.toListPokemonBasicModel(): List<PokemonBasicModel> {
+    return map { it.toPokemonBasicModel() }
+}
+
+fun CatchEntity.toPokemonBasicModel(): PokemonBasicModel {
+    return PokemonBasicModel(
+        id = webId,
+        name = name.uppercase(Locale.getDefault()),
+        action = if (action == Constants.TinderAction.CATCH.action) Constants.TinderAction.CATCH
+        else Constants.TinderAction.REJECT
+    )
+}
 
 //endregion
 
@@ -57,19 +64,6 @@ fun PokemonModel.toCatchEntity(action: Constants.TinderAction): CatchEntity {
         webId = webId,
         name = name.uppercase(Locale.getDefault()),
         action = action.action
-    )
-}
-
-fun List<CatchEntity>.toListPokemonBasicModel(): List<PokemonBasicModel> {
-    return map { it.toPokemonBasicModel() }
-}
-
-fun CatchEntity.toPokemonBasicModel(): PokemonBasicModel {
-    return PokemonBasicModel(
-        id = webId,
-        name = name.uppercase(Locale.getDefault()),
-        action = if (action == Constants.TinderAction.CATCH.action) Constants.TinderAction.CATCH
-        else Constants.TinderAction.REJECT
     )
 }
 
@@ -123,12 +117,13 @@ fun SpriteResDto.toModel(): SpriteModel {
 //endregion
 
 //Region ContestTypes
+
 fun ContestTypeResDto.toModel(): ContestTypeModel {
 
     var contestTypeName: Constants.ContestTypes = Constants.ContestTypes.BEAUTY
     var contestTypeImage: Int = R.mipmap.type_contest_beauty
 
-    when (Constants.ContestTypes.valueOf(name.toUpperCase())) {
+    when (Constants.ContestTypes.valueOf(name.uppercase(Locale.getDefault()))) {
         Constants.ContestTypes.BEAUTY -> {
             contestTypeName = Constants.ContestTypes.BEAUTY
             contestTypeImage = R.mipmap.type_contest_beauty
@@ -156,15 +151,17 @@ fun ContestTypeResDto.toModel(): ContestTypeModel {
         contestTypeImage = contestTypeImage
     )
 }
+
 //endregion
 
 //Region DamageClasses
+
 fun DamageClassResDto.toModel(): DamageClassModel {
 
     var damageClassName: Constants.DamageClasses = Constants.DamageClasses.PHYSICAL
     var damageClassImage: Int = R.mipmap.type_damage_physical
 
-    when (Constants.DamageClasses.valueOf(name.toUpperCase())) {
+    when (Constants.DamageClasses.valueOf(name.uppercase(Locale.getDefault()))) {
         Constants.DamageClasses.PHYSICAL -> {
             damageClassName = Constants.DamageClasses.PHYSICAL
             damageClassImage = R.mipmap.type_damage_physical
@@ -184,9 +181,11 @@ fun DamageClassResDto.toModel(): DamageClassModel {
         damageClassImage = damageClassImage
     )
 }
+
 //endregion
 
 //Region Types
+
 fun List<TypesResDto>.typesResDtoToListModel(): List<TypeModel> {
     return map { it.type.toModel() }
 }
@@ -198,7 +197,7 @@ fun TypeResDto.toModel(): TypeModel {
     var typeIcon: Int = R.mipmap.type_normal_icon
     var typeImage: Int = R.mipmap.type_normal_name
 
-    when (Constants.Types.valueOf(name.toUpperCase())) {
+    when (Constants.Types.valueOf(name.uppercase(Locale.getDefault()))) {
         Constants.Types.NORMAL -> {
             typeName = Constants.Types.NORMAL
             typeColor = R.color.type_normal_color
@@ -329,4 +328,5 @@ fun TypeResDto.toModel(): TypeModel {
         typeColor = typeColor
     )
 }
+
 //endregion

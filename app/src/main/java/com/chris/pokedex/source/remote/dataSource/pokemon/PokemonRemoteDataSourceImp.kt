@@ -28,7 +28,6 @@ class PokemonRemoteDataSourceImp
                             UIStateListPokemon.Success(
                                 generationResDTO.pokemonBasicResDto
                                     .pokemonBasicResDtoToListModel(generationResDTO.id)
-                                    .sortedBy { it.id }
                             )
                         )
                     }

@@ -9,6 +9,6 @@ import dagger.Module
 abstract class LocalDataSourceModule {
 
     @Binds
-    abstract fun bindVoteLocalDataSource(dataSource: CatchLocalDataSourceImp): CatchLocalDataSource
+    abstract fun bindCatchLocalDataSource(dataSource: CatchLocalDataSourceImp): CatchLocalDataSource
 
 }
