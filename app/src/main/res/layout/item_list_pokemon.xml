@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 binding:loadCatchIcon="@{pokemonBasicModel.action}"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_catch" />
+                app:srcCompat="@drawable/ic_pokemon_catch" />
 
             <ImageView
                 android:id="@+id/imvBackPoke"
@@ -41,14 +41,14 @@
 
             <ImageView
                 android:id="@+id/imvSprite"
-                android:layout_width="@dimen/size_pokemon_sprite"
-                android:layout_height="@dimen/size_pokemon_sprite"
+                android:layout_width="@dimen/size_pokemon_sprite_item"
+                android:layout_height="@dimen/size_pokemon_sprite_item"
                 app:layout_constraintBottom_toBottomOf="@+id/imvBackPoke"
                 app:layout_constraintEnd_toEndOf="@+id/imvBackPoke"
                 app:layout_constraintStart_toStartOf="@+id/imvBackPoke"
                 app:layout_constraintTop_toTopOf="@+id/imvBackPoke"
                 binding:loadSprite="@{pokemonBasicModel.id}"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@mipmap/sample_sprite" />
 
             <TextView
                 android:id="@+id/txvName"

@@ -70,7 +70,7 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="TinderCard">
+    <style name="TravelCard">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:background">@color/black</item>

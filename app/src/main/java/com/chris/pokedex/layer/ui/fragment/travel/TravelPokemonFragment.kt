@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.ui.fragment.tinder
+package com.chris.pokedex.layer.ui.fragment.travel
 
 import android.os.Bundle
 import android.view.View
@@ -6,19 +6,19 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.fragment.app.viewModels
 import com.chris.pokedex.R
-import com.chris.pokedex.databinding.TinderPokemonFragmentBinding
+import com.chris.pokedex.databinding.TravelPokemonFragmentBinding
 import com.chris.pokedex.layer.model.MessageModel
 import com.chris.pokedex.layer.model.PokemonModel
-import com.chris.pokedex.layer.model.TinderCardPokemonModel
+import com.chris.pokedex.layer.model.TravelCardPokemonModel
 import com.chris.pokedex.layer.ui.activity.MainActivity
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.base.BaseViewBindingFragment
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 
-class TinderPokemonFragment :
-    BaseViewBindingFragment<TinderPokemonFragmentBinding>(TinderPokemonFragmentBinding::inflate) {
+class TravelPokemonFragment :
+    BaseViewBindingFragment<TravelPokemonFragmentBinding>(TravelPokemonFragmentBinding::inflate) {
 
-    private val viewModel: TinderPokemonViewModel by viewModels { viewModelFactory }
+    private val viewModel: TravelPokemonViewModel by viewModels { viewModelFactory }
 
     private var pokemonModel: PokemonModel? = null
 
@@ -29,13 +29,13 @@ class TinderPokemonFragment :
         setListener()
         (activity as MainActivity).supportActionBar?.let { actionBar ->
             with(actionBar) {
-                title = resources.getString(R.string.tinder_label)
+                title = resources.getString(R.string.label_pokemon_travel)
             }
         }
     }
 
     private fun setListener() {
-        binding.incTinderLayout.mlyTinderPokemon.setTransitionListener(object :
+        binding.incTravelLayout.mlyTravelPokemon.setTransitionListener(object :
             TransitionAdapter() {
             override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
                 when (currentId) {
@@ -44,8 +44,8 @@ class TinderPokemonFragment :
                         motionLayout.progress = 0f
                         motionLayout.setTransition(R.id.cnsInitialPosition, currentId)
                         viewModel.swipe(
-                            if (currentId == R.id.cnsCatchPokemonOffScreen) Constants.TinderAction.CATCH
-                            else Constants.TinderAction.REJECT,
+                            if (currentId == R.id.cnsCatchPokemonOffScreen) Constants.TravelAction.CATCH
+                            else Constants.TravelAction.REJECT,
                             pokemonModel
                         )
                     }
@@ -74,7 +74,7 @@ class TinderPokemonFragment :
             }
         })
 
-        viewModel.tinderCardPokemonModel.observe(viewLifecycleOwner, {
+        viewModel.travelCardPokemonModel.observe(viewLifecycleOwner, {
             pokemonModel = it.topCardPokemon
             bindCard(it)
         })
@@ -82,7 +82,7 @@ class TinderPokemonFragment :
     }
 
     private fun handlerProgress(progress: Int, total: Int, pokemonModel: PokemonModel) {
-        if (binding.vfTinderPokemon.displayedChild == binding.vfTinderPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)) {
+        if (binding.vfTravelPokemon.displayedChild == binding.vfTravelPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)) {
 
             val percent = progress * 100 / total
 
@@ -105,14 +105,14 @@ class TinderPokemonFragment :
     }
 
     private fun handlerFinish() {
-        binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incTinderLayout.mlyTinderPokemon)
+        binding.vfTravelPokemon.displayedChild =
+            binding.vfTravelPokemon.indexOfChild(binding.incTravelLayout.mlyTravelPokemon)
         viewModel.updateCard()
     }
 
     private fun handlerLoad() {
-        binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)
+        binding.vfTravelPokemon.displayedChild =
+            binding.vfTravelPokemon.indexOfChild(binding.incLoadLayout.cnlLoadLayout)
     }
 
     private fun handlerError(errorMessage: String) {
@@ -125,40 +125,40 @@ class TinderPokemonFragment :
             )
             executePendingBindings()
         }
-        binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
+        binding.vfTravelPokemon.displayedChild =
+            binding.vfTravelPokemon.indexOfChild(binding.incErrorLayout.cnlMessageLayout)
     }
 
     private fun handlerEmpty() {
         binding.incEmptyLayout.apply {
             messageModel = MessageModel(
                 messageType = Constants.MessageTypes.EMPTY,
-                messageTitle = resources.getString(R.string.empty_tinder_title),
-                messageText = resources.getString(R.string.empty_tinder_message),
+                messageTitle = resources.getString(R.string.empty_travel_title),
+                messageText = resources.getString(R.string.empty_travel_message),
                 messageImage = R.mipmap.bg_pokemon_shop
             )
             animError.visibility = View.GONE
             executePendingBindings()
         }
-        binding.vfTinderPokemon.displayedChild =
-            binding.vfTinderPokemon.indexOfChild(binding.incEmptyLayout.cnlMessageLayout)
+        binding.vfTravelPokemon.displayedChild =
+            binding.vfTravelPokemon.indexOfChild(binding.incEmptyLayout.cnlMessageLayout)
     }
 
-    private fun bindCard(tinderCardPokemonModel: TinderCardPokemonModel) {
-        if (tinderCardPokemonModel.topCardPokemon != null) {
-            binding.incTinderLayout.topCardResume.apply {
-                pokemonModel = tinderCardPokemonModel.topCardPokemon
+    private fun bindCard(travelCardPokemonModel: TravelCardPokemonModel) {
+        if (travelCardPokemonModel.topCardPokemon != null) {
+            binding.incTravelLayout.topCardResume.apply {
+                pokemonModel = travelCardPokemonModel.topCardPokemon
             }
         }
 
-        if (tinderCardPokemonModel.bottomCardPokemon != null) {
-            binding.incTinderLayout.bottomCardResume.apply {
-                pokemonModel = tinderCardPokemonModel.bottomCardPokemon
+        if (travelCardPokemonModel.bottomCardPokemon != null) {
+            binding.incTravelLayout.bottomCardResume.apply {
+                pokemonModel = travelCardPokemonModel.bottomCardPokemon
             }
         }
 
-        if (tinderCardPokemonModel.topCardPokemon == null &&
-            tinderCardPokemonModel.bottomCardPokemon == null
+        if (travelCardPokemonModel.topCardPokemon == null &&
+            travelCardPokemonModel.bottomCardPokemon == null
         )
             handlerEmpty()
     }

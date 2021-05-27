@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonViewModel
 import com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonViewModel
 import com.chris.pokedex.layer.ui.fragment.home.HomePokemonViewModel
-import com.chris.pokedex.layer.ui.fragment.tinder.TinderPokemonViewModel
+import com.chris.pokedex.layer.ui.fragment.travel.TravelPokemonViewModel
 import com.chris.pokedex.utils.viewModel.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -25,8 +25,8 @@ abstract class FragmentViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(TinderPokemonViewModel::class)
-    internal abstract fun bindsTinderPokemonViewModel(viewModel: TinderPokemonViewModel): ViewModel
+    @ViewModelKey(TravelPokemonViewModel::class)
+    internal abstract fun bindsTravelPokemonViewModel(viewModel: TravelPokemonViewModel): ViewModel
 
     @Binds
     @IntoMap

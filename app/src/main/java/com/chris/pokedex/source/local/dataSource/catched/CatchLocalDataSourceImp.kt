@@ -1,4 +1,4 @@
-package com.chris.pokedex.source.local.dataSource.vote
+package com.chris.pokedex.source.local.dataSource.catched
 
 import com.chris.pokedex.layer.model.PokemonModel
 import com.chris.pokedex.source.local.dao.CatchDao
@@ -16,7 +16,7 @@ class CatchLocalDataSourceImp
 ) : CatchLocalDataSource {
     override suspend fun insertCaughtPokemon(
         pokemonModel: PokemonModel,
-        action: Constants.TinderAction
+        action: Constants.TravelAction
     ) {
         catchDao.insertCaughtPokemon(pokemonModel.toCatchEntity(action))
     }

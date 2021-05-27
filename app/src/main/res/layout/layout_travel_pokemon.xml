@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mlyTinderPokemon"
+    android:id="@+id/mlyTravelPokemon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    app:layoutDescription="@xml/tinder_motion">
+    app:layoutDescription="@xml/travel_motion">
 
     <FrameLayout
         android:id="@+id/cnBottomCardPokemon"
-        style="@style/TinderCard">
+        style="@style/TravelCard">
 
         <include
             android:id="@+id/bottomCardResume"
@@ -19,7 +19,7 @@
 
     <FrameLayout
         android:id="@+id/cnTopCardPokemon"
-        style="@style/TinderCard">
+        style="@style/TravelCard">
 
         <include
             android:id="@+id/topCardResume"
@@ -29,19 +29,12 @@
 
     <ImageView
         android:id="@+id/cnCatchPokemonIcon"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/backround_circle"
-        android:elevation="4dp"
-        app:srcCompat="@drawable/ic_catch" />
+        style="@style/TravelOption"
+        app:srcCompat="@drawable/ic_option_catch" />
 
     <ImageView
         android:id="@+id/cnRejectPokemonIcon"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/backround_circle"
-        android:elevation="4dp"
-        app:srcCompat="@drawable/ic_reject"
-        app:tint="#e64a19" />
+        style="@style/TravelOption"
+        app:srcCompat="@drawable/ic_option_reject" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

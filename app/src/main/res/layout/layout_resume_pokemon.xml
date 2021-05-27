@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             binding:loadGradientBackground="@{pokemonModel.types[0].typeColor}"
-            tools:background="@drawable/shape_gradient" />
+            tools:background="@drawable/sample_shape_gradient" />
 
         <ImageView
             android:id="@+id/imvArtwork"

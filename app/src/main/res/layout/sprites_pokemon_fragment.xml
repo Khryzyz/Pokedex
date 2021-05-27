@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -20,21 +19,17 @@
 
             <TextView
                 style="@style/textViewTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/text_title_generation_first" />
+                android:text="@string/text_row_generation_first" />
 
             <ImageView
                 android:id="@+id/imvGenerationFirstFront"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationI}" />
 
             <ImageView
                 android:id="@+id/imvGenerationFirstBack"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationI}" />
         </TableRow>
 
@@ -42,27 +37,17 @@
 
             <TextView
                 style="@style/textViewTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/text_title_generation_second" />
+                android:text="@string/text_row_generation_second" />
 
             <ImageView
                 android:id="@+id/imvGenerationSecondFront"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:layout_constraintEnd_toEndOf="@+id/imvGenerationFirstFront"
-                app:layout_constraintStart_toStartOf="@+id/imvGenerationFirstFront"
-                app:layout_constraintTop_toBottomOf="@+id/imvGenerationFirstFront"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationII}" />
 
             <ImageView
                 android:id="@+id/imvGenerationSecondBack"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:layout_constraintEnd_toEndOf="@+id/imvGenerationFirstBack"
-                app:layout_constraintStart_toStartOf="@+id/imvGenerationFirstBack"
-                app:layout_constraintTop_toBottomOf="@+id/imvGenerationFirstBack"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationII}" />
         </TableRow>
 
@@ -70,21 +55,17 @@
 
             <TextView
                 style="@style/textViewTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/text_title_generation_third" />
+                android:text="@string/text_row_generation_third" />
 
             <ImageView
                 android:id="@+id/imvGenerationThirdFront"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationIII}" />
 
             <ImageView
                 android:id="@+id/imvGenerationThirdBack"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationIII}" />
         </TableRow>
 
@@ -92,21 +73,17 @@
 
             <TextView
                 style="@style/textViewTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/text_title_generation_fourth" />
+                android:text="@string/text_row_generation_fourth" />
 
             <ImageView
                 android:id="@+id/imvGenerationFourthFront"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.frontGenerationIV}" />
 
             <ImageView
                 android:id="@+id/imvGenerationFourthBack"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                style="@style/imvSpriteInfoPokemon"
                 binding:loadStaticSprite="@{pokemonModel.sprites.backGenerationIV}" />
         </TableRow>
 

@@ -72,9 +72,9 @@ class DetailPokemonFragment :
         ) { tab, position ->
             tab.text
             when (position) {
-                0 -> tab.text = resources.getString(R.string.text_info)
-                1 -> tab.text = resources.getString(R.string.text_movements)
-                2 -> tab.text = resources.getString(R.string.text_sprites)
+                0 -> tab.text = resources.getString(R.string.tab_info)
+                1 -> tab.text = resources.getString(R.string.tab_movements)
+                2 -> tab.text = resources.getString(R.string.tab_sprites)
             }
         }.attach()
 

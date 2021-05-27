@@ -12,12 +12,4 @@ class DetailPokemonRepositoryImp @Inject constructor(
     override suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon> {
         return remoteDataSource.getDetailPokemon(pokemonBasicModel)
     }
-
-    override suspend fun getDetailPokemon(pokemonId: Int): Flow<UIStateDetailPokemon> {
-        return remoteDataSource.getDetailPokemon(pokemonId)
-    }
-
-    override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
-        return remoteDataSource.getDetailPokemon(listPokemonId)
-    }
 }

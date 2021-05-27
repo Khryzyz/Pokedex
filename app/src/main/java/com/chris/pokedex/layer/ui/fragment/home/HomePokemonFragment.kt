@@ -46,12 +46,12 @@ class HomePokemonFragment :
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.tinderPokemon -> {
-                findNavController().navigate(R.id.tinderPokemonFragment)
+            R.id.travelPokemon -> {
+                findNavController().navigate(R.id.travelPokemonFragment)
                 true
             }
-            R.id.votedPokemon -> {
-                findNavController().navigate(R.id.votedPokemonFragment)
+            R.id.catchPokemon -> {
+                findNavController().navigate(R.id.catchPokemonFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

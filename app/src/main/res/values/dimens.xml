@@ -4,32 +4,22 @@
     <!--Size-->
     <dimen name="size_animation">200dp</dimen>
     <dimen name="size_pokeball_back">60dp</dimen>
-    <dimen name="size_pokemon_sprite">40dp</dimen>
+    <dimen name="size_pokemon_sprite_item">40dp</dimen>
+    <dimen name="size_pokemon_sprite_info">60dp</dimen>
     <dimen name="size_pokemon_icon">16dp</dimen>
     <dimen name="size_icon_vote_initial">40dp</dimen>
     <dimen name="size_icon_vote_finish">100dp</dimen>
     <dimen name="height_item_pokemon">80dp</dimen>
     <dimen name="height_item_move">40dp</dimen>
 
-    <!--Elevation-->
-    <dimen name="elevation_default">4dp</dimen>
-    <dimen name="elevation_over">6dp</dimen>
-
     <!--Margins-->
-    <dimen name="margin_micro">2dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_default">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
-    <dimen name="margin_xlarge">20dp</dimen>
-    <dimen name="margin_xxlarge">24dp</dimen>
     <dimen name="margin_xxxlarge">28dp</dimen>
 
     <!--Paddings-->
-    <dimen name="padding_default">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
-    <dimen name="padding_xlarge">20dp</dimen>
-    <dimen name="padding_xxlarge">24dp</dimen>
-    <dimen name="padding_xxxlarge">28dp</dimen>
 
     <!--Radius-->
     <dimen name="corner_radius_default">8dp</dimen>

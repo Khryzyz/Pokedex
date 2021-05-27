@@ -28,7 +28,7 @@ class CatchPokemonFragment :
         setObserver()
         (activity as MainActivity).supportActionBar?.let { actionBar ->
             with(actionBar) {
-                title = resources.getString(R.string.catch_label)
+                title = resources.getString(R.string.label_pokemon_caught)
             }
         }
     }

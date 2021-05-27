@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/firstGenItem"
-        android:icon="@drawable/ic_gen_first"
-        android:title="@string/first_generation_label" />
+        android:icon="@drawable/ic_tab_gen_first"
+        android:title="@string/tab_first_generation" />
     <item
         android:id="@+id/secondGenItem"
-        android:icon="@drawable/ic_gen_second"
-        android:title="@string/second_generation_label" />
+        android:icon="@drawable/ic_tab_gen_second"
+        android:title="@string/tab_second_generation" />
     <item
         android:id="@+id/thirdGenItem"
-        android:icon="@drawable/ic_gen_third"
-        android:title="@string/third_generation_label" />
+        android:icon="@drawable/ic_tab_gen_third"
+        android:title="@string/tab_third_generation" />
     <item
         android:id="@+id/fourthGenItem"
-        android:icon="@drawable/ic_gen_fourth"
-        android:title="@string/fourth_generation_label" />
+        android:icon="@drawable/ic_tab_gen_fourth"
+        android:title="@string/tab_fourth_generation" />
 </menu>

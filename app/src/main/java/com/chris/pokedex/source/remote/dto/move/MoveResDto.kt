@@ -19,7 +19,7 @@ data class MoveResDto(
     @Json(name = "damage_class")
     val damageClass: DamageClassResDto,
     @Json(name = "contest_type")
-    val contestType: ContestTypeResDto,
+    val contestType: ContestTypeResDto?,
     @Json(name = "effect_entries")
     val effectEntries: List<EffectEntryResDto>
 )

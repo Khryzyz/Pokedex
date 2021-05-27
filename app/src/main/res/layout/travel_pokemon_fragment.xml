@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/vfTinderPokemon"
+    android:id="@+id/vfTravelPokemon"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/incTinderLayout"
-        layout="@layout/layout_tinder_pokemon" />
+        android:id="@+id/incTravelLayout"
+        layout="@layout/layout_travel_pokemon" />
 
     <include
         android:id="@+id/incEmptyLayout"

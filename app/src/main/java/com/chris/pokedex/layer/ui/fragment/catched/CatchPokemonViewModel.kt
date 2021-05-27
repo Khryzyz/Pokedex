@@ -1,7 +1,8 @@
 package com.chris.pokedex.layer.ui.fragment.catched
 
 import androidx.lifecycle.*
-import com.chris.pokedex.layer.repository.fragment.catchRepository.CatchPokemonRepository
+import com.chris.pokedex.layer.repository.fragment.catched.CatchPokemonRepository
+import com.chris.pokedex.layer.repository.fragment.travel.TravelPokemonRepository
 import com.chris.pokedex.utils.uiState.UIStateListPokemon
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect

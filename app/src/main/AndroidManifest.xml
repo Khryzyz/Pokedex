@@ -8,6 +8,7 @@
     <application
         android:name=".app.PokedexApplication"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -20,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".layer.ui.fragment.tinder.TinderPokemon" />
     </application>
 
 </manifest>

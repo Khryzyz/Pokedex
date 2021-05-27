@@ -1,10 +1,9 @@
-package com.chris.pokedex.layer.ui.fragment.tinder
+package com.chris.pokedex.layer.ui.fragment.travel
 
 import androidx.lifecycle.*
 import com.chris.pokedex.layer.model.PokemonModel
-import com.chris.pokedex.layer.model.TinderCardPokemonModel
-import com.chris.pokedex.layer.repository.fragment.catchRepository.CatchPokemonRepository
-import com.chris.pokedex.layer.repository.fragment.detail.DetailPokemonRepository
+import com.chris.pokedex.layer.model.TravelCardPokemonModel
+import com.chris.pokedex.layer.repository.fragment.travel.TravelPokemonRepository
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.Dispatchers
@@ -13,15 +12,14 @@ import kotlinx.coroutines.launch
 import java.security.SecureRandom
 import javax.inject.Inject
 
-class TinderPokemonViewModel
+class TravelPokemonViewModel
 @Inject constructor(
-    private val detailPokemonRepository: DetailPokemonRepository,
-    private val catchPokemonRepository: CatchPokemonRepository
+    private val repository: TravelPokemonRepository
 ) : ViewModel(), LifecycleObserver {
 
-    private val _tinderCardPokemon = MutableLiveData<TinderCardPokemonModel>()
-    val tinderCardPokemonModel: LiveData<TinderCardPokemonModel>
-        get() = _tinderCardPokemon
+    private val _travelCardPokemon = MutableLiveData<TravelCardPokemonModel>()
+    val travelCardPokemonModel: LiveData<TravelCardPokemonModel>
+        get() = _travelCardPokemon
 
     private val _listDetailPokemon = MutableLiveData<MutableList<PokemonModel>?>()
     val listDetailPokemon: LiveData<MutableList<PokemonModel>?>
@@ -45,7 +43,6 @@ class TinderPokemonViewModel
         for (i in 1..10) {
             listRandom.add(random.nextInt(493) + 1)
         }
-
         _listPokemonId.value = listRandom
         getDetailPokemon()
     }
@@ -53,7 +50,7 @@ class TinderPokemonViewModel
     private fun getDetailPokemon() {
         viewModelScope.launch(Dispatchers.IO) {
             _listPokemonId.value?.let { listId ->
-                detailPokemonRepository.getDetailPokemon(listId).collect {
+                repository.getDetailPokemon(listId).collect {
                     _pokemon.postValue(it)
                 }
             }
@@ -76,12 +73,12 @@ class TinderPokemonViewModel
         }
     }
 
-    fun swipe(tinderAction: Constants.TinderAction, pokemonModel: PokemonModel?) {
+    fun swipe(travelAction: Constants.TravelAction, pokemonModel: PokemonModel?) {
         viewModelScope.launch(Dispatchers.IO) {
             pokemonModel?.let {
-                catchPokemonRepository.insertCaughtPokemon(
+                repository.insertCaughtPokemon(
                     it,
-                    tinderAction
+                    travelAction
                 )
             }
         }
@@ -94,7 +91,7 @@ class TinderPokemonViewModel
 
     fun updateCard() {
         _listDetailPokemon.value?.let { list ->
-            _tinderCardPokemon.value = TinderCardPokemonModel(
+            _travelCardPokemon.value = TravelCardPokemonModel(
                 topCardPokemon = if (list.size >= 1) list.last() else null,
                 bottomCardPokemon = if (list.size >= 2) list[list.lastIndex - 1] else null
             )

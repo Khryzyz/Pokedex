@@ -58,24 +58,6 @@ class PokemonRemoteDataSourceImp
         }
     }
 
-    override suspend fun getDetailPokemon(pokemonId: Int): Flow<UIStateDetailPokemon> {
-        return flow {
-            try {
-                emit(UIStateDetailPokemon.Loading)
-                val response = api.getDetailPokemon(pokemonId)
-                if (response.isSuccessful) {
-                    response.body()?.let { pokemonResDTO ->
-                        emit(UIStateDetailPokemon.Success(pokemonResDTO.toModel(null)))
-                    }
-                } else {
-                    emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
-                }
-            } catch (ex: Exception) {
-                emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))
-            }
-        }
-    }
-
     override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
         return flow {
             try {

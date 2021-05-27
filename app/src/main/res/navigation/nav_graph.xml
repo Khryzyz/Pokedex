@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/firstGenFragment"
         android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
-        android:label="@string/first_generation_label"
+        android:label="@string/tab_first_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_firstGenFragment_to_detailPokemonFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/secondGenFragment"
         android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
-        android:label="@string/second_generation_label"
+        android:label="@string/tab_second_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_secondGenFragment_to_detailPokemonFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/thirdGenFragment"
         android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
-        android:label="@string/third_generation_label"
+        android:label="@string/tab_third_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_thirdGenFragment_to_detailPokemonFragment"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/fourthGenFragment"
         android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
-        android:label="@string/fourth_generation_label"
+        android:label="@string/tab_fourth_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
             android:id="@+id/action_fourthGenFragment_to_detailPokemonFragment"
@@ -49,16 +49,16 @@
     <!-- Secondary-->
 
     <fragment
-        android:id="@+id/tinderPokemonFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.tinder.TinderPokemonFragment"
-        tools:layout="@layout/layout_tinder_pokemon" />
+        android:id="@+id/travelPokemonFragment"
+        android:name="com.chris.pokedex.layer.ui.fragment.travel.TravelPokemonFragment"
+        tools:layout="@layout/layout_travel_pokemon" />
 
     <fragment
-        android:id="@+id/votedPokemonFragment"
+        android:id="@+id/catchPokemonFragment"
         android:name="com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonFragment"
         tools:layout="@layout/catch_pokemon_fragment">
         <action
-            android:id="@+id/action_votedPokemonFragment_to_detailPokemonFragment"
+            android:id="@+id/action_catchPokemonFragment_to_detailPokemonFragment"
             app:destination="@id/detailPokemonFragment" />
     </fragment>
 

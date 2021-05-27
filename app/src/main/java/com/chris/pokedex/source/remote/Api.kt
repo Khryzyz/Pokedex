@@ -15,9 +15,6 @@ interface Api {
     @GET(ApiConstants.DETAIL_POKEMON)
     suspend fun getDetailPokemon(@Path("pokemonId") pokemonId: Int): Response<PokemonResDto>
 
-    @GET(ApiConstants.DETAIL_POKEMON)
-    suspend fun getDetailPokemon(@Path("pokemonName") pokemonName: String): Response<PokemonResDto>
-
     @GET(ApiConstants.DETAIL_MOVE)
     suspend fun getDetailMove(@Path("moveId") moveId: Int): Response<MoveResDto>
 }

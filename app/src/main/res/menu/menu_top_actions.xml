@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/tinderPokemon"
-        android:icon="@drawable/ic_tinder_icon"
-        android:title="@string/votar_pokemon"
+        android:id="@+id/travelPokemon"
+        android:icon="@drawable/ic_action_travel"
+        android:title="@string/label_pokemon_travel"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white" />
 
     <item
-        android:id="@+id/votedPokemon"
-        android:icon="@drawable/ic_list_voted"
-        android:title="@string/lista_pokemon_votados"
+        android:id="@+id/catchPokemon"
+        android:icon="@drawable/ic_action_catch"
+        android:title="@string/label_pokemon_caught"
         app:showAsAction="ifRoom"
         tools:iconTint="@color/white" />
 </menu>

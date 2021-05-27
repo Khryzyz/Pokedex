@@ -1,25 +1,37 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <string name="first_generation_label">Kanto</string>
-    <string name="second_generation_label">Johto</string>
-    <string name="third_generation_label">Hoenn</string>
-    <string name="fourth_generation_label">Sinnoh</string>
-    <string name="tinder_label">Tinder</string>
-    <string name="catch_label">Capturas</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="votar_pokemon">Votar Pokémon</string>
-    <string name="lista_pokemon_votados">Lista Pokémon Votados</string>
+    <!--Tabs-->
+    <string name="tab_first_generation">Kanto</string>
+    <string name="tab_second_generation">Johto</string>
+    <string name="tab_third_generation">Hoenn</string>
+    <string name="tab_fourth_generation">Sinnoh</string>
+
+    <!--Labels-->
+    <string name="label_pokemon_travel">Viaje Pokémon</string>
+    <string name="label_pokemon_caught">Capturas</string>
+
+    <!--Dialog Screen-->
+    <string name="text_button_close_dialog">Cerrar</string>
+
+    <!--Error Screen-->
     <string name="error_title">¡¡¡Oh No, El Digglet de los problemas ha encontrado un error!!!</string>
-    <string name="empty_tinder_title">¡¡¡Te has quedado sin Pokeballs!!!</string>
-    <string name="empty_tinder_message">Ve corriendo a la tienda Pokémon más cercana y regresa despues, nuevos Pokémon te estarán esperando.</string>
+
+    <!--Pokemon Travel Screen-->
+    <string name="empty_travel_title">¡¡¡Te has quedado sin Pokeballs!!!</string>
+    <string name="empty_travel_message">Ve corriendo a la tienda Pokémon más cercana y regresa despues, nuevos Pokémon te estarán esperando.</string>
+
+    <!--Pokemon Caught Screen-->
     <string name="empty_catch_title">¡¡¡No has atrapado Pokémon!!!</string>
     <string name="empty_catch_message">Que esperas para emprender tu viaje Pokémon.</string>
+
+    <!--Loading Screen-->
     <string name="text_loading">Cargando: %1$d de %2$d</string>
-    <string name="text_info">Información</string>
-    <string name="text_movements">Movimientos</string>
-    <string name="text_sprites">Sprites</string>
-    <string name="text_close_dialog">Cerrar</string>
+
+    <!--Pokemon Detail Screen-->
+    <string name="tab_info">Información</string>
+    <string name="tab_movements">Movimientos</string>
+    <string name="tab_sprites">Sprites</string>
+
     <!-- Info Pokemon -->
     <string name="text_number_pokemon">Pokédex Regional: %1$s</string>
     <string name="text_national_pokemon">Pokédex Nacional: %1$s</string>
@@ -27,12 +39,14 @@
     <string name="text_weight_pokemon">Peso: %1$s Kg</string>
     <string name="text_ability_pokemon">Habilidad: %1$s</string>
     <string name="text_abilities_pokemon">Habilidades: %1$s, %2$s</string>
-    <string name="text_title_generation_first">Primera Generación</string>
-    <string name="text_title_generation_second">Segunda Generación</string>
-    <string name="text_title_generation_third">Tercera Generación</string>
-    <string name="text_title_generation_fourth">Cuarta Generación</string>
 
-    <!-- Info Move -->
+    <!-- Info Sprites-->
+    <string name="text_row_generation_first">Primera Generación</string>
+    <string name="text_row_generation_second">Segunda Generación</string>
+    <string name="text_row_generation_third">Tercera Generación</string>
+    <string name="text_row_generation_fourth">Cuarta Generación</string>
+
+    <!-- Info Move Dialog -->
     <string name="text_accuracy_move">Precisión: %1$d</string>
     <string name="text_power_move">Potencia: %1$d</string>
     <string name="text_pp_move">Puntos de Movimiento: %1$d</string>

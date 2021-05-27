@@ -12,7 +12,7 @@ data class PokemonBasicModel(
     val name: String = "",
     val url: String = "",
     val generation: Int = 1,
-    val action: Constants.TinderAction = Constants.TinderAction.UNEXPECTED
+    val action: Constants.TravelAction = Constants.TravelAction.UNEXPECTED
 ) : Serializable, Parcelable {
 
     companion object {
@@ -44,7 +44,7 @@ data class PokemonBasicModel(
     }
 
     override fun hashCode(): Int {
-        return id.toInt()
+        return id
     }
 
 }

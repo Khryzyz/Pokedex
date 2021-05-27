@@ -12,7 +12,7 @@ class Constants {
         const val MOVE_DETAIL = "move_detail"
     }
 
-    enum class TinderAction constructor(val action: Int) {
+    enum class TravelAction constructor(val action: Int) {
         UNEXPECTED(0),
         CATCH(1),
         REJECT(2)
@@ -51,9 +51,11 @@ class Constants {
     enum class ContestTypes constructor(val type: String) : Serializable {
         BEAUTY("beauty"),
         CLEVER("clever"),
+        SMART("smart"),
         COOL("cool"),
         CUTE("cute"),
         TOUGH("tough"),
+        UNKNOWN("Unknown"),
     }
 
     enum class DamageClasses constructor(val type: String) : Serializable {

@@ -35,8 +35,8 @@ fun CatchEntity.toPokemonBasicModel(): PokemonBasicModel {
     return PokemonBasicModel(
         id = webId,
         name = name.uppercase(Locale.getDefault()),
-        action = if (action == Constants.TinderAction.CATCH.action) Constants.TinderAction.CATCH
-        else Constants.TinderAction.REJECT
+        action = if (action == Constants.TravelAction.CATCH.action) Constants.TravelAction.CATCH
+        else Constants.TravelAction.REJECT
     )
 }
 
@@ -58,7 +58,7 @@ fun PokemonResDto.toModel(pokemonBasicModel: PokemonBasicModel?): PokemonModel {
     )
 }
 
-fun PokemonModel.toCatchEntity(action: Constants.TinderAction): CatchEntity {
+fun PokemonModel.toCatchEntity(action: Constants.TravelAction): CatchEntity {
     return CatchEntity(
         id = 0,
         webId = webId,
@@ -92,7 +92,10 @@ fun MoveResDto.toModel(): MoveModel = MoveModel(
     pp = pp,
     type = type.toModel(),
     damageClass = damageClass.toModel(),
-    contestType = contestType.toModel(),
+    contestType = contestType?.toModel() ?: ContestTypeModel(
+        contestTypeName = Constants.ContestTypes.UNKNOWN,
+        contestTypeImage = 0
+    ),
     effect = effectEntries[0].effect,
 )
 
@@ -120,15 +123,16 @@ fun SpriteResDto.toModel(): SpriteModel {
 
 fun ContestTypeResDto.toModel(): ContestTypeModel {
 
-    var contestTypeName: Constants.ContestTypes = Constants.ContestTypes.BEAUTY
-    var contestTypeImage: Int = R.mipmap.type_contest_beauty
+    var contestTypeName: Constants.ContestTypes = Constants.ContestTypes.UNKNOWN
+    var contestTypeImage = 0
 
     when (Constants.ContestTypes.valueOf(name.uppercase(Locale.getDefault()))) {
         Constants.ContestTypes.BEAUTY -> {
             contestTypeName = Constants.ContestTypes.BEAUTY
             contestTypeImage = R.mipmap.type_contest_beauty
         }
-        Constants.ContestTypes.CLEVER -> {
+        Constants.ContestTypes.CLEVER,
+        Constants.ContestTypes.SMART -> {
             contestTypeName = Constants.ContestTypes.CLEVER
             contestTypeImage = R.mipmap.type_contest_clever
         }
@@ -143,6 +147,10 @@ fun ContestTypeResDto.toModel(): ContestTypeModel {
         Constants.ContestTypes.TOUGH -> {
             contestTypeName = Constants.ContestTypes.TOUGH
             contestTypeImage = R.mipmap.type_contest_tough
+        }
+        Constants.ContestTypes.UNKNOWN -> {
+            contestTypeName = Constants.ContestTypes.UNKNOWN
+            contestTypeImage = 0
         }
     }
 

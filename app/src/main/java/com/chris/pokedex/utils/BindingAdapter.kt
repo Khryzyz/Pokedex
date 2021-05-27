@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
-import com.airbnb.lottie.LottieAnimationView
 import com.chris.pokedex.R
 import com.chris.pokedex.utils.glide.GlideManager
 
@@ -33,28 +32,28 @@ fun bindLoadDrawable(imageView: ImageView, drawable: Int) {
 }
 
 @BindingAdapter("loadCatchIcon")
-fun bindLoadCatchIcon(imageView: ImageView, action: Constants.TinderAction) {
+fun bindLoadCatchIcon(imageView: ImageView, action: Constants.TravelAction) {
 
     when (action) {
-        Constants.TinderAction.UNEXPECTED -> {
+        Constants.TravelAction.UNEXPECTED -> {
             imageView.visibility = View.GONE
         }
-        Constants.TinderAction.CATCH -> {
+        Constants.TravelAction.CATCH -> {
             imageView.visibility = View.VISIBLE
             imageView.setImageDrawable(
                 ResourcesCompat.getDrawable(
                     imageView.context.resources,
-                    R.drawable.ic_catch,
+                    R.drawable.ic_pokemon_catch,
                     null
                 )
             )
         }
-        Constants.TinderAction.REJECT -> {
+        Constants.TravelAction.REJECT -> {
             imageView.visibility = View.VISIBLE
             imageView.setImageDrawable(
                 ResourcesCompat.getDrawable(
                     imageView.context.resources,
-                    R.drawable.ic_reject_circle,
+                    R.drawable.ic_pokemon_reject,
                     null
                 )
             )
@@ -139,5 +138,7 @@ fun bindLoadImageBackground(frameLayout: FrameLayout, drawable: Int) {
 fun bindLoadDrawableTextview(textView: TextView, drawable: Int) {
     if (drawable != 0) {
         textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawable, 0)
+    } else {
+        textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
     }
 }
