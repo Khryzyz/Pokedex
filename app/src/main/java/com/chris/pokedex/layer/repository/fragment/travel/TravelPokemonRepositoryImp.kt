@@ -8,7 +8,8 @@ import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class TravelPokemonRepositoryImp @Inject constructor(
+class TravelPokemonRepositoryImp
+@Inject constructor(
     private val remoteDataSource: PokemonRemoteDataSource,
     private val localDataSource: CatchLocalDataSource
 ) : TravelPokemonRepository {

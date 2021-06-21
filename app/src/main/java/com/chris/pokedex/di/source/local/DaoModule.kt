@@ -10,7 +10,7 @@ class DaoModule {
 
     @Provides
     fun providesPokemonDao(database: PokedexDatabase): CatchDao {
-        return database.catchedDao()
+        return database.catchDao()
     }
 
 }

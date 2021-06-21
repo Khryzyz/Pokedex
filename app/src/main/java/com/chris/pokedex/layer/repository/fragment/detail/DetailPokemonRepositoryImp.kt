@@ -6,7 +6,8 @@ import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class DetailPokemonRepositoryImp @Inject constructor(
+class DetailPokemonRepositoryImp
+@Inject constructor(
     private val remoteDataSource: PokemonRemoteDataSource
 ) : DetailPokemonRepository {
     override suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon> {

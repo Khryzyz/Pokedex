@@ -14,6 +14,7 @@ class CatchLocalDataSourceImp
 @Inject constructor(
     private val catchDao: CatchDao
 ) : CatchLocalDataSource {
+
     override suspend fun insertCaughtPokemon(
         pokemonModel: PokemonModel,
         action: Constants.TravelAction
@@ -22,7 +23,6 @@ class CatchLocalDataSourceImp
     }
 
     override suspend fun getListPokemon(): Flow<UIStateListPokemon> {
-
         return flow {
             try {
                 emit(UIStateListPokemon.Loading)
@@ -32,10 +32,8 @@ class CatchLocalDataSourceImp
                     )
                 )
             } catch (ex: Exception) {
-                emit(UIStateListPokemon.Error(ex.localizedMessage.toString()))
+                emit(UIStateListPokemon.Error(ex.message.toString()))
             }
         }
-
-
     }
 }

@@ -13,6 +13,6 @@ import com.chris.pokedex.source.local.entity.CatchEntity
 )
 abstract class PokedexDatabase : RoomDatabase() {
 
-    abstract fun catchedDao(): CatchDao
+    abstract fun catchDao(): CatchDao
 
 }

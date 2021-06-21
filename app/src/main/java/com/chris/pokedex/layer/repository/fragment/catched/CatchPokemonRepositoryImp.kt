@@ -5,7 +5,8 @@ import com.chris.pokedex.utils.uiState.UIStateListPokemon
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class CatchPokemonRepositoryImp @Inject constructor(
+class CatchPokemonRepositoryImp
+@Inject constructor(
     private val localDataSource: CatchLocalDataSource
 ) : CatchPokemonRepository {
     override suspend fun getListPokemon(): Flow<UIStateListPokemon> {

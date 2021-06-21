@@ -16,7 +16,3 @@ A
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 L
 .idea/codeStyles/Project.xml,6\e\6ecd6000a7b6f4a2884412ff19f74193ed089648
-…
-Uapp/src/main/java/com/chris/pokedex/layer/ui/fragment/tinder/TinderPokemonFragment.kt,f\2\f221683e3e73a182ca33dbd6c28522ebffa0a120
-†
-Vapp/src/main/java/com/chris/pokedex/layer/ui/fragment/tinder/TinderPokemonViewModel.kt,1\4\14cce212645ad0c2883acc4fd3e348d28f72e16e

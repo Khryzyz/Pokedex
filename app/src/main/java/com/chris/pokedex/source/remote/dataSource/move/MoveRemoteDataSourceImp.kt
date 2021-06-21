@@ -26,7 +26,7 @@ class MoveRemoteDataSourceImp
                     emit(UIStateDetailMove.Error(response.errorBody().toString()))
                 }
             } catch (ex: Exception) {
-                emit(UIStateDetailMove.Error(ex.localizedMessage.toString()))
+                emit(UIStateDetailMove.Error(ex.message.toString()))
             }
         }
     }

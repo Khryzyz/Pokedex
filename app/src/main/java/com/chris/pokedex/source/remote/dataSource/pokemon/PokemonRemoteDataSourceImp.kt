@@ -35,7 +35,7 @@ class PokemonRemoteDataSourceImp
                     emit(UIStateListPokemon.Error(response.errorBody().toString()))
                 }
             } catch (ex: Exception) {
-                emit(UIStateListPokemon.Error(ex.localizedMessage.toString()))
+                emit(UIStateListPokemon.Error(ex.message.toString()))
             }
         }
     }
@@ -53,7 +53,7 @@ class PokemonRemoteDataSourceImp
                     emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
                 }
             } catch (ex: Exception) {
-                emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))
+                emit(UIStateDetailPokemon.Error(ex.message.toString()))
             }
         }
     }
@@ -84,7 +84,7 @@ class PokemonRemoteDataSourceImp
                     }
                 }
             } catch (ex: Exception) {
-                emit(UIStateDetailPokemon.Error(ex.localizedMessage.toString()))
+                emit(UIStateDetailPokemon.Error(ex.message.toString()))
             }
         }
     }
