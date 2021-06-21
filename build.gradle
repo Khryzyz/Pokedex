@@ -5,6 +5,8 @@ buildscript {
         kotlin_version = "1.5.0"
         gradle_version = "4.0.1"
 
+        mockwebserver_version = "4.7.2"
+        mockito_version = "3.3.3"
         junit_version = "4.13.2"
         ext_junit_version = "1.1.2"
         espresso_core_version = "3.3.0"
