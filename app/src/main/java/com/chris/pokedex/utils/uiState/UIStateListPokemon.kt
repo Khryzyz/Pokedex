@@ -1,6 +1,6 @@
 package com.chris.pokedex.utils.uiState
 
-import com.chris.pokedex.layer.model.PokemonBasicModel
+import com.chris.pokedex.model.PokemonBasicModel
 
 sealed class UIStateListPokemon {
     object Loading : UIStateListPokemon()

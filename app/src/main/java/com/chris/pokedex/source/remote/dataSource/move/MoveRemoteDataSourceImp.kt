@@ -1,6 +1,6 @@
 package com.chris.pokedex.source.remote.dataSource.move
 
-import com.chris.pokedex.layer.model.MoveBasicModel
+import com.chris.pokedex.model.MoveBasicModel
 import com.chris.pokedex.source.remote.Api
 import com.chris.pokedex.utils.toModel
 import com.chris.pokedex.utils.uiState.UIStateDetailMove

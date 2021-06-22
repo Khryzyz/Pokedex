@@ -1,7 +1,7 @@
 package com.chris.pokedex.source.remote.dataSource.pokemon
 
 import android.util.Log
-import com.chris.pokedex.layer.model.PokemonBasicModel
+import com.chris.pokedex.model.PokemonBasicModel
 import com.chris.pokedex.source.remote.Api
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.pokemonBasicResDtoToListModel

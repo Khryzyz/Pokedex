@@ -8,7 +8,7 @@
     <!-- Tabs Pokedex-->
     <fragment
         android:id="@+id/firstGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.home.HomePokemonFragment"
         android:label="@string/tab_first_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/secondGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.home.HomePokemonFragment"
         android:label="@string/tab_second_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/thirdGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.home.HomePokemonFragment"
         android:label="@string/tab_third_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/fourthGenFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.home.HomePokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.home.HomePokemonFragment"
         android:label="@string/tab_fourth_generation"
         tools:layout="@layout/home_pokemon_fragment">
         <action
@@ -50,12 +50,12 @@
 
     <fragment
         android:id="@+id/travelPokemonFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.travel.TravelPokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.travel.TravelPokemonFragment"
         tools:layout="@layout/layout_travel_pokemon" />
 
     <fragment
         android:id="@+id/catchPokemonFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.catched.CatchPokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.catched.CatchPokemonFragment"
         tools:layout="@layout/catch_pokemon_fragment">
         <action
             android:id="@+id/action_catchPokemonFragment_to_detailPokemonFragment"
@@ -64,7 +64,7 @@
 
     <fragment
         android:id="@+id/detailPokemonFragment"
-        android:name="com.chris.pokedex.layer.ui.fragment.detail.DetailPokemonFragment"
+        android:name="com.chris.pokedex.ui.fragment.detail.DetailPokemonFragment"
         tools:layout="@layout/detail_pokemon_fragment" />
 
 </navigation>

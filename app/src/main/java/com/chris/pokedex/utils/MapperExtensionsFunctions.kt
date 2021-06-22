@@ -1,7 +1,7 @@
 package com.chris.pokedex.utils
 
 import com.chris.pokedex.R
-import com.chris.pokedex.layer.model.*
+import com.chris.pokedex.model.*
 import com.chris.pokedex.source.local.entity.CatchEntity
 import com.chris.pokedex.source.remote.dto.generation.PokemonBasicResDto
 import com.chris.pokedex.source.remote.dto.move.ContestTypeResDto

@@ -1,6 +1,6 @@
 package com.chris.pokedex.source.local.dataSource.catched
 
-import com.chris.pokedex.layer.model.PokemonModel
+import com.chris.pokedex.model.PokemonModel
 import com.chris.pokedex.source.local.dao.CatchDao
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.toCatchEntity

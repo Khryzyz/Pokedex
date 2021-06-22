@@ -5,9 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.chris.pokedex.R
-import com.chris.pokedex.layer.model.MessageModel
-import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.viewModel.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject

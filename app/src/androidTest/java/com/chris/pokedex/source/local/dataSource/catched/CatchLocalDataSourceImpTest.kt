@@ -3,10 +3,10 @@ package com.chris.pokedex.source.local.dataSource.catched
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.chris.pokedex.layer.model.MoveBasicModel
-import com.chris.pokedex.layer.model.PokemonModel
-import com.chris.pokedex.layer.model.SpriteModel
-import com.chris.pokedex.layer.model.TypeModel
+import com.chris.pokedex.model.MoveBasicModel
+import com.chris.pokedex.model.PokemonModel
+import com.chris.pokedex.model.SpriteModel
+import com.chris.pokedex.model.TypeModel
 import com.chris.pokedex.source.local.dao.CatchDao
 import com.chris.pokedex.source.local.db.PokedexDatabase
 import com.chris.pokedex.utils.Constants
