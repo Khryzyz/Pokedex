@@ -1,6 +1,6 @@
-package com.chris.pokedex.layer.repository.fragment.travel
+package com.chris.pokedex.repository.fragment.travel
 
-import com.chris.pokedex.layer.model.PokemonModel
+import com.chris.pokedex.model.PokemonModel
 import com.chris.pokedex.source.local.dataSource.catched.CatchLocalDataSource
 import com.chris.pokedex.source.remote.dataSource.pokemon.PokemonRemoteDataSource
 import com.chris.pokedex.utils.Constants

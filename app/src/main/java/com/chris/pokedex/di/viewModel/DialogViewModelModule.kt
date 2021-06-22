@@ -15,5 +15,4 @@ abstract class DialogViewModelModule {
     @ViewModelKey(MoveViewModel::class)
     internal abstract fun bindsMoveViewModel(viewModel: MoveViewModel): ViewModel
 
-
 }

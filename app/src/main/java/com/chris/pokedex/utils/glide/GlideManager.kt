@@ -7,7 +7,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.chris.pokedex.R
 
-
 object GlideManager {
 
     fun loadArtwork(target: ImageView, imageUrl: String) {

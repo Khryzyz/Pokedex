@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="fileExclusions">
+      <list>
+        <option value="DIRECTORY:app/build/generated/source/buildConfig/debug" />
+        <option value="DIRECTORY:app/build/generated/source/buildConfig/androidTest/debug" />
+        <option value="DIRECTORY:app/build/generated/source/kaptKotlin/debug" />
+        <option value="DIRECTORY:app/build/generated/source/kaptKotlin/debugUnitTest" />
+        <option value="DIRECTORY:app/build/generated/source/kaptKotlin/debugAndroidTest" />
+        <option value="DIRECTORY:app/build/generated/source/kapt/debug" />
+        <option value="DIRECTORY:app/build/generated/ap_generated_sources/debug/out" />
+        <option value="DIRECTORY:app/build/generated/source/kapt/debugAndroidTest" />
+      </list>
+    </option>
+  </component>
+</project>

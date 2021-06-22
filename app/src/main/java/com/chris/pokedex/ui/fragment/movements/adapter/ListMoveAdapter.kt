@@ -1,8 +1,8 @@
-package com.chris.pokedex.layer.ui.fragment.movements.adapter
+package com.chris.pokedex.ui.fragment.movements.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.chris.pokedex.layer.model.MoveBasicModel
+import com.chris.pokedex.model.MoveBasicModel
 
 class ListMoveAdapter(private val clickItemMove: ClickItemMove) :
     ListAdapter<MoveBasicModel, ListMoveViewHolder>(MoveBasicModel.DiffCallBack) {

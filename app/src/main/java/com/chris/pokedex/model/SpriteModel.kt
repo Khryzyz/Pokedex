@@ -1,4 +1,4 @@
-package com.chris.pokedex.layer.model
+package com.chris.pokedex.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
