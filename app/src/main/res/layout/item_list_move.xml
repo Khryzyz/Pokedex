@@ -6,11 +6,11 @@
 
         <variable
             name="clickItemMove"
-            type="com.chris.pokedex.layer.ui.fragment.movements.adapter.ClickItemMove" />
+            type="com.chris.pokedex.ui.fragment.movements.adapter.ClickItemMove" />
 
         <variable
             name="moveModel"
-            type="com.chris.pokedex.layer.model.MoveBasicModel" />
+            type="com.chris.pokedex.model.MoveBasicModel" />
     </data>
 
     <androidx.cardview.widget.CardView

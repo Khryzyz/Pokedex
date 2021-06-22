@@ -8,7 +8,7 @@
 
         <variable
             name="messageModel"
-            type="com.chris.pokedex.layer.model.MessageModel" />
+            type="com.chris.pokedex.model.MessageModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

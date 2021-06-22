@@ -1,10 +1,7 @@
 package com.chris.pokedex.source.remote.api
 
 import junit.framework.TestCase
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner::class)
 class PokedexApiTest : TestCase() {
 //
 //    private lateinit var mockWebServer: MockWebServer

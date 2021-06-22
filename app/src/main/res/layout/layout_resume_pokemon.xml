@@ -10,7 +10,7 @@
 
         <variable
             name="pokemonModel"
-            type="com.chris.pokedex.layer.model.PokemonModel" />
+            type="com.chris.pokedex.model.PokemonModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

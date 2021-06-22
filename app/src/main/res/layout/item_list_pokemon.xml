@@ -8,11 +8,11 @@
 
         <variable
             name="clickItemPokemon"
-            type="com.chris.pokedex.layer.ui.fragment.home.adapter.ClickItemPokemon" />
+            type="com.chris.pokedex.ui.fragment.home.adapter.ClickItemPokemon" />
 
         <variable
             name="pokemonBasicModel"
-            type="com.chris.pokedex.layer.model.PokemonBasicModel" />
+            type="com.chris.pokedex.model.PokemonBasicModel" />
     </data>
 
     <androidx.cardview.widget.CardView
