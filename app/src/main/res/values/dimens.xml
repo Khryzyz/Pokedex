@@ -4,7 +4,7 @@
     <!--Size-->
     <dimen name="size_animation">200dp</dimen>
     <dimen name="size_pokeball_back">60dp</dimen>
-    <dimen name="size_pokemon_sprite_item">40dp</dimen>
+    <dimen name="size_pokemon_sprite_item">50dp</dimen>
     <dimen name="size_pokemon_sprite_info">60dp</dimen>
     <dimen name="size_pokemon_icon">16dp</dimen>
     <dimen name="size_icon_vote_initial">40dp</dimen>

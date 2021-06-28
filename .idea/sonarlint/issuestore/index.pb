@@ -28,8 +28,6 @@ Fapp/src/main/java/com/chris/pokedex/utils/base/BaseViewPagerAdapter.kt,2\5\25a
 \app/src/main/java/com/chris/pokedex/repository/fragment/catched/CatchPokemonRepositoryImp.kt,9\3\932521621566246f3d73751c64cc7834a0ec8649
 ‰
 Yapp/src/main/java/com/chris/pokedex/repository/fragment/catched/CatchPokemonRepository.kt,2\e\2e5cd1f96bd9289a3f57a02fa87733c0cf9948d7
-k
-;app/src/main/java/com/chris/pokedex/utils/BindingAdapter.kt,5\a\5aaa18067076e34bb2c4b37dc524449861c0262d
 f
 6app/src/main/java/com/chris/pokedex/utils/Constants.kt,4\7\47b9b6d182c87d7e1123edc53b255b02e3452923
 …
@@ -70,8 +68,6 @@ Rapp/src/main/java/com/chris/pokedex/ui/fragment/movements/adapter/ClickItemMove
 Uapp/src/main/java/com/chris/pokedex/ui/fragment/movements/MovementsPokemonFragment.kt,8\a\8ac46ee26951a5c147fb412c8366016ca51cc5fe
 ‡
 Wapp/src/main/java/com/chris/pokedex/ui/fragment/movements/adapter/ListMoveViewHolder.kt,3\1\31e7c0d9749f647f38209866c4ca49df10f60d5d
-i
-9app/src/main/java/com/chris/pokedex/model/PokemonModel.kt,e\f\eff3d85c42498be4b322aae58dff91549c2a6dd4
 i
 9app/src/main/java/com/chris/pokedex/model/MessageModel.kt,d\f\dfe258002f0fd58f8851d5986228ae2397f9c31e
 {
@@ -118,8 +114,6 @@ u
 Eapp/src/main/java/com/chris/pokedex/di/source/local/DatabaseModule.kt,7\3\7333b4de444140f84c54bfbb43a7bf2599339698
 ~
 Napp/src/main/java/com/chris/pokedex/di/source/remote/RemoteDataSourceModule.kt,d\2\d2f86157314d4bfef486ccda27bb8cc6403f7bea
-v
-Fapp/src/main/java/com/chris/pokedex/di/source/remote/RetrofitModule.kt,6\0\60678434fe70f36cb5c610cff642070cd171535a
 p
 @app/src/main/java/com/chris/pokedex/di/ui/DialogBindingModule.kt,9\f\9f0522d958626a515e02a4770a93e2c3454bfe4f
 r
@@ -140,10 +134,6 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 >
 app/.gitignore,5\1\51e1c5d383dfaa35e0e7e5873a0a99355a86880f
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-c
-3app/src/main/res/layout/detail_pokemon_fragment.xml,f\7\f7929d4491a77e787925075ce9515844320fc568
 W
 'app/src/main/res/layout/layout_load.xml,8\8\886d12583a1d9de4bcca5f956b2c337c3e76a9a8
 c
@@ -206,8 +196,6 @@ b
 2app/src/main/res/values/ic_launcher_background.xml,1\8\18ccc38e5dffe10da3d8b454d3093a0a4ba78749
 ]
 -app/src/main/res/drawable/ic_option_catch.xml,7\2\729aa59e4e1a6de084cc8c52a7524a9207ed2906
-R
-"app/src/main/res/values/dimens.xml,c\3\c3c1811dec2dbad2deeafb9aad505ca9631da740
 ^
 .app/src/main/res/drawable/ic_tab_gen_first.xml,b\4\b4b718b9b75abd9938c46ca08c5396416da5882a
 _
@@ -218,8 +206,6 @@ _
 /app/src/main/res/drawable/ic_pokemon_reject.xml,6\f\6f5613f78e22215198fe40c91c9e73960b89df0f
 a
 1app/src/main/res/layout/home_pokemon_fragment.xml,f\9\f93267ebc6c378ffa707ef74584b1cb2ea76f0bb
-Z
-*app/src/main/res/values/styles_general.xml,9\a\9aadf1d56b006ee81bfe29190a45456ee89c140d
 R
 "app/src/main/res/values/themes.xml,e\b\eb7f0f821bde169dd21862705b2b042d2cea69a3
 w
@@ -232,14 +218,14 @@ h
 \app/src/main/java/com/chris/pokedex/repository/fragment/travel/TravelPokemonRepositoryImp.kt,c\b\cb05a0566a23232ea69cf570a2c1869653d66418
 „
 Tapp/src/main/java/com/chris/pokedex/ui/fragment/movements/adapter/ListMoveAdapter.kt,7\e\7ed23b5ba51a028a29a69181a78fb605b710b633
-o
-?app/src/main/java/com/chris/pokedex/utils/glide/GlideManager.kt,5\9\59b82b139f44afc595c7d46edcf3f1a1bf5e3b73
 v
 Fapp/src/main/java/com/chris/pokedex/utils/uiState/UIStateDetailMove.kt,4\1\4108dc9097aacab92ea32784a3f9c6632230902a
 y
 Iapp/src/main/java/com/chris/pokedex/utils/uiState/UIStateDetailPokemon.kt,4\2\42ef696b15c77e69ea5f5dd0dfe1d8c41542034e
 w
 Gapp/src/main/java/com/chris/pokedex/utils/viewModel/ViewModelFactory.kt,5\0\50c8b37f77a9d744049e8371dc6e3651c459b36c
+u
+Eapp/src/androidTest/java/com/chris/pokedex/ExampleInstrumentedTest.kt,2\3\23b487090937d3b8cfc4fafa46e497e195874dd0
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 X
@@ -252,3 +238,7 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 @
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+v
+Fapp/src/main/java/com/chris/pokedex/di/source/remote/RetrofitModule.kt,6\0\60678434fe70f36cb5c610cff642070cd171535a
