@@ -9,6 +9,7 @@ import com.chris.pokedex.utils.toModel
 import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import com.chris.pokedex.utils.uiState.UIStateListPokemon
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -19,74 +20,67 @@ class PokemonRemoteDataSourceImp
 
     override suspend fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon> {
         return flow {
-            try {
-                emit(UIStateListPokemon.Loading)
-                val response = api.getListPokemon(generation.id)
-                if (response.isSuccessful) {
-                    response.body()?.let { generationResDTO ->
-                        emit(
-                            UIStateListPokemon.Success(
-                                generationResDTO.pokemonBasicResDto
-                                    .pokemonBasicResDtoToListModel(generationResDTO.id)
-                            )
+            emit(UIStateListPokemon.Loading)
+            val response = api.getListPokemon(generation.id)
+            if (response.isSuccessful) {
+                response.body()?.let { generationResDTO ->
+                    emit(
+                        UIStateListPokemon.Success(
+                            generationResDTO.pokemonBasicResDto
+                                .pokemonBasicResDtoToListModel(generationResDTO.id)
                         )
-                    }
-                } else {
-                    emit(UIStateListPokemon.Error(response.errorBody().toString()))
+                    )
                 }
-            } catch (ex: Exception) {
-                emit(UIStateListPokemon.Error(ex.message.toString()))
+            } else {
+                emit(UIStateListPokemon.Error(response.errorBody().toString()))
             }
+        }.catch {
+            emit(UIStateListPokemon.Error(it.message.toString()))
         }
     }
 
     override suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon> {
         return flow {
-            try {
-                emit(UIStateDetailPokemon.Loading)
-                val response = api.getDetailPokemon(pokemonBasicModel.id)
-                if (response.isSuccessful) {
-                    response.body()?.let { pokemonResDTO ->
-                        emit(UIStateDetailPokemon.Success(pokemonResDTO.toModel(pokemonBasicModel)))
-                    }
-                } else {
-                    emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
+            emit(UIStateDetailPokemon.Loading)
+            val response = api.getDetailPokemon(pokemonBasicModel.id)
+            if (response.isSuccessful) {
+                response.body()?.let { pokemonResDTO ->
+                    emit(UIStateDetailPokemon.Success(pokemonResDTO.toModel(pokemonBasicModel)))
                 }
-            } catch (ex: Exception) {
-                emit(UIStateDetailPokemon.Error(ex.message.toString()))
+            } else {
+                emit(UIStateDetailPokemon.Error(response.errorBody().toString()))
             }
+        }.catch {
+            emit(UIStateDetailPokemon.Error(it.message.toString()))
         }
     }
 
     override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
         return flow {
-            try {
-                emit(UIStateDetailPokemon.Loading)
-                listPokemonId.forEachIndexed { index, item ->
-                    Log.e("getDetailPokemon", "index: $index total:${listPokemonId.size}")
-                    val response = api.getDetailPokemon(item)
-                    if (response.isSuccessful) {
-                        response.body()?.let { pokemonResDTO ->
-                            emit(
-                                UIStateDetailPokemon.Progress(
-                                    progress = index + 1,
-                                    total = listPokemonId.size,
-                                    pokemonModel = pokemonResDTO.toModel(null)
-                                )
-                            )
-                        }
-                    } else {
+            emit(UIStateDetailPokemon.Loading)
+            listPokemonId.forEachIndexed { index, item ->
+                Log.e("getDetailPokemon", "index: $index total:${listPokemonId.size}")
+                val response = api.getDetailPokemon(item)
+                if (response.isSuccessful) {
+                    response.body()?.let { pokemonResDTO ->
                         emit(
-                            UIStateDetailPokemon.Error(
-                                response.errorBody().toString()
+                            UIStateDetailPokemon.Progress(
+                                progress = index + 1,
+                                total = listPokemonId.size,
+                                pokemonModel = pokemonResDTO.toModel(null)
                             )
                         )
                     }
+                } else {
+                    emit(
+                        UIStateDetailPokemon.Error(
+                            response.errorBody().toString()
+                        )
+                    )
                 }
-            } catch (ex: Exception) {
-                emit(UIStateDetailPokemon.Error(ex.message.toString()))
             }
+        }.catch {
+            emit(UIStateDetailPokemon.Error(it.message.toString()))
         }
     }
-
 }
