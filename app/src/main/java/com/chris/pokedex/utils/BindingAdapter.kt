@@ -109,7 +109,7 @@ fun bindLoadGradientBackground(frameLayout: FrameLayout, color: Int) {
         )
         gradient.shape = GradientDrawable.RECTANGLE
         gradient.cornerRadius = 10f
-        frameLayout.setBackgroundDrawable(gradient)
+        frameLayout.background = gradient
     }
 }
 

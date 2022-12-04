@@ -7,14 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.chris.pokedex.model.MoveBasicModel
 import com.chris.pokedex.repository.dialog.move.MoveRepository
 import com.chris.pokedex.utils.uiState.UIStateDetailMove
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MoveViewModel
 @Inject constructor(
-    private val repository: MoveRepository
+    private val repository: MoveRepository,
+    private val dispatcher: CoroutineDispatcher,
 ) : ViewModel() {
 
     private val _move = MutableLiveData<UIStateDetailMove>()
@@ -22,7 +23,7 @@ class MoveViewModel
         get() = _move
 
     fun getDetailMove(moveBasicModel: MoveBasicModel) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
             repository.getDetailMove(moveBasicModel).collect {
                 _move.postValue(it)
             }

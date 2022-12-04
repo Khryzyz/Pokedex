@@ -23,7 +23,7 @@ class CatchLocalDataSourceImp
         catchDao.insertCaughtPokemon(pokemonModel.toCatchEntity(action))
     }
 
-    override suspend fun getListPokemon(): Flow<UIStateListPokemon> {
+    override fun getListPokemon(): Flow<UIStateListPokemon> {
         return flow {
             emit(UIStateListPokemon.Loading)
             emit(

@@ -10,7 +10,7 @@ class MoveRepositoryImp
 @Inject constructor(
     private val remoteDataSource: MoveRemoteDataSource
 ) : MoveRepository {
-    override suspend fun getDetailMove(moveBasicModel: MoveBasicModel): Flow<UIStateDetailMove> {
+    override fun getDetailMove(moveBasicModel: MoveBasicModel): Flow<UIStateDetailMove> {
         return remoteDataSource.getDetailMove(moveBasicModel)
     }
 }

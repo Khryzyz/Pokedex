@@ -86,13 +86,14 @@ class DetailPokemonFragment :
     }
 
     private fun setObservers() {
-        viewModel.pokemon.observe(viewLifecycleOwner, { state ->
+        viewModel.pokemon.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UIStateDetailPokemon.Loading -> handlerLoading()
                 is UIStateDetailPokemon.Success -> handlerSuccess(state.data)
                 is UIStateDetailPokemon.Error -> handlerError(state.errorMessage)
+                is UIStateDetailPokemon.Progress -> TODO()
             }
-        })
+        }
     }
 
     private fun handlerLoading() {

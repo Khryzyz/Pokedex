@@ -14,7 +14,7 @@ class MoveRemoteDataSourceImp
     private val api: Api
 ) : MoveRemoteDataSource {
 
-    override suspend fun getDetailMove(moveBasicModel: MoveBasicModel): Flow<UIStateDetailMove> {
+    override fun getDetailMove(moveBasicModel: MoveBasicModel): Flow<UIStateDetailMove> {
         return flow {
             emit(UIStateDetailMove.Loading)
             val response = api.getDetailMove(moveBasicModel.id)

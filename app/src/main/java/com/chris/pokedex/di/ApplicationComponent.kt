@@ -3,6 +3,7 @@ package com.chris.pokedex.di
 import android.app.Application
 import com.chris.pokedex.app.PokedexApplication
 import com.chris.pokedex.di.core.ApplicationModule
+import com.chris.pokedex.di.dispatcher.DispatcherModule
 import com.chris.pokedex.di.repository.DialogRepositoryModule
 import com.chris.pokedex.di.repository.FragmentRepositoryModule
 import com.chris.pokedex.di.ui.ActivityBindingModule
@@ -29,6 +30,7 @@ import javax.inject.Singleton
         //General
         AndroidInjectionModule::class,
         ApplicationModule::class,
+        DispatcherModule::class,
 
         //Layer.UI
         ActivityBindingModule::class,

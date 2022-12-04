@@ -69,13 +69,13 @@ class HomePokemonFragment :
     }
 
     private fun setObserver() {
-        viewModel.listPokemon.observe(viewLifecycleOwner, { state ->
+        viewModel.listPokemon.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UIStateListPokemon.Loading -> handlerLoad()
                 is UIStateListPokemon.Success -> handlerSuccess(state.data)
                 is UIStateListPokemon.Error -> handlerError(state.errorMessage)
             }
-        })
+        }
     }
 
     private fun handlerLoad() {

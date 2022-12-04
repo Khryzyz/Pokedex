@@ -7,14 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.chris.pokedex.repository.fragment.list.ListPokemonRepository
 import com.chris.pokedex.utils.Constants
 import com.chris.pokedex.utils.uiState.UIStateListPokemon
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomePokemonViewModel
 @Inject constructor(
-    private val repository: ListPokemonRepository
+    private val repository: ListPokemonRepository,
+    private val dispatcher: CoroutineDispatcher,
 ) : ViewModel() {
 
     private val _listPokemon = MutableLiveData<UIStateListPokemon>()
@@ -22,7 +23,7 @@ class HomePokemonViewModel
         get() = _listPokemon
 
     fun getListPokemon(generation: Constants.Generation) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
             repository.getListPokemon(generation).collect {
                 _listPokemon.postValue(it)
             }

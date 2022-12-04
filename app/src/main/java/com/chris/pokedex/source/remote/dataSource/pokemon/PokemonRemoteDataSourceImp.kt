@@ -18,7 +18,7 @@ class PokemonRemoteDataSourceImp
     private val api: Api
 ) : PokemonRemoteDataSource {
 
-    override suspend fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon> {
+    override fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon> {
         return flow {
             emit(UIStateListPokemon.Loading)
             val response = api.getListPokemon(generation.id)
@@ -39,7 +39,7 @@ class PokemonRemoteDataSourceImp
         }
     }
 
-    override suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon> {
+    override fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon> {
         return flow {
             emit(UIStateDetailPokemon.Loading)
             val response = api.getDetailPokemon(pokemonBasicModel.id)
@@ -55,7 +55,7 @@ class PokemonRemoteDataSourceImp
         }
     }
 
-    override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
+    override fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
         return flow {
             emit(UIStateDetailPokemon.Loading)
             listPokemonId.forEachIndexed { index, item ->

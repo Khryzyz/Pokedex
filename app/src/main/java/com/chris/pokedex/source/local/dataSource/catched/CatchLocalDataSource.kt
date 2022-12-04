@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CatchLocalDataSource {
     suspend fun insertCaughtPokemon(pokemonModel: PokemonModel, action: Constants.TravelAction)
-    suspend fun getListPokemon(): Flow<UIStateListPokemon>
+    fun getListPokemon(): Flow<UIStateListPokemon>
 }

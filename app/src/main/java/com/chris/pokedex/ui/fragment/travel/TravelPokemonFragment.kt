@@ -55,7 +55,7 @@ class TravelPokemonFragment :
     }
 
     private fun setObserver() {
-        viewModel.pokemon.observe(viewLifecycleOwner, { state ->
+        viewModel.pokemon.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UIStateDetailPokemon.Loading -> handlerLoad()
                 is UIStateDetailPokemon.Error -> handlerError(state.errorMessage)
@@ -66,18 +66,18 @@ class TravelPokemonFragment :
                 )
                 is UIStateDetailPokemon.Success -> Unit
             }
-        })
+        }
 
-        viewModel.listDetailPokemon.observe(viewLifecycleOwner, { list ->
+        viewModel.listDetailPokemon.observe(viewLifecycleOwner) { list ->
             if (list != null && list.size == 0) {
                 handlerEmpty()
             }
-        })
+        }
 
-        viewModel.travelCardPokemonModel.observe(viewLifecycleOwner, {
+        viewModel.travelCardPokemonModel.observe(viewLifecycleOwner) {
             pokemonModel = it.topCardPokemon
             bindCard(it)
-        })
+        }
 
     }
 

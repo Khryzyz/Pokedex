@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/ic_action_catch.xml" value="0.1955" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/sample_shape_gradient.xml" value="0.1" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/shape_bg_item_movement_dark.xml" value="0.1955" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/shape_bg_item_movement_light.xml" value="0.1" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/shape_bg_item_pokemon_dark.xml" value="0.1" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/shape_bg_item_pokemon_light.xml" value="0.1" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/drawable/shape_bg_option.xml" value="0.1" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/detail_pokemon_fragment.xml" value="0.1778115501519757" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/home_pokemon_fragment.xml" value="0.1778115501519757" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/item_list_move.xml" value="0.3671875" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/item_list_pokemon.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/layout_detail_pokemon.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/layout_message.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/layout_move.xml" value="0.15" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/layout_resume_pokemon.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/layout/movements_pokemon_fragment.xml" value="0.20425724637681159" />
+        <entry key="..\:/Projects/Condor/pokedex/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1955" />
         <entry key="..\:/Proyectos_P/Personal/Movil/pokedex/app/src/main/res/layout/layout_message.xml" value="0.19375" />
       </map>
     </option>

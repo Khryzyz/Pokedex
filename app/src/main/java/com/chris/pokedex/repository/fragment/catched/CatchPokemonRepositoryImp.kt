@@ -9,7 +9,7 @@ class CatchPokemonRepositoryImp
 @Inject constructor(
     private val localDataSource: CatchLocalDataSource
 ) : CatchPokemonRepository {
-    override suspend fun getListPokemon(): Flow<UIStateListPokemon> {
+    override fun getListPokemon(): Flow<UIStateListPokemon> {
         return localDataSource.getListPokemon()
     }
 

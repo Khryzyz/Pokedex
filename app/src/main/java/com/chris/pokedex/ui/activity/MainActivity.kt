@@ -11,10 +11,10 @@ import androidx.navigation.ui.NavigationUI
 import com.chris.pokedex.R
 import com.chris.pokedex.databinding.MainActivityBinding
 import com.chris.pokedex.utils.Constants
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity(),
-    BottomNavigationView.OnNavigationItemSelectedListener {
+    NavigationBarView.OnItemSelectedListener {
 
     private lateinit var binding: MainActivityBinding
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(),
 
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 
-        binding.bottomNavView.setOnNavigationItemSelectedListener(this)
+        binding.bottomNavView.setOnItemSelectedListener(this)
 
         binding.bottomNavView.itemIconTintList = null
 

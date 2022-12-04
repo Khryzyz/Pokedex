@@ -5,5 +5,5 @@ import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.flow.Flow
 
 interface DetailPokemonRepository {
-    suspend fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon>
+    fun getDetailPokemon(pokemonBasicModel: PokemonBasicModel): Flow<UIStateDetailPokemon>
 }

@@ -6,6 +6,6 @@ import com.chris.pokedex.utils.uiState.UIStateDetailPokemon
 import kotlinx.coroutines.flow.Flow
 
 interface TravelPokemonRepository {
-    suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon>
+    fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon>
     suspend fun insertCaughtPokemon(pokemonModel: PokemonModel, action: Constants.TravelAction)
 }

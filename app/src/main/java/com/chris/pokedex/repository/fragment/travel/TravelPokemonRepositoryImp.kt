@@ -14,7 +14,7 @@ class TravelPokemonRepositoryImp
     private val localDataSource: CatchLocalDataSource
 ) : TravelPokemonRepository {
 
-    override suspend fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
+    override fun getDetailPokemon(listPokemonId: List<Int>): Flow<UIStateDetailPokemon> {
         return remoteDataSource.getDetailPokemon(listPokemonId)
     }
 

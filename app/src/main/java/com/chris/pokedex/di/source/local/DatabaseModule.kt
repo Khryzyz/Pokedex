@@ -2,8 +2,6 @@ package com.chris.pokedex.di.source.local
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.chris.pokedex.source.local.db.PokedexDatabase
 import dagger.Module
 import dagger.Provides

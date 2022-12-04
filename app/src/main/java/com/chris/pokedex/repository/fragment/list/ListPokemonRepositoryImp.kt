@@ -10,7 +10,7 @@ class ListPokemonRepositoryImp
 @Inject constructor(
     private val remoteDataSource: PokemonRemoteDataSource
 ) : ListPokemonRepository {
-    override suspend fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon> {
+    override fun getListPokemon(generation: Constants.Generation): Flow<UIStateListPokemon> {
         return remoteDataSource.getListPokemon(generation)
     }
 }
